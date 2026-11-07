@@ -1,1115 +1,454 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#eaf8ff">
+  <meta name="description" content="Explore Doraemon movies, episodes, characters, gadgets, wallpapers, music and more.">
+  <title>Doraemon World | A World Full of Magic</title>
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900;1000&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <title>Doraemon World</title>
-
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/site-navigation.css">
+  <link rel="stylesheet" href="css/home-redesign.css">
+  <script src="js/home-redesign.js" defer></script>
 </head>
 
-<body>
+<body class="dw-home">
 
-<!-- DESKTOP HEADER -->
-<header class="topbar">
-    <a href="index.html" class="logo">
-        DORAEMON 🌐
-    </a>
+  <!-- HEADER -->
+  <header class="dw-header">
+    <div class="dw-header-inner">
 
-    <button id="menu" class="menu-btn" aria-label="Open Menu">
-        ☰
-    </button>
+      <button class="dw-icon-button dw-menu-button"
+              id="dwMenuButton"
+              aria-label="Open menu"
+              aria-controls="dwMenu"
+              aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
 
-    <nav id="nav">
-        <a href="index.html" class="active">🏠 Home</a>
-        <a href="movies.html">🎬 Movies</a>
-        <a href="episodes.html">📺 Episodes</a>
-        <a href="characters.html">👥 Characters</a>
-        <a href="wallpapers.html">🖼️ Wallpapers</a>
-        <a href="music.html">🎵 Music</a>
-        <a href="gallery.html">📸 Gallery</a>
-        <a href="gadgets.html">🪄 Gadgets</a>
-        <a href="test.html">📝 Test</a>
-    </nav>
-</header>
+      <a class="dw-logo" href="index.html">
+        <img src="assets/images/characters/doraemon.png"
+             alt="Doraemon">
+        <span>
+          Doraemon
+          <strong>World</strong>
+        </span>
+      </a>
 
-<!-- MOBILE HEADER -->
-<header class="mobile-header">
+      <nav class="dw-desktop-nav" aria-label="Main navigation">
+        <a class="active" href="index.html">
+          <i class="fa-solid fa-house"></i> Home
+        </a>
+        <a href="movies.html">
+          <i class="fa-solid fa-clapperboard"></i> Movies
+        </a>
+        <a href="episodes.html">
+          <i class="fa-solid fa-tv"></i> Episodes
+        </a>
+        <a href="characters.html">
+          <i class="fa-solid fa-users"></i> Characters
+        </a>
+        <a href="gadgets.html">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> Gadgets
+        </a>
+        <a href="gallery.html">
+          <i class="fa-regular fa-image"></i> Gallery
+        </a>
+        <a href="music.html">
+          <i class="fa-solid fa-music"></i> Music
+        </a>
+      </nav>
 
-    <button
-        id="mobileMenu"
-        class="mobile-menu-btn"
-        aria-label="Open Menu">
-        ☰
-    </button>
-
-    <a href="index.html" class="mobile-logo">
-        DORAEMON <span>🌐</span>
-    </a>
-
-    <button
-        type="button"
-        class="mobile-search-btn"
-        aria-label="Search"
-        aria-controls="dw-search"
-        aria-expanded="false">
-        🔍
-    </button>
-</header>
-
-<!-- SEARCH BAR -->
-<section id="dw-search" class="dw-search" hidden>
-
-    <form class="dw-search-form" id="dw-search-form">
-
-        <span>🔍</span>
-
-        <input
-            type="search"
-            id="dw-search-input"
-            class="dw-search-input"
-            placeholder="Search Doraemon World..."
-            aria-label="Search Doraemon World"
-            autocomplete="off">
-
-        <button
-            type="button"
-            id="dw-search-close"
-            class="dw-search-close"
-            aria-label="Close search">
-            ✕
-        </button>
-
-    </form>
-
-    <div
-        id="dw-search-results"
-        class="dw-search-results"
-        aria-live="polite">
+      <button class="dw-icon-button"
+              id="dwSearchButton"
+              aria-label="Search"
+              aria-controls="dwSearchPanel"
+              aria-expanded="false">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
     </div>
+  </header>
 
-    <p id="dw-search-status" class="dw-search-status"></p>
+  <!-- MOBILE MENU -->
+  <div class="dw-menu-overlay" id="dwMenuOverlay"></div>
 
-</section>
-
-<main>
-
-<!-- DESKTOP HERO -->
-<section class="hero">
-
-    <div class="hero-content">
-
-        <div class="badge">
-            💙 UNOFFICIAL FAN PROJECT
-        </div>
-
-        <h1>
-            Doraemon ki
-            <br>
-            <strong>Magic World!</strong>
-        </h1>
-
-        <p>
-            Doraemon movies, episodes, characters,
-            wallpapers, music aur gadgets —
-            sab ek hi jagah.
-        </p>
-
-        <div class="hero-buttons">
-
-            <a href="wallpapers.html" class="btn primary">
-                🖼️ Wallpapers
-            </a>
-
-            <a href="characters.html" class="btn secondary">
-                👥 Characters
-            </a>
-
-        </div>
-
+  <aside class="dw-mobile-menu" id="dwMenu" aria-label="Mobile navigation">
+    <div class="dw-menu-heading">
+      <strong>Explore Doraemon 💙</strong>
+      <button id="dwMenuClose" aria-label="Close menu">✕</button>
     </div>
-
-    <img
-        src="./assets/images/characters/doraemon.png"
-        alt="Doraemon"
-        class="desktop-doraemon">
-
-</section>
-
-<!-- MOBILE HOME -->
-<section class="mobile-home">
-
-    <!-- MOBILE HERO -->
-    <div class="mobile-welcome">
-
-        <div class="mobile-cloud cloud-one"></div>
-        <div class="mobile-cloud cloud-two"></div>
-
-        <div class="mobile-welcome-text">
-
-            <p>Welcome to</p>
-
-            <h1>DORAEMON</h1>
-
-            <h2>Magic World!</h2>
-
-            <p class="mobile-description">
-                Explore Doraemon movies,
-                episodes, characters,
-                wallpapers and music.
-            </p>
-
-        </div>
-
-        <img
-            src="./assets/images/characters/doraemon.png"
-            alt="Doraemon"
-            class="mobile-doraemon">
-
-        <div class="mobile-mausam-name">
-            <span>hey </span>
-            <span>💙</span>
-        </div>
-
-    </div>
-
-    <!-- MOBILE QUICK MENU -->
-    <div class="mobile-quick-menu">
-
-        <a href="movies.html" class="mobile-quick-card">
-            <span class="quick-icon">🎬</span>
-            <strong>Movies</strong>
-        </a>
-
-        <a href="episodes.html" class="mobile-quick-card">
-            <span class="quick-icon">📺</span>
-            <strong>Episodes</strong>
-        </a>
-
-        <a href="characters.html" class="mobile-quick-card">
-            <span class="quick-icon">👥</span>
-            <strong>Characters</strong>
-        </a>
-
-        <a href="music.html" class="mobile-quick-card">
-            <span class="quick-icon">🎵</span>
-            <strong>Music</strong>
-        </a>
-
-        <a
-            href="secret-login.html"
-            class="mobile-quick-card secret-quick-card">
-            <span class="quick-icon">💌</span>
-            <strong>Secret</strong>
-        </a>
-
-    </div>
-
-    
-    <!-- POPULAR MOVIES -->
-<div class="mobile-section-title">
-    <h2>Popular Movies</h2>
-    <a href="movies.html">View All →</a>
-</div>
-
-<div class="mobile-movie-row">
-
-    <a href="movies.html?movie=39" class="mobile-movie-card">
-        <div class="mobile-movie-image">
-            <img
-                src="assets/images/movies/movie-39.jpg"
-                alt="New Nobita's Dinosaur"
-                loading="lazy">
-        </div>
-
-        <h3>New Nobita's Dinosaur</h3>
-        <p>⭐ 8.7</p>
-        <small>2020 · Japan</small>
-    </a>
-
-    <a href="movies.html?movie=38" class="mobile-movie-card">
-        <div class="mobile-movie-image">
-            <img
-                src="assets/images/movies/movie-38.jpg"
-                alt="Nobita's Chronicle of the Moon Exploration"
-                loading="lazy">
-        </div>
-
-        <h3>Nobita's Chronicle of the Moon Exploration</h3>
-        <p>⭐ 8.5</p>
-        <small>2019 · Japan</small>
-    </a>
-
-    <a href="movies.html?movie=35" class="mobile-movie-card">
-        <div class="mobile-movie-image">
-            <img
-                src="assets/images/movies/movie-35.jpg"
-                alt="New Nobita's Birth of Japan"
-                loading="lazy">
-        </div>
-
-        <h3>New Nobita's Birth of Japan</h3>
-        <p>⭐ 8.5</p>
-        <small>2016 · Japan</small>
-    </a>
-
-</div>
-
-    <!-- MOBILE EXPLORE -->
-    <div class="mobile-section-title">
-        <h2>Explore Doraemon</h2>
-        <a href="index.html">Explore →</a>
-    </div>
-
-    <div class="mobile-explore-grid">
-
-        <a href="wallpapers.html" class="mobile-explore-card">
-            <span>🖼️</span>
-            <strong>Wallpapers</strong>
-        </a>
-
-        <a href="gallery.html" class="mobile-explore-card">
-            <span>📸</span>
-            <strong>Gallery</strong>
-        </a>
-
-        <a href="episodes.html" class="mobile-explore-card">
-            <span>📺</span>
-            <strong>Episodes</strong>
-        </a>
-
-        <a href="test.html" class="mobile-explore-card">
-            <span>📝</span>
-            <strong>Test</strong>
-        </a>
-
-    </div>
-
-    <!-- MOBILE GADGETS -->
-    <div class="mobile-section-title">
-        <h2>Magic Gadgets</h2>
-        <a href="gadgets.html">View All →</a>
-    </div>
-
-    <div class="mobile-gadget-row">
-
-        <a href="gadgets.html" class="mobile-gadget-card">
-            <span>🚪</span>
-            <strong>Anywhere Door</strong>
-        </a>
-
-        <a href="gadgets.html" class="mobile-gadget-card">
-            <span>🎒</span>
-            <strong>4D Pocket</strong>
-        </a>
-
-        <a href="gadgets.html" class="mobile-gadget-card">
-            <span>🚁</span>
-            <strong>Take-copter</strong>
-        </a>
-
-        <a href="gadgets.html" class="mobile-gadget-card">
-            <span>⏰</span>
-            <strong>Time Machine</strong>
-        </a>
-
-    </div>
-
-    <!-- MOBILE MOTIVATION -->
-    <div class="mobile-section-title">
-        <h2>Doraemon Motivation 💙</h2>
-        <a href="motivation.html">View All →</a>
-    </div>
-
-    <a href="motivation.html" class="mobile-motivation-card">
-
-        <div class="mobile-motivation-image">
-            <img
-                src="./assets/images/characters/doraemon.png"
-                alt="Doraemon Motivation">
-        </div>
-
-        <div class="mobile-motivation-content">
-
-            <span class="mobile-motivation-label">
-                ✨ DAILY MOTIVATION
-            </span>
-
-            <h3>Never Give Up!</h3>
-
-            <p>
-                Mushkil waqt temporary hota hai.
-                Apne dreams ke liye hamesha
-                aage badhte raho. 💙
-            </p>
-
-            <span class="mobile-motivation-button">
-                Get Motivation →
-            </span>
-
-        </div>
-
-    </a>
-
-</section>
-
-<!-- DESKTOP EXPLORE -->
-<section class="explore">
-
-    <div class="section-title">
-        <span>EXPLORE</span>
-        <h2>Doraemon World 🌈</h2>
-        <p>Jo chahiye woh ek click mein dekho.</p>
-    </div>
-
-    <div class="feature-grid">
-
-        <a href="movies.html" class="feature-card">
-            <div class="feature-icon">🎬</div>
-            <h3>Movies</h3>
-            <p>Japan aur India ki Doraemon movie information.</p>
-            <span class="card-arrow">→</span>
-        </a>
-
-        <a href="episodes.html" class="feature-card">
-            <div class="feature-icon">📺</div>
-            <h3>Episodes</h3>
-            <p>Favourite episodes aur story information.</p>
-            <span class="card-arrow">→</span>
-        </a>
-
-        <a href="characters.html" class="feature-card">
-            <div class="feature-icon">👥</div>
-            <h3>Characters</h3>
-            <p>Doraemon aur friends ke detailed profiles.</p>
-            <span class="card-arrow">→</span>
-        </a>
-
-        <a href="wallpapers.html" class="feature-card">
-            <div class="feature-icon">🖼️</div>
-            <h3>Wallpapers</h3>
-            <p>Mobile aur desktop wallpapers.</p>
-            <span class="card-arrow">→</span>
-        </a>
-
-        <a href="music.html" class="feature-card">
-            <div class="feature-icon">🎵</div>
-            <h3>Music</h3>
-            <p>Theme songs aur music information.</p>
-            <span class="card-arrow">→</span>
-        </a>
-
-        <a href="gallery.html" class="feature-card">
-            <div class="feature-icon">📸</div>
-            <h3>Gallery</h3>
-            <p>Doraemon world ki image gallery.</p>
-            <span class="card-arrow">→</span>
-        </a>
-
-        <!-- FIXED SECRET LINK -->
-        <a
-            href="secret-login.html"
-            class="feature-card secret-message-card">
-
-            <div class="feature-icon">💌</div>
-
-            <h3>Secret Message</h3>
-
-            <p>
-                Ek special private
-                message sirf tumhare liye.
-            </p>
-
-            <span class="card-arrow">→</span>
-
-        </a>
-
-    </div>
-
-</section>
-
-<!-- DESKTOP GADGETS -->
-<section class="gadget-section">
-
-    <div class="section-title">
-        <span>MAGIC GADGETS</span>
-        <h2>Doraemon ke Gadgets ✨</h2>
-        <p>
-            Doraemon ke famous magical gadgets explore karo.
-        </p>
-    </div>
-
-    <div class="gadget-grid">
-
-        <a href="gadgets.html" class="gadget-card">
-            <div class="gadget-icon">🚪</div>
-            <h3>Anywhere Door</h3>
-            <p>
-                Kahin bhi instantly travel karne ka magical door.
-            </p>
-        </a>
-
-        <a href="gadgets.html" class="gadget-card">
-            <div class="gadget-icon">🎒</div>
-            <h3>4D Pocket</h3>
-            <p>Doraemon ki famous unlimited pocket.</p>
-        </a>
-
-        <a href="gadgets.html" class="gadget-card">
-            <div class="gadget-icon">🚁</div>
-            <h3>Take-copter</h3>
-            <p>Flying ke liye famous gadget.</p>
-        </a>
-
-        <a href="gadgets.html" class="gadget-card">
-            <div class="gadget-icon">⏰</div>
-            <h3>Time Machine</h3>
-            <p>Past aur future travel ka gadget.</p>
-        </a>
-
-    </div>
-
-</section>
-
-<!-- DESKTOP MOTIVATION -->
-<section class="motivation-section">
-
-    <div class="section-title">
-        <span>DORAEMON MOTIVATION</span>
-        <h2>Never Give Up! 💙</h2>
-        <p>
-            Doraemon ke saath positive raho,
-            smile karo aur apne dreams ke
-            liye aage badho.
-        </p>
-    </div>
-
-    <a href="motivation.html" class="motivation-card">
-
-        <div class="motivation-image">
-            <img
-                src="./assets/images/characters/doraemon.png"
-                alt="Doraemon Motivation">
-        </div>
-
-        <div class="motivation-content">
-
-            <span class="motivation-label">
-                ✨ TODAY'S MOTIVATION
-            </span>
-
-            <h3>Har Problem Ka Solution Hota Hai.</h3>
-
-            <p>
-                “Give up mat karo.
-                Chhote steps bhi tumhe
-                tumhare dreams ke paas
-                le jaate hain.”
-            </p>
-
-            <span class="motivation-button">
-                Explore Motivation →
-            </span>
-
-        </div>
-
-    </a>
-
-</section>
-
-<!-- FAVORITES -->
-<section class="favorite-section">
-
-    <div class="section-title">
-        <span>FAN FAVORITES</span>
-        <h2>Sabse Popular 💙</h2>
-        <p>Doraemon World ke favourite sections.</p>
-    </div>
-
-    <div class="favorite-grid">
-
-        <a href="movies.html" class="favorite-card">
-
-            <span class="favorite-number">01</span>
-
-            <div>
-                <h3>Popular Movies</h3>
-                <p>Amazing Doraemon movie stories.</p>
-            </div>
-
-            <span class="card-arrow">→</span>
-        </a>
-
-        <a href="characters.html" class="favorite-card">
-
-            <span class="favorite-number">02</span>
-
-            <div>
-                <h3>Favourite Characters</h3>
-                <p>Doraemon aur uske friends.</p>
-            </div>
-
-            <span class="card-arrow">→</span>
-        </a>
-
-        <a href="wallpapers.html" class="favorite-card">
-
-            <span class="favorite-number">03</span>
-
-            <div>
-                <h3>Wallpapers</h3>
-                <p>Desktop aur mobile wallpapers.</p>
-            </div>
-
-            <span class="card-arrow">→</span>
-        </a>
-
-    </div>
-
-</section>
-
-</main>
-
-<!-- FOOTER -->
-<footer>
-
-    <div class="footer-logo">
-        DORAEMON WORLD 💙
-    </div>
-
-    <p>Unofficial fan-made website.</p>
-
-    <p class="copyright">
-        © 2026 Doraemon World
-    </p>
-
-</footer>
-
-<!-- MOBILE BOTTOM NAVIGATION -->
-<nav class="mobile-bottom-nav">
-
-    <a href="index.html" class="bottom-nav-item active">
-        <span>🏠</span>
-        <small>Home</small>
-    </a>
-
-    <a href="movies.html" class="bottom-nav-item">
-        <span>🎬</span>
-        <small>Movies</small>
-    </a>
-
-    <a href="episodes.html" class="bottom-nav-item">
-        <span>📺</span>
-        <small>Episodes</small>
-    </a>
-
-    <a href="characters.html" class="bottom-nav-item">
-        <span>👥</span>
-        <small>Characters</small>
-    </a>
-
-    <a href="music.html" class="bottom-nav-item">
-        <span>🎵</span>
-        <small>Music</small>
-    </a>
-
-</nav>
-
-<!-- MOBILE MENU PANEL -->
-<div id="mobileMenuPanel" class="mobile-menu-panel">
 
     <a href="index.html">🏠 Home</a>
     <a href="movies.html">🎬 Movies</a>
     <a href="episodes.html">📺 Episodes</a>
     <a href="characters.html">👥 Characters</a>
+    <a href="gadgets.html">🚪 Magic Gadgets</a>
     <a href="wallpapers.html">🖼️ Wallpapers</a>
-    <a href="music.html">🎵 Music</a>
     <a href="gallery.html">📸 Gallery</a>
-    <a href="gadgets.html">🪄 Gadgets</a>
-    <a href="test.html">📝 Test</a>
+    <a href="music.html">🎵 Music</a>
+    <a href="test.html">🏆 Doraemon Quiz</a>
     <a href="motivation.html">💙 Motivation</a>
-    <a href="secret-login.html">💌 Secret Message</a>
-
-</div>
-
-<!-- MAIN JAVASCRIPT -->
-<script src="js/script.js"></script>
-
-<!-- SEARCH JAVASCRIPT -->
-<script>
-(() => {
-    "use strict";
-
-    // WEBSITE PAGES
-    const pages = [
-        {
-            title: "Home",
-            url: "index.html",
-            icon: "🏠",
-            keywords: "welcome main"
-        },
-        {
-            title: "Movies",
-            url: "movies.html",
-            icon: "🎬",
-            keywords: "film cinema dinosaur moon japan"
-        },
-        {
-            title: "Episodes",
-            url: "episodes.html",
-            icon: "📺",
-            keywords: "cartoon episodes tv"
-        },
-        {
-            title: "Characters",
-            url: "characters.html",
-            icon: "👥",
-            keywords: "nobita shizuka gian suneo dorami"
-        },
-        {
-            title: "Wallpapers",
-            url: "wallpapers.html",
-            icon: "🖼️",
-            keywords: "background photos images"
-        },
-        {
-            title: "Music",
-            url: "music.html",
-            icon: "🎵",
-            keywords: "songs audio theme soundtrack"
-        },
-        {
-            title: "Gallery",
-            url: "gallery.html",
-            icon: "📸",
-            keywords: "images photos pictures"
-        },
-        {
-            title: "Gadgets",
-            url: "gadgets.html",
-            icon: "🪄",
-            keywords: "anywhere door pocket take copter"
-        },
-        {
-            title: "Test",
-            url: "test.html",
-            icon: "📝",
-            keywords: "quiz questions"
-        },
-        {
-            title: "Motivation",
-            url: "motivation.html",
-            icon: "💙",
-            keywords: "quotes inspiration"
-        }
-    ];
-
-    const popularItems = [
-        {
-            title: "Nobita's Dinosaur",
-            url: "movies.html",
-            icon: "🎬",
-            section: "Movies"
-        },
-        {
-            title: "Nobita's Chronicle of the Moon",
-            url: "movies.html",
-            icon: "🎬",
-            section: "Movies"
-        },
-        {
-            title: "Nobita and the Birth of Japan",
-            url: "movies.html",
-            icon: "🎬",
-            section: "Movies"
-        },
-        {
-            title: "Anywhere Door",
-            url: "gadgets.html",
-            icon: "🪄",
-            section: "Gadgets"
-        },
-        {
-            title: "4D Pocket",
-            url: "gadgets.html",
-            icon: "🪄",
-            section: "Gadgets"
-        },
-        {
-            title: "Take-copter",
-            url: "gadgets.html",
-            icon: "🪄",
-            section: "Gadgets"
-        },
-        {
-            title: "Time Machine",
-            url: "gadgets.html",
-            icon: "🪄",
-            section: "Gadgets"
-        }
-    ];
-
-    document.addEventListener("DOMContentLoaded", () => {
-
-        const searchButton =
-            document.querySelector(".mobile-search-btn");
-
-        const searchPanel =
-            document.getElementById("dw-search");
-
-        const searchInput =
-            document.getElementById("dw-search-input");
-
-        const searchResults =
-            document.getElementById("dw-search-results");
-
-        const searchClose =
-            document.getElementById("dw-search-close");
-
-        const searchStatus =
-            document.getElementById("dw-search-status");
-
-        const searchForm =
-            document.getElementById("dw-search-form");
-
-        const mobileHeader =
-            document.querySelector(".mobile-header");
-
-        if (
-            !searchButton ||
-            !searchPanel ||
-            !searchInput ||
-            !searchResults ||
-            !searchClose ||
-            !searchForm
-        ) {
-            return;
-        }
-
-        let searchItems = [
-            ...pages.map(page => ({
-                ...page,
-                section: "Page"
-            })),
-            ...popularItems
-        ];
+    <a href="secret-login.html">💌 Secret</a>
+  </aside>
+
+  <!-- SEARCH -->
+  <section class="dw-search-panel"
+           id="dwSearchPanel"
+           aria-label="Website search"
+           hidden>
+    <input type="search"
+           id="dwSearchInput"
+           placeholder="Search movies, episodes, gadgets..."
+           aria-label="Search Doraemon World"
+           autocomplete="off">
+    <div id="dwSearchResults" class="dw-search-results"></div>
+  </section>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="dw-hero" id="home">
+
+      <div class="dw-hero-cloud cloud-one"></div>
+      <div class="dw-hero-cloud cloud-two"></div>
+
+      <div class="dw-hero-inner">
+
+        <div class="dw-hero-copy">
+          <div class="dw-welcome">Welcome to</div>
+
+          <h1 class="dw-hero-title">
+            <span>Doraemon</span>
+            <strong>World <i class="fa-solid fa-bell"></i></strong>
+          </h1>
+
+          <p>
+            Explore the amazing world of Doraemon,
+            Nobita and their friends!
+          </p>
+
+          <div class="dw-hero-actions">
+            <a href="episodes.html" class="dw-btn dw-btn-yellow">
+              <i class="fa-solid fa-play"></i>
+              Watch Episodes
+            </a>
+
+            <a href="#explore" class="dw-btn dw-btn-white">
+              <i class="fa-solid fa-compass"></i>
+              Explore More
+            </a>
+          </div>
+        </div>
+
+        <!-- ORIGINAL WEBSITE CHARACTER IMAGES -->
+        <div class="dw-hero-art">
+          <div class="dw-art-glow"></div>
+
+          <img class="dw-character dw-nobita"
+               src="assets/images/characters/nobita.png"
+               alt="Nobita">
+
+          <img class="dw-character dw-shizuka"
+               src="assets/images/characters/shizuka.png"
+               alt="Shizuka">
+
+          <img class="dw-character dw-gian"
+               src="assets/images/characters/gian.png"
+               alt="Gian">
+
+          <img class="dw-character dw-suneo"
+               src="assets/images/characters/suneo.png"
+               alt="Suneo">
+
+          <img class="dw-character dw-doraemon"
+               src="assets/images/characters/doraemon.png"
+               alt="Doraemon">
+
+          <img class="dw-takecopter"
+               src="assets/images/gadgets/take-copter.jpg"
+               alt="">
+        </div>
+
+      </div>
+
+      <div class="dw-hills"></div>
+      <div class="dw-hero-bottom-clouds"></div>
+    </section>
+
+    <!-- QUICK MENU -->
+    <section class="dw-shortcuts" aria-label="Quick links">
+
+      <a href="movies.html" class="dw-shortcut dw-pink">
+        <span class="dw-shortcut-icon">🎬</span>
+        <strong>Movies</strong>
+        <small>39 Movies</small>
+      </a>
+
+      <a href="episodes.html" class="dw-shortcut dw-blue">
+        <span class="dw-shortcut-icon">📺</span>
+        <strong>Episodes</strong>
+        <small>Watch & Enjoy</small>
+      </a>
+
+      <a href="characters.html" class="dw-shortcut dw-yellow">
+        <span class="dw-shortcut-icon">👥</span>
+        <strong>Characters</strong>
+        <small>Meet Friends</small>
+      </a>
+
+      <a href="gadgets.html" class="dw-shortcut dw-green">
+        <img src="assets/images/gadgets/take-copter.jpg"
+             alt="" class="dw-shortcut-image">
+        <strong>Gadgets</strong>
+        <small>Magic Gadgets</small>
+      </a>
+
+      <a href="gallery.html" class="dw-shortcut dw-cyan">
+        <span class="dw-shortcut-icon">🖼️</span>
+        <strong>Gallery</strong>
+        <small>Best Moments</small>
+      </a>
+
+      <a href="music.html" class="dw-shortcut dw-purple">
+        <span class="dw-shortcut-icon">🎵</span>
+        <strong>Music</strong>
+        <small>OST & BGM</small>
+      </a>
+
+    </section>
+
+    <!-- POPULAR MOVIES -->
+    <section class="dw-section dw-container" id="movies">
+      <div class="dw-section-heading">
+        <h2>🔥 Popular Movies</h2>
+        <a href="movies.html" class="dw-see-all">
+          See All <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="dw-movie-scroll" id="dwMovieScroll">
+
+        <a href="movies.html?movie=39" class="dw-movie-card">
+          <div class="dw-movie-poster">
+            <img src="assets/images/movies/movie-39.jpg"
+                 alt="New Nobita's Dinosaur" loading="lazy">
+            <span class="dw-play"><i class="fa-solid fa-play"></i></span>
+          </div>
+          <div class="dw-movie-info">
+            <h3>New Nobita's Dinosaur</h3>
+            <span>2020</span>
+          </div>
+        </a>
+
+        <a href="movies.html?movie=38" class="dw-movie-card">
+          <div class="dw-movie-poster">
+            <img src="assets/images/movies/movie-38.jpg"
+                 alt="Moon Exploration" loading="lazy">
+            <span class="dw-play"><i class="fa-solid fa-play"></i></span>
+          </div>
+          <div class="dw-movie-info">
+            <h3>Moon Exploration</h3>
+            <span>2019</span>
+          </div>
+        </a>
+
+        <a href="movies.html?movie=35" class="dw-movie-card">
+          <div class="dw-movie-poster">
+            <img src="assets/images/movies/movie-35.jpg"
+                 alt="Birth of Japan" loading="lazy">
+            <span class="dw-play"><i class="fa-solid fa-play"></i></span>
+          </div>
+          <div class="dw-movie-info">
+            <h3>New Birth of Japan</h3>
+            <span>2016</span>
+          </div>
+        </a>
+
+        <a href="movies.html?movie=37" class="dw-movie-card">
+          <div class="dw-movie-poster">
+            <img src="assets/images/movies/movie-37.jpg"
+                 alt="Nobita's Treasure Island" loading="lazy">
+            <span class="dw-play"><i class="fa-solid fa-play"></i></span>
+          </div>
+          <div class="dw-movie-info">
+            <h3>Treasure Island</h3>
+            <span>2018</span>
+          </div>
+        </a>
+
+        <a href="movies.html?movie=34" class="dw-movie-card">
+          <div class="dw-movie-poster">
+            <img src="assets/images/movies/movie-34.jpg"
+                 alt="Doraemon Movie" loading="lazy">
+            <span class="dw-play"><i class="fa-solid fa-play"></i></span>
+          </div>
+          <div class="dw-movie-info">
+            <h3>Doraemon Adventure</h3>
+            <span>2015</span>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="dw-dots" aria-hidden="true">
+        <span class="active"></span>
+        <span></span>
+        <span></span>
+      </div>
+    </section>
+
+    <!-- MAGIC GADGETS -->
+    <section class="dw-container dw-gadgets-section">
+      <a href="gadgets.html" class="dw-gadgets-banner">
+
+        <img class="dw-gadget-door"
+             src="assets/images/gadgets/anywhere-door.jpg"
+             alt="Anywhere Door"
+             loading="lazy">
+
+        <div class="dw-gadgets-copy">
+          <small>✨ Discover the magic!</small>
+          <h2>
+            Explore Doraemon's
+            <strong>Magic Gadgets!</strong>
+          </h2>
+          <span>Explore Now <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+
+        <div class="dw-gadget-bubbles">
+          <img src="assets/images/gadgets/take-copter.jpg" alt="Take-copter" loading="lazy">
+          <img src="assets/images/gadgets/memory-bread.jpg" alt="Memory Bread" loading="lazy">
+          <img src="assets/images/gadgets/time-machine.jpg" alt="Time Machine" loading="lazy">
+        </div>
+
+      </a>
+    </section>
+
+    <!-- MOTIVATION -->
+    <section class="dw-section dw-container">
+      <div class="dw-section-heading">
+        <h2>⭐ Doraemon Motivation</h2>
+        <a href="motivation.html" class="dw-see-all">
+          See All <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <a href="motivation.html" class="dw-motivation-card">
+        <div class="dw-motivation-text">
+          <span>💙 DAILY INSPIRATION</span>
+          <h3>Never Give Up!</h3>
+          <p>
+            Har mushkil ke baad ek nayi umeed hoti hai.
+            Keep believing in yourself!
+          </p>
+          <span class="dw-motivation-action">
+            Watch Motivation <i class="fa-solid fa-play"></i>
+          </span>
+        </div>
+
+        <img src="assets/images/characters/doraemon.png"
+             alt="Doraemon motivation"
+             loading="lazy">
+      </a>
+    </section>
+
+    <!-- EXPLORE MORE -->
+    <section class="dw-section dw-container" id="explore">
+      <div class="dw-section-heading">
+        <h2>✨ Explore More</h2>
+      </div>
+
+      <div class="dw-explore-grid">
+
+        <a href="test.html" class="dw-explore-card dw-purple">
+          <span>🏆</span>
+          <h3>Test / Quiz</h3>
+          <p>Doraemon Quiz</p>
+        </a>
+
+        <a href="motivation.html" class="dw-explore-card dw-pink">
+          <span>💖</span>
+          <h3>Motivation</h3>
+          <p>Inspiring Videos</p>
+        </a>
+
+        <a href="wallpapers.html" class="dw-explore-card dw-blue">
+          <span>🖼️</span>
+          <h3>Wallpapers</h3>
+          <p>HD Collection</p>
+        </a>
+
+        <a href="gallery.html" class="dw-explore-card dw-green">
+          <span>📸</span>
+          <h3>Gallery</h3>
+          <p>Best Moments</p>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- END BANNER -->
+    <section class="dw-ending">
+      <div class="dw-ending-inner dw-container">
+
+        <div class="dw-ending-copy">
+          <span>🌸 A world full of friendship</span>
+          <h2>Dosti, Masti aur Magic!</h2>
+          <p>Welcome to Doraemon ki duniya 💙</p>
+          <a href="characters.html" class="dw-btn dw-btn-white">
+            Meet the Friends
+          </a>
+        </div>
+
+        <img src="assets/images/characters/doraemon.png"
+             alt="Doraemon"
+             loading="lazy">
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="dw-footer">
+    <p>Doraemon World 💙</p>
+    <small>Unofficial fan-made website. All character rights belong to their respective owners.</small>
+  </footer>
+
+  <!-- MOBILE BOTTOM NAV -->
+  <nav class="dw-bottom-nav" aria-label="Mobile bottom navigation">
+
+    <a class="active" href="index.html">
+      <i class="fa-solid fa-house"></i>
+      <span>Home</span>
+    </a>
+
+    <a href="movies.html">
+      <i class="fa-solid fa-clapperboard"></i>
+      <span>Movies</span>
+    </a>
+
+    <a href="episodes.html">
+      <i class="fa-solid fa-tv"></i>
+      <span>Episodes</span>
+    </a>
+
+    <a href="gallery.html">
+      <i class="fa-regular fa-images"></i>
+      <span>Gallery</span>
+    </a>
+
+    <button type="button" id="dwMoreButton"
+            aria-label="Open more pages">
+      <i class="fa-solid fa-grip"></i>
+      <span>More</span>
+    </button>
+
+  </nav>
 
-        let indexed = false;
-        let indexing = false;
-
-        // NORMALIZE SEARCH WORDS
-        function normalize(value) {
-            return String(value || "")
-                .toLowerCase()
-                .trim()
-                .replace(/\s+/g, " ");
-        }
-
-        // SET SEARCH POSITION
-        function setSearchPosition() {
-
-            if (!mobileHeader) return;
-
-            const headerBottom =
-                mobileHeader.getBoundingClientRect().bottom;
-
-            searchPanel.style.setProperty(
-                "--search-top",
-                Math.max(4, headerBottom + 5) + "px"
-            );
-        }
-
-        // DISPLAY SEARCH RESULTS
-        function showResults() {
-
-            const query = normalize(searchInput.value);
-
-            const words = query.split(" ").filter(Boolean);
-
-            let matches = searchItems.filter(item => {
-
-                const searchable = normalize(
-                    item.title + " " +
-                    (item.keywords || "") + " " +
-                    (item.section || "")
-                );
-
-                return words.every(word =>
-                    searchable.includes(word)
-                );
-            });
-
-            if (!query) {
-
-                matches = matches
-                    .filter(item => item.section === "Page")
-                    .slice(0, 7);
-
-            } else {
-
-                matches.sort((a, b) => {
-
-                    const aTitle = normalize(a.title);
-                    const bTitle = normalize(b.title);
-
-                    const getScore = title => {
-                        if (title === query) return 100;
-                        if (title.startsWith(query)) return 80;
-                        if (title.includes(query)) return 60;
-                        return 10;
-                    };
-
-                    return getScore(bTitle) - getScore(aTitle);
-                });
-
-                matches = matches.slice(0, 15);
-            }
-
-            searchResults.replaceChildren();
-
-            if (matches.length === 0) {
-
-                searchStatus.textContent = indexing
-                    ? "Searching website..."
-                    : "No result found.";
-
-                return;
-            }
-
-            matches.forEach(item => {
-
-                const link = document.createElement("a");
-
-                link.href = item.url;
-                link.className = "dw-search-result";
-
-                const icon = document.createElement("span");
-                icon.className = "dw-search-result-icon";
-                icon.textContent = item.icon;
-
-                const content = document.createElement("span");
-                content.className = "dw-search-result-text";
-
-                const title = document.createElement("strong");
-                title.textContent = item.title;
-
-                const subtitle = document.createElement("small");
-
-                subtitle.textContent =
-                    item.section === "Page"
-                        ? "Open section"
-                        : "Found in " + item.section;
-
-                const arrow = document.createElement("span");
-                arrow.textContent = "→";
-
-                content.append(title, subtitle);
-                link.append(icon, content, arrow);
-
-                searchResults.appendChild(link);
-            });
-
-            searchStatus.textContent = indexing
-                ? "Loading more results..."
-                : query
-                    ? matches.length + " results"
-                    : "Popular sections";
-        }
-
-        // INDEX CONTENT FROM WEBSITE PAGES
-        async function indexWebsite() {
-
-            if (indexed || indexing) return;
-
-            indexing = true;
-            showResults();
-
-            const otherPages =
-                pages.filter(page => page.url !== "index.html");
-
-            await Promise.all(otherPages.map(async page => {
-
-                try {
-
-                    const response = await fetch(page.url);
-
-                    if (!response.ok) return;
-
-                    const html = await response.text();
-
-                    const doc = new DOMParser()
-                        .parseFromString(html, "text/html");
-
-                    const headings = doc.querySelectorAll(
-                        "main h1, main h2, main h3, " +
-                        ".movie-card h3, .episode-card h3, " +
-                        ".character-card h3, .gadget-card h3, " +
-                        ".music-card h3, .song-card h3"
-                    );
-
-                    headings.forEach(heading => {
-
-                        const title =
-                            heading.textContent.trim();
-
-                        if (
-                            title.length < 3 ||
-                            title.length > 110
-                        ) {
-                            return;
-                        }
-
-                        const parent = heading.closest(
-                            ".movie-card, .episode-card, " +
-                            ".character-card, .gadget-card, " +
-                            ".music-card, .song-card, article"
-                        );
-
-                        const details = parent
-                            ? parent.textContent.trim().slice(0, 250)
-                            : title;
-
-                        searchItems.push({
-                            title: title,
-                            url: page.url,
-                            icon: page.icon,
-                            section: page.title,
-                            keywords: details
-                        });
-                    });
-
-                } catch (error) {
-
-                    console.debug(
-                        "Could not index: " + page.url
-                    );
-                }
-            }));
-
-            // REMOVE DUPLICATES
-            const seen = new Set();
-
-            searchItems = searchItems.filter(item => {
-
-                const key =
-                    normalize(item.title) + "|" + item.url;
-
-                if (seen.has(key)) return false;
-
-                seen.add(key);
-                return true;
-            });
-
-            indexed = true;
-            indexing = false;
-
-            showResults();
-        }
-
-        // OPEN SEARCH
-        function openSearch() {
-
-            setSearchPosition();
-
-            searchPanel.hidden = false;
-
-            searchButton.setAttribute(
-                "aria-expanded",
-                "true"
-            );
-
-            searchInput.focus();
-
-            showResults();
-
-            indexWebsite();
-        }
-
-        // CLOSE SEARCH
-        function closeSearch() {
-
-            searchPanel.hidden = true;
-
-            searchButton.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-        }
-
-        // SEARCH BUTTON CLICK
-        searchButton.addEventListener("click", event => {
-
-            event.stopPropagation();
-
-            if (searchPanel.hidden) {
-                openSearch();
-            } else {
-                closeSearch();
-            }
-        });
-
-        // CLOSE BUTTON CLICK
-        searchClose.addEventListener("click", closeSearch);
-
-        // LIVE SEARCH
-        searchInput.addEventListener("input", showResults);
-
-        // ENTER KEY
-        searchForm.addEventListener("submit", event => {
-
-            event.preventDefault();
-
-            const firstResult =
-                searchResults.querySelector("a");
-
-            if (firstResult) {
-                window.location.href = firstResult.href;
-            }
-        });
-
-        // ESCAPE KEY
-        document.addEventListener("keydown", event => {
-
-            if (
-                event.key === "Escape" &&
-                !searchPanel.hidden
-            ) {
-                closeSearch();
-            }
-        });
-
-        // OUTSIDE CLICK
-        document.addEventListener("click", event => {
-
-            if (
-                !searchPanel.hidden &&
-                !searchPanel.contains(event.target) &&
-                !searchButton.contains(event.target)
-            ) {
-                closeSearch();
-            }
-        });
-
-        // RESPONSIVE POSITION
-        window.addEventListener("resize", setSearchPosition);
-
-        window.addEventListener("scroll", () => {
-
-            if (!searchPanel.hidden) {
-                setSearchPosition();
-            }
-
-        }, { passive: true });
-
-    });
-})();
-</script>
-<script src="js/site-navigation.js" defer></script>
-<script src="js/doraemon-voice.js" defer></script>
 </body>
 </html>
