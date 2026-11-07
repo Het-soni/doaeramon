@@ -1,3372 +1,1455 @@
-/* =========================================================
-   DORAEMON WORLD
-   COMPLETE RESPONSIVE CSS
-   DESKTOP + TABLET + MOBILE
-   4 IMAGE DORAEMON EFFECT
-========================================================= */
 
-
-/* =========================================================
-   RESET
-========================================================= */
+:root {
+  --dw-primary: #0874f9;
+  --dw-navy: #08235c;
+  --dw-yellow: #ffdc26;
+  --dw-sky: #eaf8ff;
+  --dw-radius: 24px;
+  --dw-shadow: 0 8px 20px rgba(0, 85, 180, .13);
+}
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f2fbff;
-    color: #073b70;
-    overflow-x: hidden;
+body.dw-home {
+  margin: 0;
+  background: linear-gradient(180deg, #eaf8ff, #fff 65%);
+  font-family: "Nunito", sans-serif;
+  color: var(--dw-navy);
+  overflow-x: hidden;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
+.dw-home a {
+  text-decoration: none;
+  color: inherit;
 }
 
-button {
-    font-family: inherit;
+.dw-home button,
+.dw-home input {
+  font: inherit;
 }
 
-
-/* =========================================================
-   MOBILE ELEMENTS HIDDEN ON DESKTOP
-========================================================= */
-
-.mobile-header,
-.mobile-home,
-.mobile-bottom-nav,
-.mobile-menu-panel {
-    display: none;
-}
-
-
-/* =========================================================
-   DESKTOP HEADER
-========================================================= */
-
-.topbar {
-    width: 100%;
-    min-height: 64px;
-
-    padding: 8px 4%;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    position: sticky;
-    top: 0;
-
-    z-index: 1000;
-
-    background: rgba(4, 76, 132, 0.97);
-
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-
-    box-shadow:
-        0 5px 25px rgba(0, 60, 100, 0.15);
-}
-
-
-/* =========================================================
-   DESKTOP LOGO
-========================================================= */
-
-.logo {
-    color: white;
-
-    font-size: 23px;
-    font-weight: 900;
-
-    letter-spacing: 1px;
-
-    white-space: nowrap;
-
-    display: flex;
-    align-items: center;
-
-    flex-shrink: 0;
-
-    transition: 0.25s ease;
-
-    margin-right: 20px;
-}
-
-.logo:hover {
-    transform: scale(1.03);
-}
-
-
-/* =========================================================
-   DESKTOP NAVIGATION
-========================================================= */
-
-#nav {
-    margin-left: auto;
-
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-
-    gap: 4px;
-
-    flex-shrink: 0;
-}
-
-#nav a {
-    color: white;
-
-    font-size: 14px;
-    font-weight: 700;
-
-    padding: 10px 12px;
-
-    border-radius: 10px;
-
-    white-space: nowrap;
-
-    transition: 0.25s ease;
-}
-
-#nav a:hover {
-    background: #20a8f5;
-
-    transform: translateY(-2px);
-}
-
-#nav a.active {
-    background: #20a8f5;
-
-    box-shadow:
-        0 0 15px rgba(32, 168, 245, 0.45);
-}
-
-
-/* =========================================================
-   DESKTOP MENU BUTTON
-========================================================= */
-
-.menu-btn {
-    display: none;
-}
-
-
-/* =========================================================
-   DESKTOP HERO
-========================================================= */
-
-.hero {
-    width: 90%;
-    max-width: 1450px;
-
-    min-height: 500px;
-
-    margin: 30px auto;
-
-    padding: 50px 0 50px 50px;
-
-    display: grid;
-
-    grid-template-columns: 52% 48%;
-
-    align-items: center;
-
-    position: relative;
-
-    overflow: hidden;
-
-    border-radius: 30px;
-
-    background:
-        radial-gradient(
-            circle at 85% 20%,
-            rgba(255, 255, 255, 0.35),
-            transparent 25%
-        ),
-        linear-gradient(
-            135deg,
-            #058ed8,
-            #23b8f4,
-            #b7efff
-        );
-
-    box-shadow:
-        0 25px 60px rgba(0, 100, 160, 0.20);
-}
-
-
-/* =========================================================
-   HERO DECORATION
-========================================================= */
-
-.hero::before {
-    content: "";
-
-    position: absolute;
-
-    width: 300px;
-    height: 300px;
-
-    border-radius: 50%;
-
-    background:
-        rgba(255, 255, 255, 0.12);
-
-    right: -80px;
-    bottom: -100px;
-
-    pointer-events: none;
-}
-
-.hero::after {
-    content: "";
-
-    position: absolute;
-
-    width: 160px;
-    height: 160px;
-
-    border-radius: 50%;
-
-    background:
-        rgba(255, 255, 255, 0.10);
-
-    left: 45%;
-    top: -80px;
-
-    pointer-events: none;
-}
-
-
-/* =========================================================
-   HERO CONTENT
-========================================================= */
-
-.hero-content {
-    position: relative;
-
-    z-index: 5;
-
-    max-width: 680px;
-
-    min-width: 0;
-
-    padding-right: 20px;
-}
-
-
-/* =========================================================
-   HERO BADGE
-========================================================= */
-
-.badge {
-    display: inline-block;
-
-    padding: 8px 14px;
-
-    border-radius: 50px;
-
-    background:
-        rgba(255, 255, 255, 0.30);
-
-    color: white;
-
-    font-size: 11px;
-
-    font-weight: 900;
-
-    letter-spacing: 1px;
-
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-
-/* =========================================================
-   HERO TITLE
-========================================================= */
-
-.hero h1 {
-    margin-top: 18px;
-
-    font-size:
-        clamp(42px, 5vw, 70px);
-
-    line-height: 1.05;
-
-    color: white;
-
-    text-shadow:
-        3px 4px 0 rgba(0, 80, 130, 0.35);
-}
-
-.hero h1 strong {
-    color: #ffe02e;
-}
-
-
-/* =========================================================
-   HERO TEXT
-========================================================= */
-
-.hero p {
-    max-width: 600px;
-
-    margin-top: 20px;
-
-    color: white;
-
-    font-size: 17px;
-
-    line-height: 1.8;
-}
-
-
-/* =========================================================
-   HERO BUTTONS
-========================================================= */
-
-.hero-buttons {
-    display: flex;
-
-    gap: 12px;
-
-    margin-top: 28px;
-
-    flex-wrap: wrap;
-}
-
-.btn {
-    display: inline-block;
-
-    padding: 14px 20px;
-
-    border-radius: 13px;
-
-    font-weight: 900;
-
-    transition: 0.25s ease;
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-}
-
-.btn.primary {
-    background: #ffd52b;
-
-    color: #063b67;
-
-    box-shadow:
-        0 10px 25px rgba(255, 210, 30, 0.30);
-}
-
-.btn.secondary {
-    background:
-        rgba(255, 255, 255, 0.25);
-
-    color: white;
-
-    border:
-        1px solid rgba(255, 255, 255, 0.5);
-
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-
-/* =========================================================
-   HERO DORAEMON
-========================================================= */
-
-.desktop-doraemon {
-    position: relative;
-
-    z-index: 5;
-
-    width: min(460px, 100%);
-
-    max-height: 460px;
-
-    height: auto;
-
-    object-fit: contain;
-
-    display: block;
-
-    justify-self: end;
-
-    margin-right: -10px;
-
-    filter:
-        drop-shadow(
-            0 20px 18px
-            rgba(0, 60, 100, 0.25)
-        );
-
-    animation:
-        desktopFloat 4s ease-in-out infinite;
-}
-
-
-/* =========================================================
-   DESKTOP DORAEMON FLOAT
-========================================================= */
-
-@keyframes desktopFloat {
-
-    0% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-12px);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
-
-}
-
-
-/* =========================================================
-   DESKTOP SECTIONS
-========================================================= */
-
-.explore,
-.gadget-section,
-.favorite-section {
-    width: 90%;
-
-    max-width: 1450px;
-
-    margin: 70px auto;
-}
-
-
-/* =========================================================
-   SECTION TITLE
-========================================================= */
-
-.section-title {
-    margin-bottom: 30px;
-}
-
-.section-title span {
-    color: #0797dd;
-
-    font-size: 11px;
-
-    font-weight: 900;
-
-    letter-spacing: 2px;
-}
-
-.section-title h2 {
-    margin-top: 8px;
-
-    font-size:
-        clamp(30px, 4vw, 48px);
-
-    color: #073b70;
-}
-
-.section-title p {
-    margin-top: 8px;
-
-    color: #658397;
-
-    line-height: 1.6;
-}
-
-
-/* =========================================================
-   FEATURE GRID
-========================================================= */
-
-.feature-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 20px;
-}
-
-
-/* =========================================================
-   FEATURE CARD
-========================================================= */
-
-.feature-card {
-    position: relative;
-
-    min-height: 220px;
-
-    padding: 25px;
-
-    border-radius: 22px;
-
-    background:
-        rgba(255, 255, 255, 0.85);
-
-    border:
-        1px solid #c9eafa;
-
-    color: #073b70;
-
-    box-shadow:
-        0 15px 40px
-        rgba(0, 80, 130, 0.07);
-
-    overflow: hidden;
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.feature-card::before {
-    content: "";
-
-    position: absolute;
-
-    width: 100px;
-    height: 100px;
-
-    border-radius: 50%;
-
-    background: #e3f8ff;
-
-    right: -35px;
-    bottom: -35px;
-
-    transition: 0.3s ease;
-}
-
-.feature-card:hover {
-    transform:
-        translateY(-8px);
-
-    box-shadow:
-        0 25px 50px
-        rgba(0, 100, 160, 0.14);
-}
-
-.feature-card:hover::before {
-    transform: scale(1.5);
-}
-
-
-/* =========================================================
-   FEATURE ICON
-========================================================= */
-
-.feature-icon {
-    position: relative;
-
-    z-index: 2;
-
-    width: 55px;
-    height: 55px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 15px;
-
-    background: #e6f8ff;
-
-    font-size: 28px;
-}
-
-
-/* =========================================================
-   FEATURE TEXT
-========================================================= */
-
-.feature-card h3 {
-    position: relative;
-
-    z-index: 2;
-
-    margin-top: 20px;
-
-    font-size: 22px;
-}
-
-.feature-card p {
-    position: relative;
-
-    z-index: 2;
-
-    margin-top: 8px;
-
-    color: #668093;
-
-    line-height: 1.6;
-}
-
-
-/* =========================================================
-   CARD ARROW
-========================================================= */
-
-.card-arrow {
-    position: absolute;
-
-    right: 20px;
-    bottom: 20px;
-
-    font-size: 25px;
-
-    color: #0797dd;
-
-    transition: 0.25s ease;
-}
-
-.feature-card:hover .card-arrow,
-.favorite-card:hover .card-arrow {
-    transform: translateX(5px);
-}
-
-
-/* =========================================================
-   GADGET GRID
-========================================================= */
-
-.gadget-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 18px;
-}
-
-
-/* =========================================================
-   GADGET CARD
-========================================================= */
-
-.gadget-card {
-    padding: 25px;
-
-    background: white;
-
-    border:
-        1px solid #c9eafa;
-
-    border-radius: 20px;
-
-    box-shadow:
-        0 12px 35px
-        rgba(0, 70, 120, 0.06);
-
-    transition: 0.3s ease;
-}
-
-.gadget-card:hover {
-    transform:
-        translateY(-7px);
-
-    border-color:
-        #35baf3;
-
-    box-shadow:
-        0 20px 40px
-        rgba(0, 100, 160, 0.12);
-}
-
-.gadget-card > div {
-    font-size: 42px;
-
-    margin-bottom: 15px;
-}
-
-.gadget-card h3 {
-    font-size: 19px;
-}
-
-.gadget-card p {
-    margin-top: 8px;
-
-    color: #6a8292;
-
-    line-height: 1.6;
-}
-
-
-/* =========================================================
-   FAVORITE SECTION
-========================================================= */
-
-.favorite-section {
-    margin-top: 90px;
-}
-
-
-/* =========================================================
-   FAVORITE GRID
-========================================================= */
-
-.favorite-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 20px;
-}
-
-
-/* =========================================================
-   FAVORITE CARD
-========================================================= */
-
-.favorite-card {
-    position: relative;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 18px;
-
-    min-height: 140px;
-
-    padding: 25px;
-
-    background: white;
-
-    border:
-        1px solid #c9eafa;
-
-    border-radius: 20px;
-
-    color: #073b70;
-
-    box-shadow:
-        0 12px 35px
-        rgba(0, 70, 120, 0.06);
-
-    overflow: hidden;
-
-    transition: 0.3s ease;
-}
-
-.favorite-card:hover {
-    transform:
-        translateY(-7px);
-
-    border-color:
-        #35baf3;
-
-    box-shadow:
-        0 20px 45px
-        rgba(0, 100, 160, 0.12);
-}
-
-.favorite-number {
-    font-size: 32px;
-
-    font-weight: 900;
-
-    color: #20a8f5;
-
-    opacity: 0.35;
-
-    flex-shrink: 0;
-}
-
-.favorite-card h3 {
-    font-size: 20px;
-}
-
-.favorite-card p {
-    margin-top: 7px;
-
-    color: #6a8292;
-
-    line-height: 1.5;
-
-    font-size: 14px;
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer {
-    margin-top: 80px;
-
-    padding: 35px 20px;
-
-    text-align: center;
-
-    background: #064d87;
-
-    color: white;
-}
-
-.footer-logo {
-    font-size: 20px;
-
-    font-weight: 900;
-
-    letter-spacing: 1px;
-}
-
-footer p {
-    margin-top: 8px;
-
-    opacity: 0.8;
-}
-
-.copyright {
-    font-size: 12px;
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width: 1200px) {
-
-    .topbar {
-        padding-left: 3%;
-        padding-right: 3%;
-    }
-
-    #nav {
-        gap: 2px;
-    }
-
-    #nav a {
-        padding: 9px 8px;
-
-        font-size: 13px;
-    }
-
-    .hero {
-        grid-template-columns:
-            51% 49%;
-
-        padding-left: 40px;
-        padding-right: 0;
-    }
-
-    .desktop-doraemon {
-        width: min(400px, 100%);
-
-        max-height: 420px;
-
-        margin-right: -15px;
-    }
-}
-
-
-/* =========================================================
-   SMALL TABLET
-========================================================= */
-
-@media (max-width: 1050px) {
-
-    .hero {
-        grid-template-columns:
-            51% 49%;
-
-        padding-left: 35px;
-        padding-right: 0;
-    }
-
-    .desktop-doraemon {
-        width: min(370px, 100%);
-
-        max-height: 390px;
-
-        margin-right: -10px;
-    }
-
-    .hero h1 {
-        font-size: 52px;
-    }
-
-    .hero p {
-        font-size: 15px;
-    }
-
-    .feature-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-    .gadget-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-    .favorite-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-}
-
-
-/* =========================================================
-   MOBILE
-   MAX WIDTH 700px
-========================================================= */
-
-@media (max-width: 700px) {
-
-
-    /* =====================================================
-       HIDE DESKTOP
-    ===================================================== */
-
-    .topbar,
-    .hero,
-    .explore,
-    .gadget-section,
-    .favorite-section,
-    body > footer {
-        display: none !important;
-    }
-
-
-    /* =====================================================
-       MOBILE HEADER
-    ===================================================== */
-
-    .mobile-header {
-        display: flex !important;
-
-        position: sticky;
-
-        top: 0;
-
-        z-index: 10000;
-
-        width: 100%;
-
-        height: 62px;
-
-        padding: 8px 15px;
-
-        align-items: center;
-
-        justify-content: space-between;
-
-        background: white;
-
-        box-shadow:
-            0 5px 20px
-            rgba(0, 60, 100, 0.08);
-    }
-
-
-    /* =====================================================
-       MOBILE MENU BUTTON
-    ===================================================== */
-
-    .mobile-menu-btn {
-        width: 42px;
-        height: 42px;
-
-        border: none;
-
-        border-radius: 12px;
-
-        background: #e7f7ff;
-
-        color: #087fc0;
-
-        font-size: 20px;
-
-        cursor: pointer;
-
-        display: flex;
-
-        align-items: center;
-        justify-content: center;
-
-        transition: 0.2s ease;
-    }
-
-    .mobile-menu-btn:active {
-        transform: scale(0.92);
-    }
-
-
-    /* =====================================================
-       MOBILE LOGO
-    ===================================================== */
-
-    .mobile-logo {
-        color: #073b70;
-
-        font-size: 20px;
-
-        font-weight: 900;
-
-        letter-spacing: 1px;
-
-        display: flex;
-
-        align-items: center;
-
-        gap: 3px;
-    }
-
-    .mobile-logo span {
-        font-size: 16px;
-    }
-
-
-    /* =====================================================
-       MOBILE SEARCH
-    ===================================================== */
-
-    .mobile-search-btn {
-        width: 42px;
-        height: 42px;
-
-        border: none;
-
-        border-radius: 12px;
-
-        background: #e7f7ff;
-
-        color: #087fc0;
-
-        font-size: 20px;
-
-        cursor: pointer;
-
-        display: flex;
-
-        align-items: center;
-        justify-content: center;
-    }
-
-    .mobile-search-btn:active {
-        transform: scale(0.92);
-    }
-
-
-    /* =====================================================
-       MOBILE HOME
-    ===================================================== */
-
-    .mobile-home {
-        display: block !important;
-
-        width: 100%;
-
-        padding-bottom: 90px;
-    }
-
-
-    /* =====================================================
-       MOBILE WELCOME
-    ===================================================== */
-
-    .mobile-welcome {
-        position: relative;
-
-        width: 94%;
-
-        min-height: 300px;
-
-        margin: 15px auto 25px;
-
-        padding: 28px 20px;
-
-        overflow: hidden;
-
-        border-radius: 25px;
-
-        background:
-            linear-gradient(
-                135deg,
-                #078ed4,
-                #25b9f2,
-                #b9efff
-            );
-
-        box-shadow:
-            0 15px 40px
-            rgba(0, 80, 130, 0.15);
-    }
-
-
-    /* =====================================================
-       MOBILE CLOUDS
-    ===================================================== */
-
-    .mobile-cloud {
-        position: absolute;
-
-        border-radius: 50%;
-
-        background:
-            rgba(255, 255, 255, 0.18);
-
-        pointer-events: none;
-    }
-
-    .cloud-one {
-        width: 100px;
-        height: 100px;
-
-        right: 20px;
-        top: -30px;
-    }
-
-    .cloud-two {
-        width: 70px;
-        height: 70px;
-
-        left: -20px;
-        bottom: -20px;
-    }
-
-
-    /* =====================================================
-       MOBILE WELCOME TEXT
-    ===================================================== */
-
-    .mobile-welcome-text {
-        position: relative;
-
-        z-index: 5;
-
-        width: 58%;
-    }
-
-    .mobile-welcome-text > p:first-child {
-        color: white;
-
-        font-size: 13px;
-
-        font-weight: 700;
-    }
-
-    .mobile-welcome h1 {
-        margin-top: 5px;
-
-        color: white;
-
-        font-size: 34px;
-
-        line-height: 1;
-    }
-
-    .mobile-welcome h2 {
-        margin-top: 5px;
-
-        color: #ffe02e;
-
-        font-size: 24px;
-    }
-
-    .mobile-description {
-        margin-top: 12px;
-
-        color: white;
-
-        font-size: 12px;
-
-        line-height: 1.5;
-    }
-
-
-    /* =====================================================
-       MOBILE DORAEMON
-    ===================================================== */
-
-    .mobile-doraemon {
-        position: absolute;
-
-        z-index: 3;
-
-        width: 175px;
-        height: 175px;
-
-        object-fit: contain;
-
-        right: -8px;
-        bottom: -5px;
-
-        filter:
-            drop-shadow(
-                0 12px 12px
-                rgba(0, 60, 100, 0.25)
-            );
-
-        animation:
-            mobileFloat 4s ease-in-out infinite;
-    }
-
-
-    /* =====================================================
-       MOBILE DORAEMON FLOAT
-    ===================================================== */
-
-    @keyframes mobileFloat {
-
-        0% {
-            transform:
-                translateY(0);
-        }
-
-        50% {
-            transform:
-                translateY(-7px);
-        }
-
-        100% {
-            transform:
-                translateY(0);
-        }
-
-    }
-
-
-    /* =====================================================
-       MOBILE HEY / MAUSAM
-    ===================================================== */
-
-    .mobile-mausam-name {
-        position: absolute;
-
-        z-index: 10;
-
-        right: 18px;
-
-        bottom: 175px;
-
-        display: flex;
-
-        align-items: center;
-
-        gap: 5px;
-
-        padding: 7px 11px;
-
-        border-radius: 12px;
-
-        background:
-            rgba(255, 255, 255, 0.22);
-
-        border:
-            1px solid rgba(255, 255, 255, 0.45);
-
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-
-        color: white;
-
-        font-size: 13px;
-
-        font-weight: 900;
-
-        white-space: nowrap;
-
-        text-shadow:
-            1px 2px 3px
-            rgba(0, 70, 130, 0.35);
-
-        box-shadow:
-            0 6px 18px
-            rgba(0, 70, 120, 0.12);
-    }
-
-    .mobile-mausam-name span:last-child {
-        font-size: 15px;
-    }
-
-
-    /* =====================================================
-       QUICK MENU
-    ===================================================== */
-
-    .mobile-quick-menu {
-        width: 94%;
-
-        margin: 0 auto 30px;
-
-        display: grid;
-
-        grid-template-columns:
-            repeat(4, 1fr);
-
-        gap: 9px;
-    }
-
-    .mobile-quick-card {
-        min-height: 85px;
-
-        display: flex;
-
-        flex-direction: column;
-
-        align-items: center;
-
-        justify-content: center;
-
-        gap: 7px;
-
-        background: white;
-
-        border:
-            1px solid #c9eafa;
-
-        border-radius: 15px;
-
-        color: #073b70;
-
-        box-shadow:
-            0 8px 25px
-            rgba(0, 70, 120, 0.06);
-
-        transition:
-            transform 0.2s ease,
-            box-shadow 0.2s ease;
-    }
-
-    .mobile-quick-card:active {
-        transform:
-            scale(0.96);
-    }
-
-    .quick-icon {
-        font-size: 25px;
-    }
-
-    .mobile-quick-card strong {
-        font-size: 11px;
-
-        white-space: nowrap;
-    }
-
-
-    /* =====================================================
-       MOBILE SECTION TITLE
-    ===================================================== */
-
-    .mobile-section-title {
-        width: 94%;
-
-        margin: 28px auto 14px;
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: space-between;
-
-        gap: 10px;
-    }
-
-    .mobile-section-title h2 {
-        font-size: 21px;
-
-        line-height: 1.2;
-
-        color: #073b70;
-    }
-
-    .mobile-section-title a {
-        color: #0797dd;
-
-        font-size: 12px;
-
-        font-weight: 800;
-
-        white-space: nowrap;
-    }
-
-
-    /* =====================================================
-       MOBILE MOVIES
-    ===================================================== */
-
-    .mobile-movie-row {
-        width: 94%;
-
-        margin: auto;
-
-        display: flex;
-
-        gap: 12px;
-
-        overflow-x: auto;
-
-        padding-bottom: 8px;
-
-        scrollbar-width: none;
-
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .mobile-movie-row::-webkit-scrollbar {
-        display: none;
-    }
-
-    .mobile-movie-card {
-        flex:
-            0 0 155px;
-
-        min-width: 155px;
-
-        padding: 10px;
-
-        background: white;
-
-        border:
-            1px solid #c9eafa;
-
-        border-radius: 17px;
-
-        color: #073b70;
-
-        box-shadow:
-            0 8px 25px
-            rgba(0, 70, 120, 0.06);
-
-        overflow: hidden;
-
-        transition: 0.2s ease;
-    }
-
-    .mobile-movie-card:active {
-        transform: scale(0.97);
-    }
-
-    .mobile-movie-image {
-        width: 100%;
-
-        height: 125px;
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-        border-radius: 12px;
-
-        background:
-            linear-gradient(
-                135deg,
-                #dff8ff,
-                #8edfff
-            );
-
-        font-size: 42px;
-
-        overflow: hidden;
-    }
-
-    .mobile-movie-image img {
-        width: 100%;
-        height: 100%;
-
-        object-fit: cover;
-
-        display: block;
-    }
-
-    .mobile-movie-card h3 {
-    margin-top: 10px;
-    color: #0753a0;
-    font-size: 14px;
-    line-height: 1.3;
-
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-    overflow: hidden;
-}
-
-    .mobile-movie-card p {
-        margin-top: 7px;
-
-        color: #ffb400;
-
-        font-size: 12px;
-
-        font-weight: 800;
-    }
-
-    .mobile-movie-card small {
-        display: block;
-
-        margin-top: 4px;
-
-        color: #78909c;
-
-        font-size: 10px;
-    }
-
-
-    /* =====================================================
-       MOBILE EXPLORE
-    ===================================================== */
-
-    .mobile-explore-grid {
-        width: 94%;
-
-        margin: auto;
-
-        display: grid;
-
-        grid-template-columns:
-            repeat(2, 1fr);
-
-        gap: 12px;
-    }
-
-    .mobile-explore-card {
-        min-height: 90px;
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-        flex-direction: column;
-
-        gap: 8px;
-
-        background: white;
-
-        border:
-            1px solid #c9eafa;
-
-        border-radius: 17px;
-
-        color: #073b70;
-
-        box-shadow:
-            0 8px 25px
-            rgba(0, 70, 120, 0.06);
-
-        transition:
-            transform 0.2s ease;
-    }
-
-    .mobile-explore-card:active {
-        transform:
-            scale(0.97);
-    }
-
-    .mobile-explore-card span {
-        font-size: 27px;
-    }
-
-    .mobile-explore-card strong {
-        font-size: 13px;
-
-        text-align: center;
-    }
-
-
-    /* =====================================================
-       MOBILE GADGETS
-    ===================================================== */
-
-    .mobile-gadget-row {
-        width: 94%;
-
-        margin: auto;
-
-        display: flex;
-
-        gap: 12px;
-
-        overflow-x: auto;
-
-        scrollbar-width: none;
-
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .mobile-gadget-row::-webkit-scrollbar {
-        display: none;
-    }
-
-    .mobile-gadget-card {
-        flex:
-            0 0 120px;
-
-        min-height: 110px;
-
-        display: flex;
-
-        flex-direction: column;
-
-        align-items: center;
-
-        justify-content: center;
-
-        gap: 8px;
-
-        text-align: center;
-
-        background: white;
-
-        border:
-            1px solid #c9eafa;
-
-        border-radius: 17px;
-
-        box-shadow:
-            0 8px 25px
-            rgba(0, 70, 120, 0.06);
-
-        transition:
-            transform 0.2s ease;
-    }
-
-    .mobile-gadget-card:active {
-        transform:
-            scale(0.96);
-    }
-
-    .mobile-gadget-card span {
-        font-size: 32px;
-    }
-
-    .mobile-gadget-card strong {
-        font-size: 12px;
-
-        color: #073b70;
-
-        line-height: 1.2;
-    }
-
-
-    /* =====================================================
-       MOBILE BOTTOM NAV
-    ===================================================== */
-
-    .mobile-bottom-nav {
-        display: flex !important;
-
-        position: fixed;
-
-        left: 10px;
-        right: 10px;
-
-        bottom: 10px;
-
-        height: 65px;
-
-        z-index: 9999;
-
-        align-items: center;
-
-        justify-content: space-around;
-
-        padding: 5px;
-
-        background:
-            rgba(255, 255, 255, 0.96);
-
-        border:
-            1px solid #c9eafa;
-
-        border-radius: 20px;
-
-        box-shadow:
-            0 10px 35px
-            rgba(0, 60, 100, 0.18);
-
-        backdrop-filter:
-            blur(15px);
-
-        -webkit-backdrop-filter:
-            blur(15px);
-    }
-
-    .bottom-nav-item {
-        width: 20%;
-
-        height: 100%;
-
-        display: flex;
-
-        flex-direction: column;
-
-        align-items: center;
-
-        justify-content: center;
-
-        gap: 3px;
-
-        color: #78909c;
-
-        border-radius: 14px;
-
-        transition:
-            0.2s ease;
-    }
-
-    .bottom-nav-item:active {
-        transform: scale(0.94);
-    }
-
-    .bottom-nav-item span {
-        font-size: 20px;
-
-        line-height: 1;
-    }
-
-    .bottom-nav-item small {
-        font-size: 9px;
-
-        font-weight: 700;
-    }
-
-    .bottom-nav-item.active {
-        color: #0797dd;
-
-        background:
-            #e9f8ff;
-    }
-
-
-    /* =====================================================
-       MOBILE MENU PANEL
-    ===================================================== */
-
-    .mobile-menu-panel {
-        position: fixed;
-
-        top: 72px;
-
-        left: 10px;
-        right: 10px;
-
-        z-index: 9998;
-
-        display: none;
-
-        padding: 12px;
-
-        background:
-            rgba(6, 77, 135, 0.98);
-
-        border-radius: 16px;
-
-        box-shadow:
-            0 15px 40px
-            rgba(0, 0, 0, 0.25);
-
-        backdrop-filter:
-            blur(15px);
-
-        -webkit-backdrop-filter:
-            blur(15px);
-    }
-
-    .mobile-menu-panel.show {
-        display: block;
-
-        animation:
-            menuOpen 0.25s ease;
-    }
-
-    @keyframes menuOpen {
-
-        from {
-            opacity: 0;
-
-            transform:
-                translateY(-10px);
-        }
-
-        to {
-            opacity: 1;
-
-            transform:
-                translateY(0);
-        }
-
-    }
-
-    .mobile-menu-panel a {
-        display: block;
-
-        padding: 13px 15px;
-
-        margin-bottom: 5px;
-
-        border-radius: 10px;
-
-        color: white;
-
-        font-size: 14px;
-
-        font-weight: 700;
-
-        transition: 0.2s ease;
-    }
-
-    .mobile-menu-panel a:hover,
-    .mobile-menu-panel a:active {
-        background: #20a8f5;
-    }
-
-    .mobile-menu-panel a:last-child {
-        margin-bottom: 0;
-    }
-
-}
-
-
-/* =========================================================
-   SMALL MOBILE
-   MAX WIDTH 400px
-========================================================= */
-
-@media (max-width: 400px) {
-
-    .mobile-header {
-        height: 60px;
-
-        padding:
-            7px 12px;
-    }
-
-    .mobile-logo {
-        font-size: 17px;
-    }
-
-    .mobile-logo span {
-        font-size: 14px;
-    }
-
-    .mobile-menu-btn,
-    .mobile-search-btn {
-        width: 38px;
-        height: 38px;
-
-        font-size: 18px;
-    }
-
-    .mobile-welcome {
-        width: 94%;
-
-        min-height: 280px;
-
-        padding:
-            24px 16px;
-    }
-
-    .mobile-welcome-text {
-        width: 60%;
-    }
-
-    .mobile-welcome h1 {
-        font-size: 29px;
-    }
-
-    .mobile-welcome h2 {
-        font-size: 21px;
-    }
-
-    .mobile-description {
-        font-size: 11px;
-    }
-
-    .mobile-doraemon {
-        width: 155px;
-        height: 155px;
-
-        right: -5px;
-        bottom: -5px;
-    }
-
-    .mobile-mausam-name {
-        right: 12px;
-
-        bottom: 155px;
-
-        padding: 6px 9px;
-
-        font-size: 11px;
-    }
-
-    .mobile-mausam-name span:last-child {
-        font-size: 13px;
-    }
-
-    .mobile-quick-menu {
-        width: 94%;
-
-        gap: 6px;
-    }
-
-    .mobile-quick-card {
-        min-height: 78px;
-
-        border-radius: 13px;
-    }
-
-    .quick-icon {
-        font-size: 22px;
-    }
-
-    .mobile-quick-card strong {
-        font-size: 10px;
-    }
-
-    .mobile-section-title {
-        width: 94%;
-
-        margin-top: 27px;
-    }
-
-    .mobile-section-title h2 {
-        font-size: 19px;
-    }
-
-    .mobile-movie-row {
-        width: 94%;
-
-        gap: 9px;
-    }
-
-    .mobile-movie-card {
-        flex-basis: 140px;
-
-        min-width: 140px;
-
-        padding: 8px;
-
-        border-radius: 14px;
-    }
-
-    .mobile-movie-image {
-        height: 115px;
-    }
-
-    .mobile-movie-card h3 {
-        font-size: 12px;
-    }
-
-    .mobile-movie-card p {
-        font-size: 11px;
-    }
-
-    .mobile-movie-card small {
-        font-size: 9px;
-    }
-
-    .mobile-explore-grid {
-        width: 94%;
-
-        gap: 8px;
-    }
-
-    .mobile-explore-card {
-        min-height: 82px;
-
-        border-radius: 14px;
-    }
-
-    .mobile-explore-card span {
-        font-size: 24px;
-    }
-
-    .mobile-explore-card strong {
-        font-size: 11px;
-    }
-
-    .mobile-gadget-row {
-        width: 94%;
-
-        gap: 9px;
-    }
-
-    .mobile-gadget-card {
-        flex-basis: 110px;
-
-        min-width: 110px;
-
-        min-height: 100px;
-
-        border-radius: 14px;
-    }
-
-    .mobile-gadget-card span {
-        font-size: 29px;
-    }
-
-    .mobile-gadget-card strong {
-        font-size: 11px;
-    }
-
-    .mobile-bottom-nav {
-        left: 7px;
-        right: 7px;
-
-        bottom: 7px;
-
-        height: 62px;
-
-        border-radius: 18px;
-    }
-
-    .bottom-nav-item span {
-        font-size: 18px;
-    }
-
-    .bottom-nav-item small {
-        font-size: 8px;
-    }
-
-}
-
-
-/* =========================================================
-   VERY SMALL MOBILE
-   MAX WIDTH 330px
-========================================================= */
-
-@media (max-width: 330px) {
-
-    .mobile-logo {
-        font-size: 15px;
-    }
-
-    .mobile-logo span {
-        font-size: 12px;
-    }
-
-    .mobile-welcome {
-        min-height: 260px;
-
-        padding:
-            22px 14px;
-    }
-
-    .mobile-welcome-text {
-        width: 61%;
-    }
-
-    .mobile-welcome h1 {
-        font-size: 25px;
-    }
-
-    .mobile-welcome h2 {
-        font-size: 19px;
-    }
-
-    .mobile-description {
-        font-size: 10px;
-    }
-
-    .mobile-doraemon {
-        width: 135px;
-        height: 135px;
-    }
-
-    .mobile-mausam-name {
-        right: 9px;
-
-        bottom: 135px;
-
-        padding: 5px 8px;
-
-        font-size: 9px;
-    }
-
-    .mobile-mausam-name span:last-child {
-        font-size: 11px;
-    }
-
-    .mobile-quick-menu {
-        gap: 5px;
-    }
-
-    .mobile-quick-card {
-        min-height: 72px;
-
-        border-radius: 11px;
-    }
-
-    .quick-icon {
-        font-size: 20px;
-    }
-
-    .mobile-quick-card strong {
-        font-size: 8px;
-    }
-
-    .mobile-section-title h2 {
-        font-size: 17px;
-    }
-
-    .mobile-section-title a {
-        font-size: 10px;
-    }
-
-    .mobile-movie-row {
-        gap: 7px;
-    }
-
-    .mobile-movie-card {
-        flex-basis: 130px;
-
-        min-width: 130px;
-
-        padding: 7px;
-    }
-
-    .mobile-movie-image {
-        height: 105px;
-    }
-
-    .mobile-movie-card h3 {
-        font-size: 10px;
-    }
-
-    .mobile-movie-card p {
-        font-size: 10px;
-    }
-
-    .mobile-movie-card small {
-        font-size: 8px;
-    }
-
-    .mobile-explore-grid {
-        gap: 6px;
-    }
-
-    .mobile-explore-card {
-        min-height: 75px;
-    }
-
-    .mobile-explore-card span {
-        font-size: 21px;
-    }
-
-    .mobile-explore-card strong {
-        font-size: 9px;
-    }
-
-    .mobile-gadget-row {
-        gap: 7px;
-    }
-
-    .mobile-gadget-card {
-        flex-basis: 100px;
-
-        min-width: 100px;
-
-        min-height: 92px;
-    }
-
-    .mobile-gadget-card span {
-        font-size: 26px;
-    }
-
-    .mobile-gadget-card strong {
-        font-size: 9px;
-    }
-
-    .mobile-bottom-nav {
-        height: 58px;
-
-        border-radius: 16px;
-    }
-
-    .bottom-nav-item span {
-        font-size: 17px;
-    }
-
-    .bottom-nav-item small {
-        font-size: 7px;
-    }
-
-}
-
-
-/* =========================================================
-   DESKTOP ONLY SAFETY
-========================================================= */
-
-@media (min-width: 701px) {
-
-    .mobile-header,
-    .mobile-home,
-    .mobile-bottom-nav,
-    .mobile-menu-panel {
-        display: none !important;
-    }
-
-}
-
-
-/* =========================================================
-   DESKTOP HEY / MAUSAM HIDDEN
-========================================================= */
-
-.desktop-mausam-name {
-    display: none !important;
-}
-
-
-/* =========================================================
-   DESKTOP HEADER FINAL ALIGNMENT
-========================================================= */
-
-@media (min-width: 701px) {
-
-    .topbar {
-        display: flex;
-
-        align-items: center;
-
-        justify-content: space-between;
-
-        padding-left: 4%;
-        padding-right: 3%;
-    }
-
-    .logo {
-        margin-right: 20px;
-    }
-
-    #nav {
-        margin-left: auto;
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: flex-end;
-
-        gap: 4px;
-    }
-
-}
-
-
-/* =========================================================
-   HERO DORAEMON - FAR RIGHT
-========================================================= */
-
-@media (min-width: 701px) {
-
-    .hero {
-        grid-template-columns: 52% 48%;
-
-        padding-left: 50px;
-        padding-right: 0;
-    }
-
-    .hero-content {
-        max-width: 680px;
-
-        padding-right: 20px;
-    }
-
-    .desktop-doraemon {
-        width: min(460px, 100%);
-
-        max-height: 460px;
-
-        display: block;
-
-        justify-self: end;
-
-        margin-right: -10px;
-
-        object-fit: contain;
-    }
-
-}
-
-
-/* =========================================================
-   LARGE DESKTOP
-========================================================= */
-
-@media (min-width: 1200px) {
-
-    .hero {
-        grid-template-columns: 52% 48%;
-
-        padding-left: 55px;
-        padding-right: 0;
-    }
-
-    .desktop-doraemon {
-        width: 470px;
-
-        max-height: 470px;
-
-        margin-right: -20px;
-    }
-
-}
-
-
-/* =========================================================
-   1050px - 1199px
-========================================================= */
-
-@media (min-width: 701px) and (max-width: 1199px) {
-
-    .hero {
-        grid-template-columns: 51% 49%;
-
-        padding-left: 35px;
-        padding-right: 0;
-    }
-
-    .desktop-doraemon {
-        width: min(390px, 100%);
-
-        max-height: 400px;
-
-        margin-right: -10px;
-    }
-
-}
-
-
-/* =========================================================
-   TOUCH DEVICE
-========================================================= */
-
-@media (hover: none) {
-
-    .feature-card:hover,
-    .gadget-card:hover,
-    .favorite-card:hover {
-        transform: none;
-    }
-
-}
-
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-
-        animation-duration: 0.01ms !important;
-
-        animation-iteration-count: 1 !important;
-
-        transition-duration: 0.01ms !important;
-    }
-
-}
-
-
-/* =========================================================
-   DORAEMON FULL SCREEN CLICK EFFECT
-   4 IMAGES
-========================================================= */
-
-#doraemon-effect {
-    position: fixed;
-
-    inset: 0;
-
-    width: 100vw;
-    height: 100vh;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    background:
-        rgba(255, 255, 255, 0.92);
-
-    z-index: 999999;
-
-    pointer-events: none;
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    overflow: hidden;
-}
-
-
-/* =========================================================
-   DORAEMON EFFECT IMAGE
-========================================================= */
-
-#doraemon-effect img {
-    width: min(85vw, 700px);
-
-    height: min(85vh, 700px);
-
-    object-fit: contain;
-
-    display: block;
-
-    user-select: none;
-
-    -webkit-user-drag: none;
-
-    transform:
-        scale(0.1);
-}
-
-
-/* =========================================================
-   DORAEMON EFFECT SHOW
-========================================================= */
-
-#doraemon-effect.show {
-
-    visibility: visible;
-
-    animation:
-        doraemonScreen 7s ease-in-out forwards;
-}
-
-
-/* =========================================================
-   DORAEMON IMAGE SHOW
-========================================================= */
-
-#doraemon-effect.show img {
-
-    animation:
-        doraemonImage 7s ease-in-out forwards;
-}
-
-
-/* =========================================================
-   FULL SCREEN EFFECT ANIMATION
-========================================================= */
-
-@keyframes doraemonScreen {
-
-    0% {
-        opacity: 0;
-    }
-
-    8% {
-        opacity: 1;
-    }
-
-    88% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-        visibility: hidden;
-    }
-
-}
-
-
-/* =========================================================
-   DORAEMON IMAGE ANIMATION
-========================================================= */
-
-@keyframes doraemonImage {
-
-    0% {
-
-        transform:
-            scale(0.1)
-            rotate(-15deg);
-    }
-
-    12% {
-
-        transform:
-            scale(1.1)
-            rotate(5deg);
-    }
-
-    22% {
-
-        transform:
-            scale(1)
-            rotate(0deg);
-    }
-
-    80% {
-
-        transform:
-            scale(1)
-            rotate(0deg);
-    }
-
-    100% {
-
-        transform:
-            scale(0.8)
-            rotate(5deg);
-    }
-
-}
-
-
-/* =========================================================
-   DORAEMON EFFECT - MOBILE
-========================================================= */
-
-@media (max-width: 700px) {
-
-    #doraemon-effect img {
-
-        width: 90vw;
-
-        height: 80vh;
-    }
-
-}
-
-
-/* =========================================================
-   DORAEMON EFFECT - SMALL MOBILE
-========================================================= */
-
-@media (max-width: 400px) {
-
-    #doraemon-effect img {
-
-        width: 95vw;
-
-        height: 75vh;
-    }
-
-}
-
-
-/* =========================================================
-   END OF DORAEMON WORLD STYLE.CSS
-========================================================= */
-/* =====================================================
-   CLICKABLE GADGET CARDS
-===================================================== */
-
-.gadget-card {
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
-}
-
-.mobile-gadget-card {
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
-}
-/* =========================================================
-   DORAEMON MOTIVATION
-   DESKTOP + MOBILE
-========================================================= */
-
-/* =========================================================
-   DESKTOP MOTIVATION SECTION
-========================================================= */
-
-.motivation-section {
-    width: 92%;
-    max-width: 1250px;
-    margin: 70px auto 60px;
-}
-
-.motivation-section .section-title {
-    text-align: center;
-    margin-bottom: 28px;
-}
-
-.motivation-section .section-title span {
-    display: inline-block;
-    color: #087dcc;
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    margin-bottom: 8px;
-}
-
-.motivation-section .section-title h2 {
-    color: #073b70;
-    font-size: 32px;
-    font-weight: 900;
-    margin: 0 0 8px;
-}
-
-.motivation-section .section-title p {
-    color: #62809a;
-    font-size: 15px;
-    margin: 0;
-}
-
-/* Main motivation card */
-
-.motivation-card {
-    width: 100%;
-    min-height: 300px;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    text-decoration: none;
-    border-radius: 28px;
-    background: linear-gradient(
-        135deg,
-        #ffffff 0%,
-        #eefaff 50%,
-        #dff5ff 100%
-    );
-    border: 1px solid rgba(32, 168, 245, 0.16);
-    box-shadow:
-        0 15px 45px rgba(0, 90, 140, 0.12),
-        0 0 30px rgba(32, 168, 245, 0.06);
-    transition: 0.35s ease;
-}
-
-.motivation-card:hover {
-    transform: translateY(-7px);
-    box-shadow:
-        0 22px 55px rgba(0, 90, 140, 0.18),
-        0 0 35px rgba(32, 168, 245, 0.12);
-}
-
-/* Image */
-
-.motivation-image {
-    width: 40%;
-    min-height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 25px;
-    position: relative;
-    overflow: hidden;
-}
-
-.motivation-image::before {
-    content: "";
-    position: absolute;
-    width: 230px;
-    height: 230px;
-    border-radius: 50%;
-    background: rgba(32, 168, 245, 0.12);
-}
-
-.motivation-image img {
-    width: 230px;
-    height: 230px;
-    object-fit: contain;
-    position: relative;
-    z-index: 2;
-    transition: 0.35s ease;
-    filter: drop-shadow(0 15px 18px rgba(0, 70, 120, 0.15));
-}
-
-.motivation-card:hover .motivation-image img {
-    transform: scale(1.06) rotate(-2deg);
-}
-
-/* Content */
-
-.motivation-content {
-    flex: 1;
-    padding: 45px 55px 45px 20px;
+.dw-home button {
+  cursor: pointer;
 }
 
-.motivation-label {
-    display: inline-flex;
-    align-items: center;
-    padding: 7px 13px;
-    border-radius: 30px;
-    background: #d9f3ff;
-    color: #087dcc;
-    font-size: 12px;
-    font-weight: 900;
-    letter-spacing: 0.7px;
-    margin-bottom: 16px;
+.dw-home img {
+  display: block;
+  max-width: 100%;
 }
 
-.motivation-content h3 {
-    color: #073b70;
-    font-size: 34px;
-    line-height: 1.2;
-    font-weight: 900;
-    margin: 0 0 14px;
+.dw-home [hidden] {
+  display: none !important;
 }
 
-.motivation-content p {
-    max-width: 650px;
-    color: #55758f;
-    font-size: 17px;
-    line-height: 1.7;
-    margin: 0 0 24px;
+.dw-container {
+  width: min(1200px, 92%);
+  margin: 0 auto;
 }
 
-.motivation-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 20px;
-    border-radius: 12px;
-    background: #087dcc;
-    color: white;
-    font-size: 14px;
-    font-weight: 800;
-    box-shadow: 0 8px 20px rgba(8, 125, 204, 0.22);
-    transition: 0.25s ease;
-}
-
-.motivation-card:hover .motivation-button {
-    background: #20a8f5;
-    transform: translateX(4px);
-}
-
-
-/* =========================================================
-   MOBILE MOTIVATION
-========================================================= */
-
-.mobile-section-title {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    margin: 25px 0 14px;
-}
-
-.mobile-section-title h2 {
-    margin: 0;
-    color: #073b70;
-    font-size: 20px;
-    font-weight: 900;
-}
-
-.mobile-section-title a {
-    color: #087dcc;
-    font-size: 13px;
-    font-weight: 800;
-    text-decoration: none;
-    white-space: nowrap;
-}
-
-
-/* Mobile motivation card */
-
-.mobile-motivation-card {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 20px;
-    background: linear-gradient(
-        135deg,
-        #ffffff,
-        #eefaff
-    );
-    border: 1px solid rgba(32, 168, 245, 0.14);
-    box-shadow: 0 10px 28px rgba(0, 70, 120, 0.09);
-    text-decoration: none;
-    overflow: hidden;
-    transition: 0.25s ease;
-}
-
-.mobile-motivation-card:active {
-    transform: scale(0.98);
-}
-
-
-/* Mobile image */
-
-.mobile-motivation-image {
-    width: 105px;
-    min-width: 105px;
-    height: 115px;
-    border-radius: 17px;
-    background: #e4f7ff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-.mobile-motivation-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-
-/* Mobile content */
-
-.mobile-motivation-content {
-    min-width: 0;
-    flex: 1;
-}
-
-.mobile-motivation-label {
-    display: inline-block;
-    color: #087dcc;
-    font-size: 9px;
-    font-weight: 900;
-    letter-spacing: 0.5px;
-    margin-bottom: 5px;
-}
-
-.mobile-motivation-content h3 {
-    color: #073b70;
-    font-size: 17px;
-    font-weight: 900;
-    line-height: 1.25;
-    margin: 0 0 5px;
-}
-
-.mobile-motivation-content p {
-    color: #638097;
-    font-size: 11px;
-    line-height: 1.45;
-    margin: 0 0 9px;
-
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    overflow: hidden;
-}
-
-.mobile-motivation-button {
-    color: #087dcc;
-    font-size: 11px;
-    font-weight: 900;
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width: 1000px) {
-
-    .motivation-content {
-        padding: 35px 35px 35px 10px;
-    }
-
-    .motivation-content h3 {
-        font-size: 28px;
-    }
-
-    .motivation-content p {
-        font-size: 15px;
-    }
-
-    .motivation-image {
-        width: 38%;
-    }
-
-    .motivation-image img {
-        width: 200px;
-        height: 200px;
-    }
-
-    .motivation-image::before {
-        width: 200px;
-        height: 200px;
-    }
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 700px) {
-
-    /* Hide desktop motivation */
-
-    .motivation-section {
-        display: none !important;
-    }
-
-    /* Mobile motivation */
-
-    .mobile-motivation-card {
-        display: flex;
-    }
-
-}
-
-
-/* =========================================================
-   VERY SMALL MOBILE
-========================================================= */
-
-@media (max-width: 380px) {
-
-    .mobile-motivation-card {
-        gap: 10px;
-        padding: 12px;
-    }
-
-    .mobile-motivation-image {
-        width: 90px;
-        min-width: 90px;
-        height: 100px;
-    }
-
-    .mobile-motivation-content h3 {
-        font-size: 15px;
-    }
-
-    .mobile-motivation-content p {
-        font-size: 10px;
-    }
-
-    .mobile-section-title h2 {
-        font-size: 18px;
-    }
-
-} 
-/* =========================================================
-   MAUSAM'S HIDDEN CORNER
-========================================================= */
+/* HEADER */
 
-.hidden-corner-section {
-    padding: 70px 20px;
-    background:
-        radial-gradient(
-            circle at 20% 50%,
-            rgba(32, 168, 245, 0.08),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 80% 50%,
-            rgba(255, 145, 190, 0.08),
-            transparent 30%
-        ),
-        #f8fcff;
+.dw-header {
+  height: 76px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(239, 250, 255, .96);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid #c8ecff;
 }
 
-.hidden-corner-card {
-    position: relative;
-    width: 100%;
-    max-width: 1050px;
-    min-height: 280px;
-    margin: auto;
-    padding: 45px 55px;
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    overflow: hidden;
-    border-radius: 28px;
-    background:
-        linear-gradient(
-            135deg,
-            #ffffff,
-            #f2faff 55%,
-            #fff5fa
-        );
-    border: 1px solid rgba(32, 168, 245, 0.13);
-    box-shadow:
-        0 25px 70px rgba(8, 100, 150, 0.10);
-    transition: 0.35s ease;
+.dw-header-inner {
+  max-width: 1300px;
+  height: 100%;
+  margin: auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
 }
 
-.hidden-corner-card:hover {
-    transform: translateY(-6px);
-    box-shadow:
-        0 32px 80px rgba(8, 100, 150, 0.15);
+.dw-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
 }
 
-.hidden-corner-glow {
-    position: absolute;
-    width: 260px;
-    height: 260px;
-    right: -80px;
-    top: -90px;
-    border-radius: 50%;
-    background: rgba(32, 168, 245, 0.08);
-    filter: blur(10px);
-    pointer-events: none;
+.dw-logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid #006acb;
+  object-fit: contain;
 }
 
-.hidden-corner-icon {
-    position: relative;
-    z-index: 2;
-    flex-shrink: 0;
-    width: 125px;
-    height: 125px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background:
-        linear-gradient(
-            135deg,
-            #e8f8ff,
-            #fff0f7
-        );
-    font-size: 58px;
-    box-shadow:
-        0 15px 40px rgba(32, 168, 245, 0.12);
-    animation: hiddenCornerFloat 3s ease-in-out infinite;
+.dw-logo span {
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+  font-weight: 1000;
+  color: #083d9c;
+  line-height: .9;
+  letter-spacing: -1px;
 }
 
-@keyframes hiddenCornerFloat {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-8px);
-    }
-
-}
-
-.hidden-corner-content {
-    position: relative;
-    z-index: 2;
-    flex: 1;
-}
-
-.hidden-corner-label {
-    display: inline-block;
-    margin-bottom: 8px;
-    color: #20a8f5;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2.5px;
-}
-
-.hidden-corner-content h2 {
-    margin-bottom: 12px;
-    color: #07558d;
-    font-size: 32px;
-    line-height: 1.2;
-}
-
-.hidden-corner-content p {
-    max-width: 650px;
-    margin-bottom: 23px;
-    color: #647b89;
-    font-size: 14px;
-    line-height: 1.8;
-}
-
-.hidden-corner-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px 20px;
-    border-radius: 12px;
-    background:
-        linear-gradient(
-            135deg,
-            #087dcc,
-            #20a8f5
-        );
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 12px;
-    font-weight: 700;
-    box-shadow:
-        0 10px 25px rgba(8, 125, 204, 0.20);
-    transition: 0.25s ease;
-}
-
-.hidden-corner-button span {
-    font-size: 16px;
-    transition: 0.25s ease;
-}
-
-.hidden-corner-button:hover {
-    transform: translateY(-2px);
-    box-shadow:
-        0 15px 30px rgba(8, 125, 204, 0.28);
-}
-
-.hidden-corner-button:hover span {
-    transform: translateX(4px);
-}
-
-.hidden-corner-decoration {
-    position: absolute;
-    z-index: 1;
-    opacity: 0.55;
-    pointer-events: none;
-}
-
-.decoration-one {
-    top: 25px;
-    right: 210px;
-    font-size: 20px;
-    animation: hiddenDecoration 4s ease-in-out infinite;
-}
-
-.decoration-two {
-    right: 55px;
-    bottom: 35px;
-    font-size: 27px;
-    animation: hiddenDecoration 4s ease-in-out infinite 1s;
-}
-
-.decoration-three {
-    left: 38%;
-    bottom: 22px;
-    font-size: 19px;
-    animation: hiddenDecoration 4s ease-in-out infinite 2s;
-}
-
-@keyframes hiddenDecoration {
-
-    0%,
-    100% {
-        transform: translateY(0) rotate(0deg);
-    }
-
-    50% {
-        transform: translateY(-10px) rotate(6deg);
-    }
-
+.dw-logo strong {
+  color: #ffcf00;
+  text-shadow: 1px 2px #0756b6;
+  text-align: center;
 }
 
-
-/* =========================================================
-   HIDDEN CORNER MOBILE
-========================================================= */
-
-@media (max-width: 700px) {
-
-    .hidden-corner-section {
-        padding: 45px 15px 80px;
-    }
-
-    .hidden-corner-card {
-        min-height: auto;
-        padding: 35px 22px;
-        flex-direction: column;
-        gap: 22px;
-        text-align: center;
-        border-radius: 23px;
-    }
-
-    .hidden-corner-icon {
-        width: 90px;
-        height: 90px;
-        font-size: 42px;
-    }
-
-    .hidden-corner-label {
-        font-size: 8px;
-        letter-spacing: 2px;
-    }
-
-    .hidden-corner-content h2 {
-        font-size: 25px;
-    }
-
-    .hidden-corner-content p {
-        font-size: 13px;
-        line-height: 1.75;
-        margin-bottom: 20px;
-    }
-
-    .hidden-corner-button {
-        padding: 11px 17px;
-        font-size: 11px;
-    }
-
-    .decoration-one {
-        top: 18px;
-        right: 25px;
-        font-size: 16px;
-    }
-
-    .decoration-two {
-        right: 20px;
-        bottom: 20px;
-        font-size: 21px;
-    }
-
-    .decoration-three {
-        left: 20px;
-        bottom: 20px;
-        font-size: 16px;
-    }
-
-}
-/* SAME MOBILE MENU COLOURS ON ALL PAGES */
-@media (max-width: 700px) {
-    .mobile-menu-panel {
-        background: rgba(6, 77, 135, 0.98) !important;
-        border-color: transparent !important;
-    }
-
-    .mobile-menu-panel a {
-        color: #ffffff !important;
-    }
-
-    .mobile-menu-panel a:hover,
-    .mobile-menu-panel a:active,
-    .mobile-menu-panel a.active,
-    .mobile-menu-panel a:focus-visible {
-        background: #20a8f5 !important;
-        color: #ffffff !important;
-    }
+.dw-desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 3px;
 }
-/* =====================================================
-   HOME — MOBILE SEARCH
-===================================================== */
-
-.dw-search[hidden] {
-    display: none !important;
-}
-
-.dw-search {
-    position: fixed;
-    top: var(--search-top, 65px);
-    left: 10px;
-    right: 10px;
-    z-index: 99999;
-
-    max-width: 560px;
-    margin: 0 auto;
-    padding: 12px;
-
-    background: white;
-    border: 1px solid #b9e4ff;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 70, 130, 0.18);
-
-    font-family: Arial, sans-serif;
-}
-
-.dw-search-form {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-
-    margin: 0;
-    padding: 5px 10px;
-
-    background: #f0f9ff;
-    border: 1.5px solid #89cfff;
-    border-radius: 10px;
-}
-
-.dw-search-input {
-    flex: 1;
-    min-width: 0;
-    padding: 10px 4px;
-
-    background: transparent;
-    border: none;
-    outline: none;
-
-    color: #123955;
-    font-size: 16px;
-}
-
-.dw-search-close {
-    width: 32px;
-    height: 32px;
-
-    border: none;
-    border-radius: 8px;
-    background: #dcedfa;
 
-    color: #174364;
-    font-size: 18px;
-    cursor: pointer;
+.dw-desktop-nav a {
+  padding: 10px 13px;
+  font-size: 13px;
+  font-weight: 900;
+  border-radius: 30px;
+  white-space: nowrap;
+  transition: .25s;
+}
+
+.dw-desktop-nav a.active,
+.dw-desktop-nav a:hover {
+  background: var(--dw-primary);
+  color: white;
+}
+
+.dw-icon-button {
+  width: 42px;
+  height: 42px;
+  border: 0;
+  background: transparent;
+  color: var(--dw-navy);
+  font-size: 21px;
+  border-radius: 13px;
+}
+
+.dw-menu-button {
+  display: none;
+}
+
+/* SEARCH */
+
+.dw-search-panel {
+  position: fixed;
+  z-index: 130;
+  top: 83px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(530px, 92%);
+  background: white;
+  padding: 14px;
+  border-radius: 20px;
+  box-shadow: 0 15px 45px #0058ae35;
+}
+
+.dw-search-panel input {
+  width: 100%;
+  padding: 13px 15px;
+  border: 2px solid #d1eaff;
+  border-radius: 13px;
+  outline: none;
+}
+
+.dw-search-panel input:focus {
+  border-color: var(--dw-primary);
 }
 
 .dw-search-results {
-    max-height: 45vh;
-    overflow-y: auto;
-    padding-top: 6px;
+  margin-top: 8px;
 }
 
-.dw-search-result {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px;
-
-    border-bottom: 1px solid #edf3f8;
-    border-radius: 8px;
-
-    color: #174364;
-    text-decoration: none;
+.dw-search-results a,
+.dw-search-results p {
+  display: block;
+  padding: 11px;
+  border-radius: 10px;
+  margin: 0;
+  font-weight: 800;
 }
 
-.dw-search-result:hover,
-.dw-search-result:focus-visible {
-    background: #eaf6ff;
+.dw-search-results a:hover {
+  background: #e9f6ff;
 }
 
-.dw-search-result-icon {
-    font-size: 21px;
+/* MOBILE DRAWER */
+
+.dw-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: #00173385;
+  z-index: 190;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
 }
 
-.dw-search-result-text {
-    flex: 1;
-    min-width: 0;
+.dw-menu-overlay.open {
+  opacity: 1;
+  visibility: visible;
 }
 
-.dw-search-result-text strong {
+.dw-mobile-menu {
+  position: fixed;
+  z-index: 200;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: min(320px, 85vw);
+  padding: 24px;
+  background: #f3fbff;
+  transform: translateX(-105%);
+  transition: transform .35s ease;
+  overflow-y: auto;
+  box-shadow: 8px 0 40px #001c5230;
+}
+
+.dw-mobile-menu.open {
+  transform: translateX(0);
+}
+
+.dw-menu-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.dw-menu-heading strong {
+  font-size: 19px;
+}
+
+.dw-menu-heading button {
+  border: 0;
+  background: white;
+  border-radius: 10px;
+  padding: 8px 12px;
+}
+
+.dw-mobile-menu > a {
+  display: block;
+  background: white;
+  margin: 8px 0;
+  padding: 14px 16px;
+  border-radius: 14px;
+  font-weight: 900;
+  border: 1px solid #e2efff;
+}
+
+/* HERO */
+
+.dw-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 520px;
+  background:
+    radial-gradient(circle at 75% 12%, #ffffff8c, transparent 22%),
+    linear-gradient(180deg, #0c9aff 0%, #6bcfff 70%, #bbf2ff 100%);
+}
+
+.dw-hero-inner {
+  position: relative;
+  z-index: 2;
+  width: min(1240px, 94%);
+  min-height: 520px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 48% 52%;
+  align-items: center;
+}
+
+.dw-hero-copy {
+  padding: 50px 0 70px;
+  position: relative;
+  z-index: 5;
+}
+
+.dw-welcome {
+  width: max-content;
+  font-size: clamp(25px, 3vw, 40px);
+  font-weight: 1000;
+  color: white;
+  -webkit-text-stroke: 1px #0454ac;
+  text-shadow: 3px 4px #064ca5;
+  transform: rotate(-3deg);
+  margin-left: 20px;
+}
+
+.dw-hero-title {
+  font-size: clamp(56px, 6vw, 92px);
+  line-height: .98;
+  margin: 8px 0 24px;
+  font-weight: 1000;
+  letter-spacing: -3px;
+  transform: rotate(-2deg);
+}
+
+.dw-hero-title span,
+.dw-hero-title strong {
+  display: block;
+  width: fit-content;
+  -webkit-text-stroke: 2px white;
+  paint-order: stroke fill;
+  text-shadow:
+    3px 3px #0751b8,
+    -3px -3px #0751b8,
+    5px 7px #043b89;
+}
+
+.dw-hero-title span {
+  color: white;
+}
+
+.dw-hero-title strong {
+  color: #ffdf27;
+  margin-left: 45px;
+}
+
+.dw-hero-title i {
+  font-size: .45em;
+  color: #ffcf00;
+  -webkit-text-stroke: 1px #0751b8;
+}
+
+.dw-hero-copy > p {
+  max-width: 470px;
+  font-size: 19px;
+  line-height: 1.6;
+  font-weight: 900;
+  color: #073269;
+  margin: 0 0 25px;
+}
+
+.dw-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.dw-btn {
+  min-height: 52px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 23px;
+  border-radius: 40px;
+  font-size: 15px;
+  font-weight: 1000;
+  border: 2px solid white;
+  box-shadow: 0 5px 12px #005ba12e;
+  transition: .25s;
+}
+
+.dw-btn:hover {
+  transform: translateY(-4px);
+}
+
+.dw-btn-yellow {
+  background: #ffda18;
+  color: #08235c;
+}
+
+.dw-btn-white {
+  background: white;
+  color: #0755c4 !important;
+  border-color: #076cf1;
+}
+
+.dw-hero-art {
+  height: 500px;
+  position: relative;
+  align-self: end;
+}
+
+.dw-art-glow {
+  position: absolute;
+  width: 80%;
+  height: 72%;
+  left: 10%;
+  bottom: 0;
+  border-radius: 50%;
+  background: radial-gradient(#ffffffb0, transparent 68%);
+}
+
+.dw-character {
+  position: absolute;
+  object-fit: contain;
+  object-position: bottom;
+  filter: drop-shadow(0 9px 8px #0054a640);
+}
+
+.dw-doraemon {
+  width: 61%;
+  height: 89%;
+  left: 24%;
+  bottom: 1%;
+  z-index: 5;
+  animation: dwFloat 4s ease-in-out infinite;
+}
+
+.dw-nobita {
+  width: 27%;
+  height: 56%;
+  left: 8%;
+  top: 6%;
+  z-index: 3;
+  transform: rotate(-8deg);
+}
+
+.dw-shizuka {
+  width: 24%;
+  height: 47%;
+  left: 3%;
+  bottom: 0;
+  z-index: 6;
+}
+
+.dw-gian {
+  width: 28%;
+  height: 53%;
+  right: 5%;
+  top: 0;
+  z-index: 2;
+}
+
+.dw-suneo {
+  width: 23%;
+  height: 47%;
+  right: 0;
+  bottom: 0;
+  z-index: 6;
+}
+
+.dw-takecopter {
+  position: absolute;
+  width: 66px;
+  height: 56px;
+  object-fit: contain;
+  border-radius: 50%;
+  right: 28%;
+  top: 0;
+  z-index: 7;
+  transform: rotate(-15deg);
+  box-shadow: 0 5px 14px #064e9b22;
+}
+
+.dw-hero-cloud {
+  position: absolute;
+  width: 250px;
+  height: 62px;
+  background: #ffffff80;
+  border-radius: 70px;
+  filter: blur(8px);
+  animation: dwCloud 9s ease-in-out infinite alternate;
+}
+
+.cloud-one {
+  top: 90px;
+  left: -60px;
+}
+
+.cloud-two {
+  top: 45px;
+  right: 12%;
+}
+
+.dw-hills {
+  position: absolute;
+  height: 100px;
+  bottom: 0;
+  width: 100%;
+  background:
+    radial-gradient(ellipse at 20% 100%, #68cd7d 0 42%, transparent 43%),
+    radial-gradient(ellipse at 80% 110%, #37bb79 0 45%, transparent 46%);
+  opacity: .85;
+}
+
+.dw-hero-bottom-clouds {
+  position: absolute;
+  z-index: 3;
+  bottom: -28px;
+  width: 100%;
+  height: 70px;
+  background: radial-gradient(
+    circle at 35px 42px,
+    white 43px,
+    transparent 44px
+  ) repeat-x;
+  background-size: 82px 85px;
+}
+
+@keyframes dwFloat {
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes dwCloud {
+  to { transform: translateX(45px); }
+}
+
+/* SHORTCUTS */
+
+.dw-shortcuts {
+  width: min(1220px, 94%);
+  margin: -6px auto 0;
+  padding: 19px;
+  position: relative;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 13px;
+  background: white;
+  border-radius: 32px;
+  box-shadow: var(--dw-shadow);
+}
+
+.dw-shortcut {
+  position: relative;
+  min-height: 130px;
+  padding: 15px 5px;
+  border: 2px solid white;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  box-shadow: 0 5px 0 #8dcdf84d;
+  transition: .25s;
+}
+
+.dw-shortcut:hover {
+  transform: translateY(-6px);
+}
+
+.dw-shortcut-icon {
+  font-size: 38px;
+  line-height: 1.3;
+}
+
+.dw-shortcut-image {
+  width: 47px;
+  height: 47px;
+  object-fit: contain;
+  border-radius: 50%;
+  mix-blend-mode: multiply;
+}
+
+.dw-shortcut strong {
+  font-size: 18px;
+  font-weight: 1000;
+}
+
+.dw-shortcut small {
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.dw-pink {
+  background: linear-gradient(145deg, #fff4fa, #ffd2ea);
+}
+
+.dw-blue {
+  background: linear-gradient(145deg, #effbff, #bdeaff);
+}
+
+.dw-yellow {
+  background: linear-gradient(145deg, #fffcef, #ffefb4);
+}
+
+.dw-green {
+  background: linear-gradient(145deg, #effff9, #aaf5d5);
+}
+
+.dw-cyan {
+  background: linear-gradient(145deg, #e8faff, #b6edff);
+}
+
+.dw-purple {
+  background: linear-gradient(145deg, #f6f0ff, #e4c9ff);
+}
+
+/* SECTION */
+
+.dw-section {
+  padding-top: 50px;
+}
+
+.dw-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.dw-section-heading h2 {
+  font-size: clamp(21px, 3vw, 32px);
+  margin: 0;
+  font-weight: 1000;
+  letter-spacing: -.7px;
+}
+
+.dw-see-all {
+  border: 2px solid #0884ff;
+  background: white;
+  color: #0064d9 !important;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-weight: 1000;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* MOVIES */
+
+.dw-movie-scroll {
+  display: flex;
+  gap: 17px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 4px 2px 15px;
+  scrollbar-width: none;
+}
+
+.dw-movie-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.dw-movie-card {
+  flex: 0 0 215px;
+  min-width: 0;
+  border-radius: 19px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 4px 13px #03417925;
+  scroll-snap-align: start;
+  transition: .25s;
+}
+
+.dw-movie-card:hover {
+  transform: translateY(-5px);
+}
+
+.dw-movie-poster {
+  height: 135px;
+  position: relative;
+  overflow: hidden;
+  background: #c1eaff;
+}
+
+.dw-movie-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: .4s;
+}
+
+.dw-movie-card:hover img {
+  transform: scale(1.06);
+}
+
+.dw-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 39px;
+  height: 39px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #07417bbd;
+  border: 2px solid white;
+  color: white;
+  font-size: 14px;
+}
+
+.dw-movie-info {
+  padding: 13px;
+}
+
+.dw-movie-info h3 {
+  font-size: 14px;
+  line-height: 1.35;
+  font-weight: 1000;
+  min-height: 38px;
+  margin: 0 0 7px;
+}
+
+.dw-movie-info span {
+  display: inline-block;
+  background: #087cf5;
+  color: white;
+  font-size: 11px;
+  font-weight: 1000;
+  border-radius: 15px;
+  padding: 3px 11px;
+}
+
+.dw-dots {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  padding-top: 6px;
+}
+
+.dw-dots span {
+  width: 7px;
+  height: 7px;
+  background: #a6d8ff;
+  border-radius: 20px;
+  transition: .2s;
+}
+
+.dw-dots span.active {
+  width: 22px;
+  background: #0874f9;
+}
+
+/* GADGET BANNER */
+
+.dw-gadgets-section {
+  padding-top: 30px;
+}
+
+.dw-gadgets-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 180px;
+  padding: 22px 30px;
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 80% 10%, #ffffff80, transparent 28%),
+    linear-gradient(115deg, #058dec, #77d9ff);
+  border: 4px solid white;
+  box-shadow: var(--dw-shadow);
+  overflow: hidden;
+}
+
+.dw-gadget-door {
+  width: 120px;
+  height: 125px;
+  border-radius: 15px;
+  object-fit: contain;
+  background: #fff7;
+}
+
+.dw-gadgets-copy {
+  flex: 1;
+}
+
+.dw-gadgets-copy small {
+  font-size: 13px;
+  font-weight: 900;
+  color: white;
+}
+
+.dw-gadgets-copy h2 {
+  color: white;
+  font-size: clamp(22px, 3.1vw, 37px);
+  font-weight: 1000;
+  line-height: 1.15;
+  margin: 5px 0 12px;
+  text-shadow: 2px 3px #0055ab;
+}
+
+.dw-gadgets-copy h2 strong {
+  display: block;
+  color: #ffeb32;
+}
+
+.dw-gadgets-copy > span {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  background: white;
+  color: #0874f9;
+  font-weight: 1000;
+  border-radius: 20px;
+  padding: 7px 14px;
+}
+
+.dw-gadget-bubbles {
+  display: flex;
+  gap: 12px;
+}
+
+.dw-gadget-bubbles img {
+  width: 85px;
+  height: 85px;
+  object-fit: cover;
+  border: 4px solid white;
+  border-radius: 50%;
+  background: #fff;
+}
+
+/* MOTIVATION */
+
+.dw-motivation-card {
+  position: relative;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 25px 35px;
+  border-radius: 29px;
+  background: linear-gradient(110deg, #0868db, #22b8fa);
+  box-shadow: var(--dw-shadow);
+}
+
+.dw-motivation-text {
+  position: relative;
+  z-index: 2;
+  width: 68%;
+  color: white;
+}
+
+.dw-motivation-text > span:first-child {
+  font-size: 12px;
+  font-weight: 1000;
+}
+
+.dw-motivation-text h3 {
+  font-size: 31px;
+  margin: 10px 0;
+  font-weight: 1000;
+}
+
+.dw-motivation-text p {
+  font-size: 15px;
+  line-height: 1.5;
+  max-width: 490px;
+  margin: 0 0 18px;
+}
+
+.dw-motivation-action {
+  font-size: 13px;
+  font-weight: 1000;
+  color: #ffeb3c;
+}
+
+.dw-motivation-card > img {
+  width: 235px;
+  max-height: 215px;
+  object-fit: contain;
+  position: absolute;
+  bottom: -12px;
+  right: 5%;
+}
+
+/* EXPLORE */
+
+.dw-explore-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.dw-explore-card {
+  min-height: 200px;
+  padding: 22px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid white;
+  border-radius: 28px;
+  box-shadow: var(--dw-shadow);
+  transition: .25s;
+}
+
+.dw-explore-card:hover {
+  transform: translateY(-5px);
+}
+
+.dw-explore-card > span {
+  font-size: 48px;
+}
+
+.dw-explore-card h3 {
+  font-weight: 1000;
+  font-size: 23px;
+  margin: 10px 0 3px;
+}
+
+.dw-explore-card p {
+  font-size: 13px;
+  font-weight: 800;
+  margin: 0;
+}
+
+/* END BANNER */
+
+.dw-ending {
+  margin-top: 60px;
+  background:
+    radial-gradient(circle at 10% 100%, #99e88e 0 10%, transparent 30%),
+    linear-gradient(#a7e8ff, #e0fbff);
+}
+
+.dw-ending-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 275px;
+  gap: 15px;
+  overflow: hidden;
+}
+
+.dw-ending-copy span {
+  font-weight: 900;
+  color: #0874f9;
+}
+
+.dw-ending-copy h2 {
+  font-size: clamp(26px, 4vw, 48px);
+  font-weight: 1000;
+  margin: 8px 0;
+}
+
+.dw-ending-copy p {
+  font-size: 17px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.dw-ending-inner img {
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
+  align-self: end;
+}
+
+.dw-footer {
+  text-align: center;
+  padding: 22px 15px 28px;
+  background: #0751a3;
+  color: white;
+}
+
+.dw-footer p {
+  font-weight: 1000;
+  margin: 0 0 6px;
+}
+
+.dw-footer small {
+  font-size: 11px;
+}
+
+.dw-bottom-nav {
+  display: none;
+}
+
+/* TABLET */
+
+@media (max-width: 1050px) {
+  .dw-desktop-nav {
+    gap: 0;
+  }
+
+  .dw-desktop-nav a {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .dw-hero-title {
+    font-size: 65px;
+  }
+
+  .dw-shortcut strong {
+    font-size: 15px;
+  }
+
+  .dw-shortcut small {
+    font-size: 10px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 780px) {
+
+  .dw-header {
+    height: 68px;
+  }
+
+  .dw-header-inner {
+    padding: 0 13px;
+  }
+
+  .dw-menu-button {
     display: block;
+  }
+
+  .dw-desktop-nav {
+    display: none;
+  }
+
+  .dw-logo {
+    gap: 7px;
+  }
+
+  .dw-logo img {
+    width: 41px;
+    height: 41px;
+  }
+
+  .dw-logo span {
+    font-size: 19px;
+  }
+
+  .dw-icon-button {
+    width: 36px;
+    font-size: 20px;
+  }
+
+  .dw-search-panel {
+    top: 75px;
+  }
+
+  /* MOBILE HERO */
+
+  .dw-hero {
+    min-height: 540px;
+  }
+
+  .dw-hero-inner {
+    display: block;
+    width: 100%;
+    min-height: 540px;
+  }
+
+  .dw-hero-copy {
+    padding: 32px 18px 0;
+  }
+
+  .dw-welcome {
+    font-size: 25px;
+    margin-left: 14px;
+  }
+
+  .dw-hero-title {
+    font-size: clamp(44px, 11vw, 68px);
+    letter-spacing: -2px;
+    margin: 8px 0 14px;
+  }
+
+  .dw-hero-title strong {
+    margin-left: 27px;
+  }
+
+  .dw-hero-copy > p {
+    max-width: 235px;
     font-size: 14px;
+    line-height: 1.45;
+    margin-top: 12px;
+  }
+
+  .dw-hero-art {
+    position: absolute;
+    top: 85px;
+    right: -8px;
+    width: 72%;
+    height: 375px;
+  }
+
+  .dw-doraemon {
+    width: 77%;
+    height: 80%;
+    left: 24%;
+    bottom: 1%;
+  }
+
+  .dw-nobita {
+    width: 33%;
+    height: 40%;
+    left: 1%;
+    top: 15%;
+  }
+
+  .dw-shizuka {
+    width: 30%;
+    height: 38%;
+    left: 1%;
+    bottom: 0;
+  }
+
+  .dw-gian {
+    width: 33%;
+    height: 37%;
+    top: 0;
+    right: 2%;
+  }
+
+  .dw-suneo {
+    width: 29%;
+    height: 35%;
+    right: 0;
+    bottom: 0;
+  }
+
+  .dw-takecopter {
+    width: 42px;
+    height: 40px;
+    right: 26%;
+    top: 0;
+  }
+
+  .dw-hero-actions {
+    position: absolute;
+    top: 452px;
+    left: 12px;
+    right: 12px;
+    z-index: 20;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .dw-btn {
+    font-size: 12px;
+    padding: 12px 7px;
+    min-height: 45px;
+    white-space: nowrap;
+    gap: 6px;
+  }
+
+  .dw-hero-bottom-clouds {
+    bottom: -22px;
+  }
+
+  /* MOBILE SHORTCUTS */
+
+  .dw-shortcuts {
+    width: 94%;
+    margin: -2px auto 0;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    border-radius: 24px;
+  }
+
+  .dw-shortcut {
+    min-height: 115px;
+    border-radius: 22px;
+    gap: 3px;
+  }
+
+  .dw-shortcut-icon {
+    font-size: 33px;
+  }
+
+  .dw-shortcut-image {
+    width: 39px;
+    height: 39px;
+  }
+
+  .dw-shortcut strong {
+    font-size: 15px;
+  }
+
+  .dw-shortcut small {
+    display: none;
+  }
+
+  /* MOBILE MOVIES */
+
+  .dw-section {
+    padding-top: 34px;
+  }
+
+  .dw-container {
+    width: 94%;
+  }
+
+  .dw-section-heading {
+    margin-bottom: 16px;
+  }
+
+  .dw-section-heading h2 {
+    font-size: 22px;
+  }
+
+  .dw-see-all {
+    font-size: 11px;
+    padding: 7px 12px;
+  }
+
+  .dw-movie-scroll {
+    gap: 11px;
+    padding-bottom: 13px;
+  }
+
+  .dw-movie-card {
+    flex-basis: 150px;
+    border-radius: 17px;
+  }
+
+  .dw-movie-poster {
+    height: 115px;
+  }
+
+  .dw-movie-info {
+    padding: 10px;
+  }
+
+  .dw-movie-info h3 {
+    font-size: 12px;
+    min-height: 48px;
+  }
+
+  .dw-movie-info span {
+    font-size: 10px;
+  }
+
+  /* MOBILE GADGETS */
+
+  .dw-gadgets-section {
+    padding-top: 20px;
+  }
+
+  .dw-gadgets-banner {
+    position: relative;
+    min-height: 155px;
+    padding: 15px;
+    gap: 10px;
+    border-radius: 24px;
+  }
+
+  .dw-gadget-door {
+    width: 77px;
+    height: 105px;
+    flex-shrink: 0;
+  }
+
+  .dw-gadgets-copy small {
+    font-size: 10px;
+  }
+
+  .dw-gadgets-copy h2 {
+    font-size: 18px;
+    line-height: 1.2;
+  }
+
+  .dw-gadgets-copy > span {
+    font-size: 10px;
+    padding: 5px 9px;
+  }
+
+  .dw-gadget-bubbles {
+    display: none;
+  }
+
+  /* MOBILE MOTIVATION */
+
+  .dw-motivation-card {
+    min-height: 185px;
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .dw-motivation-text {
+    width: 70%;
+  }
+
+  .dw-motivation-text h3 {
+    font-size: 23px;
+    margin: 8px 0;
+  }
+
+  .dw-motivation-text p {
+    font-size: 12px;
+  }
+
+  .dw-motivation-text > span:first-child {
+    font-size: 10px;
+  }
+
+  .dw-motivation-action {
+    font-size: 11px;
+  }
+
+  .dw-motivation-card > img {
+    width: 135px;
+    max-height: 170px;
+    right: -13px;
+  }
+
+  /* MOBILE EXPLORE */
+
+  .dw-explore-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .dw-explore-card {
+    min-height: 150px;
+    padding: 14px 8px;
+    border-radius: 23px;
+  }
+
+  .dw-explore-card > span {
+    font-size: 39px;
+  }
+
+  .dw-explore-card h3 {
+    font-size: 19px;
+  }
+
+  .dw-explore-card p {
+    font-size: 11px;
+  }
+
+  /* MOBILE END BANNER */
+
+  .dw-ending {
+    margin-top: 34px;
+  }
+
+  .dw-ending-inner {
+    min-height: 240px;
+  }
+
+  .dw-ending-copy {
+    z-index: 2;
+  }
+
+  .dw-ending-copy span {
+    font-size: 11px;
+  }
+
+  .dw-ending-copy h2 {
+    font-size: 25px;
+    max-width: 230px;
+  }
+
+  .dw-ending-copy p {
+    font-size: 12px;
+  }
+
+  .dw-ending-inner img {
+    width: 150px;
+    height: 190px;
+    margin-right: -18px;
+  }
+
+  .dw-footer {
+    padding-bottom: 110px;
+  }
+
+  /* BOTTOM NAV */
+
+  .dw-bottom-nav {
+    position: fixed;
+    z-index: 95;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    min-height: 72px;
+    padding: 9px 6px max(9px, env(safe-area-inset-bottom));
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    background: #fffffffa;
+    box-shadow: 0 -5px 25px #06468e18;
+    border-radius: 21px 21px 0 0;
+  }
+
+  .dw-bottom-nav a,
+  .dw-bottom-nav button {
+    border: 0;
+    background: none;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    color: #092957;
+    font-size: 11px;
+    font-weight: 1000;
+  }
+
+  .dw-bottom-nav i {
+    font-size: 21px;
+    height: 29px;
+    min-width: 47px;
+    display: grid;
+    place-items: center;
+    border-radius: 22px;
+  }
+
+  .dw-bottom-nav .active {
+    color: #0072f8;
+  }
+
+  .dw-bottom-nav .active i {
+    color: white;
+    background: linear-gradient(135deg, #00a6ff, #0052e8);
+  }
 }
 
-.dw-search-result-text small {
-    display: block;
-    margin-top: 3px;
-    color: #69849c;
-    font-size: 12px;
+/* SMALL PHONES */
+
+@media (max-width: 375px) {
+  .dw-hero {
+    min-height: 510px;
+  }
+
+  .dw-hero-inner {
+    min-height: 510px;
+  }
+
+  .dw-hero-title {
+    font-size: 43px;
+  }
+
+  .dw-hero-art {
+    top: 102px;
+    height: 330px;
+  }
+
+  .dw-hero-actions {
+    top: 430px;
+  }
+
+  .dw-shortcut {
+    min-height: 103px;
+  }
+
+  .dw-shortcut strong {
+    font-size: 13px;
+  }
+
+  .dw-movie-card {
+    flex-basis: 137px;
+  }
 }
 
-.dw-search-status {
-    margin: 0;
-    padding: 5px 10px;
-    color: #69849c;
-    font-size: 12px;
+@media (prefers-reduced-motion: reduce) {
+  .dw-home *,
+  .dw-home *::before,
+  .dw-home *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
