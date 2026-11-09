@@ -1,11 +1,19 @@
 
+<<<<<<< HEAD
 /* =========================================
    DORAEMON WORLD - HOMEPAGE JAVASCRIPT
 ========================================= */
+=======
+/* =================================================
+   DORAEMON WORLD - HOME JAVASCRIPT
+   MENU + SEARCH + RESPONSIVE INTERACTIONS
+================================================= */
+>>>>>>> fc9a300 (update)
 
 document.addEventListener("DOMContentLoaded", () => {
   "use strict";
 
+<<<<<<< HEAD
   const $ = (id) => document.getElementById(id);
 
   /* =====================================
@@ -68,10 +76,133 @@ document.addEventListener("DOMContentLoaded", () => {
     searchPanel.hidden = false;
     searchButton.setAttribute("aria-expanded", "true");
     searchInput.focus();
+=======
+  const $ = id => document.getElementById(id);
+
+  const menuBtn = $("dwMenuButton");
+  const mobileMenu = $("dwMobileMenu");
+  const bottomMore = $("dwBottomMore");
+
+  const moreBtn = $("dwMoreButton");
+  const moreMenu = $("dwMoreMenu");
+
+  const searchBtn = $("dwSearchButton");
+  const searchPanel = $("dwSearchPanel");
+  const searchInput = $("dwSearchInput");
+  const searchForm = $("dwSearchForm");
+  const searchResults = $("dwSearchResults");
+
+  const year = $("dwYear");
+
+  if (year) {
+    year.textContent = new Date().getFullYear();
+  }
+
+  /* ================= PAGE DATABASE ================= */
+
+  const pages = [
+    {
+      title: "Home",
+      url: "index.html",
+      icon: "🏠",
+      keywords: "welcome homepage"
+    },
+    {
+      title: "Movies",
+      url: "movies.html",
+      icon: "🎬",
+      keywords: "film adventure dinosaur moon"
+    },
+    {
+      title: "Episodes",
+      url: "episodes.html",
+      icon: "📺",
+      keywords: "cartoon television classic"
+    },
+    {
+      title: "Characters",
+      url: "characters.html",
+      icon: "👥",
+      keywords: "doraemon nobita shizuka gian suneo"
+    },
+    {
+      title: "Wallpapers",
+      url: "wallpapers.html",
+      icon: "🖼️",
+      keywords: "hd background image"
+    },
+    {
+      title: "Music",
+      url: "music.html",
+      icon: "🎵",
+      keywords: "songs audio theme"
+    },
+    {
+      title: "Gallery",
+      url: "gallery.html",
+      icon: "📸",
+      keywords: "photos images pictures"
+    },
+    {
+      title: "Magic Gadgets",
+      url: "gadgets.html",
+      icon: "🚪",
+      keywords: "anywhere door 4d pocket take copter time machine"
+    },
+    {
+      title: "Test",
+      url: "test.html",
+      icon: "📝",
+      keywords: "quiz questions"
+    },
+    {
+      title: "Motivation",
+      url: "motivation.html",
+      icon: "💙",
+      keywords: "inspiration quotes"
+    },
+    {
+      title: "Secret Message",
+      url: "secret-login.html",
+      icon: "💌",
+      keywords: "letter private"
+    },
+    {
+      title: "New Nobita's Dinosaur",
+      url: "movies.html?movie=39",
+      icon: "🎬",
+      keywords: "movie 2020"
+    },
+    {
+      title: "Moon Exploration",
+      url: "movies.html?movie=38",
+      icon: "🎬",
+      keywords: "movie 2019"
+    },
+    {
+      title: "Birth of Japan",
+      url: "movies.html?movie=35",
+      icon: "🎬",
+      keywords: "movie 2016"
+    }
+  ];
+
+  /* ================= MENU HELPERS ================= */
+
+  function closeMenu() {
+    mobileMenu.hidden = true;
+    menuBtn.setAttribute("aria-expanded", "false");
+  }
+
+  function closeMore() {
+    moreMenu.hidden = true;
+    moreBtn.setAttribute("aria-expanded", "false");
+>>>>>>> fc9a300 (update)
   }
 
   function closeSearch() {
     searchPanel.hidden = true;
+<<<<<<< HEAD
     searchButton.setAttribute("aria-expanded", "false");
     searchInput.value = "";
     searchResults.replaceChildren();
@@ -82,9 +213,106 @@ document.addEventListener("DOMContentLoaded", () => {
       openSearch();
     } else {
       closeSearch();
+=======
+    searchBtn.setAttribute("aria-expanded", "false");
+  }
+
+  function closeAll() {
+    closeMenu();
+    closeMore();
+    closeSearch();
+  }
+
+  /* ================= MOBILE MENU ================= */
+
+  function toggleMenu() {
+    const willOpen = mobileMenu.hidden;
+
+    closeAll();
+
+    if (willOpen) {
+      mobileMenu.hidden = false;
+      menuBtn.setAttribute("aria-expanded", "true");
+    }
+  }
+
+  menuBtn.addEventListener("click", toggleMenu);
+
+  bottomMore.addEventListener("click", () => {
+    toggleMenu();
+
+    if (!mobileMenu.hidden) {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
     }
   });
 
+  /* ================= DESKTOP MORE ================= */
+
+  moreBtn.addEventListener("click", () => {
+    const willOpen = moreMenu.hidden;
+
+    closeAll();
+
+    if (willOpen) {
+      moreMenu.hidden = false;
+      moreBtn.setAttribute("aria-expanded", "true");
+    }
+  });
+
+  /* ================= SEARCH ENGINE ================= */
+
+  function normalize(text) {
+    return String(text || "")
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, " ");
+  }
+
+  function getResults(query) {
+    if (!query) return pages.slice(0, 8);
+
+    const words = normalize(query).split(" ").filter(Boolean);
+
+    return pages.filter(page => {
+      const searchable = normalize(
+        page.title + " " + page.keywords
+      );
+
+      return words.every(word => searchable.includes(word));
+    }).sort((a, b) => {
+      const first = normalize(a.title);
+      const second = normalize(b.title);
+
+      const score = title => {
+        if (title === query) return 100;
+        if (title.startsWith(query)) return 80;
+        if (title.includes(query)) return 50;
+        return 10;
+      };
+
+      return score(second) - score(first);
+    }).slice(0, 10);
+  }
+
+  function showResults() {
+    const query = normalize(searchInput.value);
+    const results = getResults(query);
+
+    searchResults.replaceChildren();
+
+    if (results.length === 0) {
+      const empty = document.createElement("p");
+      empty.textContent = "No results found.";
+      searchResults.appendChild(empty);
+      return;
+>>>>>>> fc9a300 (update)
+    }
+  });
+
+<<<<<<< HEAD
   closeSearchButton.addEventListener("click", closeSearch);
 
   searchInput.addEventListener("input", () => {
@@ -202,6 +430,116 @@ document.addEventListener("DOMContentLoaded", () => {
       dotCount - 1,
       Math.max(0, Math.round(progress * (dotCount - 1)))
     );
+=======
+    results.forEach(page => {
+      const link = document.createElement("a");
+
+      link.href = page.url;
+      link.textContent = page.icon + "  " + page.title;
+
+      searchResults.appendChild(link);
+    });
+  }
+
+  function toggleSearch() {
+    const willOpen = searchPanel.hidden;
+
+    closeAll();
+
+    if (willOpen) {
+      searchPanel.hidden = false;
+      searchBtn.setAttribute("aria-expanded", "true");
+
+      showResults();
+      searchInput.focus();
+    }
+  }
+
+  searchBtn.addEventListener("click", toggleSearch);
+
+  searchInput.addEventListener("input", showResults);
+
+  searchForm.addEventListener("submit", event => {
+    event.preventDefault();
+
+    const first = searchResults.querySelector("a");
+
+    if (first) {
+      window.location.href = first.href;
+    }
+  });
+
+  /* ================= OUTSIDE CLICK ================= */
+
+  document.addEventListener("click", event => {
+    const target = event.target;
+
+    const clickedMenu =
+      menuBtn.contains(target) ||
+      mobileMenu.contains(target) ||
+      bottomMore.contains(target);
+
+    if (!clickedMenu) {
+      closeMenu();
+    }
+
+    const clickedMore =
+      moreBtn.contains(target) ||
+      moreMenu.contains(target);
+
+    if (!clickedMore) {
+      closeMore();
+    }
+
+    const clickedSearch =
+      searchBtn.contains(target) ||
+      searchPanel.contains(target);
+
+    if (!clickedSearch) {
+      closeSearch();
+    }
+  });
+
+  /* ================= ESCAPE KEY ================= */
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+      closeAll();
+    }
+
+    if (
+      (event.ctrlKey || event.metaKey) &&
+      event.key.toLowerCase() === "k"
+    ) {
+      event.preventDefault();
+
+      closeAll();
+      searchPanel.hidden = false;
+      searchBtn.setAttribute("aria-expanded", "true");
+      showResults();
+      searchInput.focus();
+    }
+  });
+
+  /* ================= RESPONSIVE RESET ================= */
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 900) {
+      closeMenu();
+    }
+  });
+
+  /* ================= IMAGE ERRORS ================= */
+
+  document.querySelectorAll("img").forEach(img => {
+    img.addEventListener("error", () => {
+      console.warn(
+        "Doraemon World: Image not found:",
+        img.getAttribute("src")
+      );
+    });
+  });
+>>>>>>> fc9a300 (update)
 
     dots.forEach((dot, index) => {
       dot.classList.toggle("active", index === activeIndex);

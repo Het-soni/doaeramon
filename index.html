@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+<<<<<<< HEAD
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#e9f8ff">
   <meta name="description" content="Welcome to Doraemon World. Explore movies, episodes, characters, gadgets, wallpapers and music.">
@@ -14,11 +15,25 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
 
+=======
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#061e50">
+  <meta name="description" content="Doraemon World - an unofficial fan project for movies, episodes, characters, gadgets, wallpapers, music and more.">
+
+  <title>Doraemon World | Home</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900;1000&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+>>>>>>> fc9a300 (update)
   <script src="js/script.js" defer></script>
 </head>
 
 <body>
 
+<<<<<<< HEAD
   <header class="site-header">
     <div class="header-inner">
 
@@ -35,11 +50,26 @@
              alt="Doraemon logo">
 
         <span class="logo-text">
+=======
+  <!-- ========== HEADER ========== -->
+  <header class="dw-header">
+
+    <div class="dw-header-inner">
+
+      <a class="dw-brand" href="index.html" aria-label="Doraemon World Home">
+        <img
+          src="assets/images/characters/doraemon.png"
+          alt=""
+          class="dw-brand-icon">
+
+        <span class="dw-brand-name">
+>>>>>>> fc9a300 (update)
           Doraemon
           <strong>World</strong>
         </span>
       </a>
 
+<<<<<<< HEAD
       <nav class="desktop-nav" aria-label="Main navigation">
         <a class="active" href="index.html">
           <i class="fa-solid fa-house"></i> Home
@@ -338,12 +368,171 @@
     <section class="gadgets-section container">
 
       <a href="gadgets.html" class="gadgets-banner">
+=======
+      <nav class="dw-desktop-nav" aria-label="Main navigation">
+        <a class="active" href="index.html" aria-current="page">🏠 Home</a>
+        <a href="movies.html">🎬 Movies</a>
+        <a href="episodes.html">📺 Episodes</a>
+        <a href="characters.html">👥 Characters</a>
+        <a href="wallpapers.html">🖼️ Wallpapers</a>
+        <a href="music.html">🎵 Music</a>
+
+        <div class="dw-more-wrap">
+          <button
+            id="dwMoreButton"
+            class="dw-more-button"
+            type="button"
+            aria-expanded="false"
+            aria-controls="dwMoreMenu">
+            More ▾
+          </button>
+
+          <div class="dw-more-menu" id="dwMoreMenu" hidden>
+            <a href="gallery.html">📸 Gallery</a>
+            <a href="gadgets.html">🚪 Magic Gadgets</a>
+            <a href="test.html">📝 Doraemon Test</a>
+            <a href="motivation.html">💙 Motivation</a>
+            <a href="secret-login.html">💌 Secret Message</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="dw-header-actions">
+
+        <button
+          class="dw-icon-button"
+          id="dwSearchButton"
+          type="button"
+          aria-label="Search"
+          aria-expanded="false"
+          aria-controls="dwSearchPanel">
+          🔍
+        </button>
+
+        <button
+          class="dw-icon-button dw-menu-button"
+          id="dwMenuButton"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="dwMobileMenu">
+          ☰
+        </button>
+      </div>
+
+    </div>
+
+    <!-- MOBILE MENU -->
+    <nav
+      id="dwMobileMenu"
+      class="dw-mobile-menu"
+      aria-label="Mobile menu"
+      hidden>
+
+      <a href="index.html">🏠 Home</a>
+      <a href="movies.html">🎬 Movies</a>
+      <a href="episodes.html">📺 Episodes</a>
+      <a href="characters.html">👥 Characters</a>
+      <a href="wallpapers.html">🖼️ Wallpapers</a>
+      <a href="music.html">🎵 Music</a>
+      <a href="gallery.html">📸 Gallery</a>
+      <a href="gadgets.html">🚪 Gadgets</a>
+      <a href="test.html">📝 Test</a>
+      <a href="motivation.html">💙 Motivation</a>
+      <a href="secret-login.html">💌 Secret Message</a>
+
+    </nav>
+
+    <!-- SEARCH PANEL -->
+    <section id="dwSearchPanel" class="dw-search-panel" hidden>
+      <form id="dwSearchForm">
+        <input
+          type="search"
+          id="dwSearchInput"
+          placeholder="Search Doraemon World..."
+          aria-label="Search website"
+          autocomplete="off">
+        <button type="submit">Search</button>
+      </form>
+
+      <div id="dwSearchResults" class="dw-search-results"></div>
+    </section>
+
+  </header>
+
+  <main>
+
+    <!-- ========== HERO ========== -->
+    <section class="dw-hero" id="home">
+
+      <div class="dw-sky-cloud dw-cloud-one"></div>
+      <div class="dw-sky-cloud dw-cloud-two"></div>
+
+      <div class="dw-hero-inner">
+
+        <div class="dw-hero-content">
+
+          <div class="dw-fan-badge">
+            ⭐ UNOFFICIAL FAN PROJECT
+          </div>
+
+          <h1 class="dw-hero-title">
+            Doraemon
+            <span>World</span>
+          </h1>
+
+          <p class="dw-hero-description">
+            Your Ultimate Destination for Doraemon
+            Movies, Episodes, Characters, Wallpapers,
+            Music and More! 💙
+          </p>
+
+          <div class="dw-hero-buttons">
+            <a href="#popular" class="dw-btn dw-btn-primary">
+              ▶ Explore Now
+            </a>
+            <a href="#about" class="dw-btn dw-btn-outline">
+              ♡ About Project
+            </a>
+          </div>
+
+        </div>
+
+        <!-- USER UPLOADED CHARACTER IMAGES -->
+        <div class="dw-hero-characters">
+
+          <img
+            class="dw-character dw-gian"
+            src="assets/images/characters/gian.png"
+            alt="Gian">
+
+          <img
+            class="dw-character dw-nobita"
+            src="assets/images/characters/nobita.png"
+            alt="Nobita">
+
+          <img
+            class="dw-character dw-shizuka"
+            src="assets/images/characters/shizuka.png"
+            alt="Shizuka">
+
+          <img
+            class="dw-character dw-suneo"
+            src="assets/images/characters/suneo.png"
+            alt="Suneo">
+
+          <img
+            class="dw-character dw-doraemon"
+            src="assets/images/characters/Doremon.ch.png"
+            alt="Doraemon">
+>>>>>>> fc9a300 (update)
 
         <div class="gadget-feature-image">
           <img src="assets/images/gadgets/anywhere-door.jpg"
                alt="Anywhere Door" loading="lazy">
         </div>
 
+<<<<<<< HEAD
         <div class="gadget-banner-text">
           <span>✨ Discover the magic!</span>
           <h2>
@@ -502,6 +691,323 @@
     <button id="moreButton" aria-label="More pages">
       <i class="fa-solid fa-grip"></i>
       <span>More</span>
+=======
+      </div>
+    </section>
+
+    <!-- ========== CONTENT ========== -->
+    <div class="dw-main-container">
+
+      <div class="dw-main-grid">
+
+        <!-- POPULAR MOVIES -->
+        <section class="dw-panel" id="popular">
+
+          <div class="dw-section-heading">
+            <h2>🌟 Popular Movies</h2>
+            <a href="movies.html">View All →</a>
+          </div>
+
+          <div class="dw-movie-grid">
+
+            <a class="dw-movie-card" href="movies.html?movie=39">
+              <img
+                src="assets/images/movies/movie-39.jpg"
+                alt="New Nobita's Dinosaur poster"
+                loading="lazy">
+              <div class="dw-movie-details">
+                <h3>New Nobita's Dinosaur</h3>
+                <small>2020</small>
+              </div>
+            </a>
+
+            <a class="dw-movie-card" href="movies.html?movie=38">
+              <img
+                src="assets/images/movies/movie-38.jpg"
+                alt="Moon Exploration poster"
+                loading="lazy">
+              <div class="dw-movie-details">
+                <h3>Moon Exploration</h3>
+                <small>2019</small>
+              </div>
+            </a>
+
+            <a class="dw-movie-card" href="movies.html?movie=35">
+              <img
+                src="assets/images/movies/movie-35.jpg"
+                alt="Birth of Japan poster"
+                loading="lazy">
+              <div class="dw-movie-details">
+                <h3>Birth of Japan</h3>
+                <small>2016</small>
+              </div>
+            </a>
+
+            <a class="dw-movie-card" href="movies.html">
+              <img
+                src="assets/images/characters/doraemon.png"
+                alt="More Doraemon movies"
+                loading="lazy">
+              <div class="dw-movie-details">
+                <h3>More Adventures</h3>
+                <small>Explore</small>
+              </div>
+            </a>
+
+          </div>
+        </section>
+
+        <!-- EXPLORE -->
+        <section class="dw-panel" id="explore">
+
+          <div class="dw-section-heading">
+            <h2>⚡ Explore Doraemon</h2>
+          </div>
+
+          <div class="dw-explore-grid">
+
+            <a href="episodes.html" class="dw-explore-card dw-episodes">
+              <span class="dw-explore-icon">📺</span>
+              <div>
+                <h3>Episodes</h3>
+                <p>Explore all episodes</p>
+              </div>
+            </a>
+
+            <a href="wallpapers.html" class="dw-explore-card dw-wallpapers">
+              <span class="dw-explore-icon">🖼️</span>
+              <div>
+                <h3>Wallpapers</h3>
+                <p>HD Doraemon wallpapers</p>
+              </div>
+            </a>
+
+            <a href="gallery.html" class="dw-explore-card dw-gallery">
+              <span class="dw-explore-icon">📸</span>
+              <div>
+                <h3>Gallery</h3>
+                <p>Best moments & stills</p>
+              </div>
+            </a>
+
+            <a href="test.html" class="dw-explore-card dw-test">
+              <span class="dw-explore-icon">✅</span>
+              <div>
+                <h3>Test</h3>
+                <p>How well do you know Doraemon?</p>
+              </div>
+            </a>
+
+          </div>
+        </section>
+
+      </div>
+
+      <!-- ========== LOWER CARDS ========== -->
+      <div class="dw-lower-grid">
+
+        <!-- GADGETS -->
+        <section class="dw-panel dw-gadgets-panel">
+
+          <div class="dw-section-heading">
+            <h2>🌟 Magic Gadgets</h2>
+            <a href="gadgets.html">View All →</a>
+          </div>
+
+          <div class="dw-gadget-grid">
+
+            <a href="gadgets.html" class="dw-gadget">
+              <span>🚪</span>
+              <strong>Anywhere Door</strong>
+            </a>
+
+            <a href="gadgets.html" class="dw-gadget">
+              <span>👜</span>
+              <strong>4D Pocket</strong>
+            </a>
+
+            <a href="gadgets.html" class="dw-gadget">
+              <span>🚁</span>
+              <strong>Take-copter</strong>
+            </a>
+
+            <a href="gadgets.html" class="dw-gadget">
+              <span>⏰</span>
+              <strong>Time Machine</strong>
+            </a>
+
+          </div>
+        </section>
+
+        <!-- MOTIVATION -->
+        <a href="motivation.html" class="dw-motivation-panel">
+
+          <h2>💛 Doraemon Motivation</h2>
+
+          <p>
+            “Koshish karte raho,<br>
+            ek din zaroor kamyab hoge!”
+          </p>
+
+          <span>— Doraemon 💙</span>
+
+          <img
+            src="assets/images/characters/doraemon-music.png"
+            alt=""
+            loading="lazy">
+
+        </a>
+
+        <!-- SECRET -->
+        <section class="dw-secret-panel">
+
+          <h2>🔒 Secret Message</h2>
+
+          <p>
+            A special place with personal photos,
+            shayari and a letter...
+          </p>
+
+          <span class="dw-envelope">💌</span>
+
+          <a href="secret-login.html" class="dw-unlock-button">
+            Unlock Now →
+          </a>
+
+        </section>
+
+      </div>
+
+      <!-- ========== CHARACTERS ========== -->
+      <section class="dw-characters-section" id="characters">
+
+        <div class="dw-section-heading">
+          <h2>💙 Meet Our Friends</h2>
+          <a href="characters.html">View All →</a>
+        </div>
+
+        <div class="dw-friends-grid">
+
+          <a href="characters.html" class="dw-friend">
+            <div class="dw-friend-image">
+              <img src="assets/images/characters/doraemon.png" alt="Doraemon" loading="lazy">
+            </div>
+            <strong>Doraemon</strong>
+          </a>
+
+          <a href="characters.html" class="dw-friend">
+            <div class="dw-friend-image">
+              <img src="assets/images/characters/nobita.png" alt="Nobita" loading="lazy">
+            </div>
+            <strong>Nobita</strong>
+          </a>
+
+          <a href="characters.html" class="dw-friend">
+            <div class="dw-friend-image">
+              <img src="assets/images/characters/shizuka.png" alt="Shizuka" loading="lazy">
+            </div>
+            <strong>Shizuka</strong>
+          </a>
+
+          <a href="characters.html" class="dw-friend">
+            <div class="dw-friend-image">
+              <img src="assets/images/characters/gian.png" alt="Gian" loading="lazy">
+            </div>
+            <strong>Gian</strong>
+          </a>
+
+          <a href="characters.html" class="dw-friend">
+            <div class="dw-friend-image">
+              <img src="assets/images/characters/suneo.png" alt="Suneo" loading="lazy">
+            </div>
+            <strong>Suneo</strong>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- ========== MORE SECTIONS ========== -->
+      <section class="dw-extra-grid">
+
+        <a href="music.html" class="dw-extra-card dw-extra-music">
+          <span>🎵</span>
+          <div>
+            <h3>Doraemon Music</h3>
+            <p>Enjoy magical melodies</p>
+          </div>
+          <b>→</b>
+        </a>
+
+        <a href="gallery.html" class="dw-extra-card dw-extra-gallery">
+          <span>📸</span>
+          <div>
+            <h3>Photo Gallery</h3>
+            <p>Explore memorable moments</p>
+          </div>
+          <b>→</b>
+        </a>
+
+      </section>
+
+      <!-- ========== ABOUT ========== -->
+      <section class="dw-about" id="about">
+
+        <h2>💙 About Doraemon World</h2>
+
+        <p>
+          Doraemon World is an unofficial fan-made website
+          created for everyone who loves Doraemon and his friends.
+          Explore movies, episodes, characters, wallpapers,
+          gadgets, music and much more!
+        </p>
+
+        <small>
+          This fan project is not affiliated with the official Doraemon franchise.
+        </small>
+
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="dw-footer">
+
+    <div class="dw-footer-brand">
+      💙 Doraemon World
+    </div>
+
+    <p>Made with love for Doraemon fans.</p>
+
+    <small>
+      © <span id="dwYear">2026</span>
+      Doraemon World — Unofficial Fan Project
+    </small>
+
+  </footer>
+
+  <!-- ========== MOBILE BOTTOM NAV ========== -->
+  <nav class="dw-bottom-nav" aria-label="Mobile quick navigation">
+
+    <a href="index.html" class="active" aria-current="page">
+      <span>🏠</span><small>Home</small>
+    </a>
+
+    <a href="movies.html">
+      <span>🎬</span><small>Movies</small>
+    </a>
+
+    <a href="episodes.html">
+      <span>📺</span><small>Episodes</small>
+    </a>
+
+    <a href="gadgets.html">
+      <span>🚪</span><small>Gadgets</small>
+    </a>
+
+    <button id="dwBottomMore" type="button" aria-label="More navigation">
+      <span>•••</span><small>More</small>
+>>>>>>> fc9a300 (update)
     </button>
 
   </nav>

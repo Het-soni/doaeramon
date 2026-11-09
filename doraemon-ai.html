@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <title>Talk to Doraemon</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100dvh;
+            display: grid;
+            place-items: center;
+            overflow-x: hidden;
+            font-family: Arial, sans-serif;
+            color: #07538b;
+            background: radial-gradient(circle, #ffffff, #d9f3ff);
+        }
+
+        .back {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 11px 17px;
+            border-radius: 14px;
+            background: white;
+            color: #07538b;
+            text-decoration: none;
+            box-shadow: 0 4px 18px #087dcc20;
+        }
+
+        main {
+            width: min(480px, 94vw);
+            padding: 80px 20px 35px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0 0 12px;
+            font-size: 30px;
+        }
+
+        .note {
+            font-size: 12px;
+            color: #638097;
+        }
+
+        #character {
+            width: min(300px, 70vw);
+            height: min(300px, 70vw);
+            margin: 35px auto;
+            padding: 20px;
+            display: grid;
+            place-items: center;
+            border: 4px solid #5cbcff;
+            border-radius: 50%;
+            background: #ffffffc9;
+            box-shadow: 0 0 45px #079bea30;
+            cursor: pointer;
+            transition: border-color .25s, box-shadow .25s;
+        }
+
+        #character img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        body[data-state="listening"] #character {
+            border-color: #ffcc29;
+            box-shadow: 0 0 55px #ffcc2960;
+        }
+
+        body[data-state="speaking"] #character {
+            border-color: #23bf80;
+            box-shadow: 0 0 55px #23bf8055;
+            animation: talking .5s ease-in-out infinite alternate;
+        }
+
+        body[data-state="thinking"] #character {
+            border-color: #9d7bea;
+        }
+
+        @keyframes talking {
+            from { transform: translateY(0) scale(1); }
+            to { transform: translateY(-5px) scale(1.025); }
+        }
+
+        #status {
+            min-height: 54px;
+            font-size: 16px;
+            line-height: 1.5;
+            overflow-wrap: anywhere;
+        }
+
+        #character:focus-visible {
+            outline: 3px solid #07538b;
+            outline-offset: 6px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            #character {
+                animation: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body data-state="idle">
+    <a class="back" href="index.html">← Home</a>
+
+    <main>
+        <h1>Doraemon Buddy 💙</h1>
+        <p class="note">Unofficial fan AI • Generated voice</p>
+
+        <button id="character"
+                type="button"
+                aria-label="Doraemon: tap to enable sound or retry">
+            <img src="assets/images/characters/doraemon.png"
+                 alt="Doraemon">
+        </button>
+
+        <p id="status" role="status">Connect ho raha hai...</p>
+        <p class="note">
+            Yellow: sun raha hai • Green: bol raha hai
+        </p>
+    </main>
+
+    <script>
+    (() => {
+        "use strict";
+
+        const GEMINI_URL =
+            "https://doraemon-ai.hackerblackpanther2000.workers.dev";
+
+        const VOICE_URL =
+            "https://7fb3fe8673e111eefd.gradio.live";
+
+        const Recognition =
+            window.SpeechRecognition ||
+            window.webkitSpeechRecognition;
+
+        const character = document.getElementById("character");
+        const status = document.getElementById("status");
+
+        const player = new Audio();
+        player.preload = "auto";
+
+        let recognizer = null;
+        let running = false;
+        let leaving = false;
+        let history = [];
+        let greeted = false;
+        let resumeAudio = null;
+
+        function state(name, message) {
+            document.body.dataset.state = name;
+            status.textContent = message;
+        }
+
+        async function requestJSON(url, options = {}) {
+            const response = await fetch(url, {
+                ...options,
+                signal: AbortSignal.timeout(90000)
+            });
+
+            let data;
+
+            try {
+                data = await response.json();
+            } catch {
+                throw new Error(
+                    "Server ka response nahi mila. Colab link check karo."
+                );
+            }
+
+            if (!response.ok) {
+                throw new Error(data.error || "Server request fail hui.");
+            }
+
+            return data;
+        }
+
+        // Gradio queue result arrives as server-sent events.
+        async function getVoice(text) {
+            const job = await requestJSON(
+                VOICE_URL + "/gradio_api/call/speak",
+                {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ data: [text] })
+                }
+            );
+
+            if (!job.event_id) {
+                throw new Error("Voice request start nahi hui.");
+            }
+
+            return new Promise((resolve, reject) => {
+                const events = new EventSource(
+                    VOICE_URL + "/gradio_api/call/speak/" +
+                    encodeURIComponent(job.event_id)
+                );
+
+                let finished = false;
+
+                function finish(error, url) {
+                    if (finished) return;
+                    finished = true;
+                    clearTimeout(timer);
+                    events.close();
+
+                    if (error) reject(error);
+                    else resolve(url);
+                }
+
+                const timer = setTimeout(() => {
+                    finish(new Error(
+                        "Voice timeout. Colab session check karo."
+                    ));
+                }, 120000);
+
+                events.addEventListener("complete", event => {
+                    try {
+                        const result = JSON.parse(event.data);
+                        const file = result?.[0];
+
+                        const url = file?.url ||
+                            (file?.path
+                                ? VOICE_URL + "/gradio_api/file=" +
+                                  encodeURI(file.path)
+                                : null);
+
+                        if (!url) {
+                            throw new Error("Generated audio nahi mili.");
+                        }
+
+                        finish(null, new URL(url, VOICE_URL).href);
+                    } catch (error) {
+                        finish(error);
+                    }
+                });
+
+                events.addEventListener("error", () => {
+                    finish(new Error(
+                        "Voice server error. Colab ka output check karo."
+                    ));
+                });
+            });
+        }
+
+        function playVoice(url) {
+            return new Promise((resolve, reject) => {
+                player.src = url;
+
+                function cleanup() {
+                    resumeAudio = null;
+                    player.onended = null;
+                    player.onerror = null;
+                }
+
+                player.onended = () => {
+                    cleanup();
+                    resolve();
+                };
+
+                player.onerror = () => {
+                    cleanup();
+                    reject(new Error("Audio play nahi hui."));
+                };
+
+                async function attempt() {
+                    try {
+                        await player.play();
+                        resumeAudio = null;
+                        state("speaking", "💚 Doraemon bol raha hai...");
+                    } catch (error) {
+                        if (error.name === "NotAllowedError") {
+                            resumeAudio = attempt;
+                            state(
+                                "idle",
+                                "Awaaz enable karne ke liye Doraemon par tap karo."
+                            );
+                        } else {
+                            cleanup();
+                            reject(error);
+                        }
+                    }
+                }
+
+                attempt();
+            });
+        }
+
+        // Each Gradio request accepts up to 400 characters.
+        function chunks(text) {
+            const result = [];
+            let remaining = text.trim();
+
+            while (remaining.length > 380) {
+                let cut = remaining.lastIndexOf(" ", 380);
+                if (cut < 1) cut = 380;
+                result.push(remaining.slice(0, cut));
+                remaining = remaining.slice(cut).trim();
+            }
+
+            if (remaining) result.push(remaining);
+            return result;
+        }
+
+        async function speak(text) {
+            for (const part of chunks(text)) {
+                if (leaving) return;
+
+                state("thinking", "💙 Awaaz ban rahi hai...");
+                const url = await getVoice(part);
+
+                if (leaving) return;
+                await playVoice(url);
+            }
+        }
+
+        function listen() {
+            if (leaving) return;
+
+            if (!Recognition) {
+                running = false;
+                state(
+                    "idle",
+                    "Is browser mein voice recognition available nahi."
+                );
+                return;
+            }
+
+            const current = new Recognition();
+            recognizer = current;
+
+            current.lang = "hi-IN";
+            current.continuous = false;
+            current.interimResults = false;
+
+            let heard = "";
+            let failed = false;
+
+            current.onresult = event => {
+                heard = event.results[0][0].transcript.trim();
+            };
+
+            current.onerror = event => {
+                if (event.error === "no-speech") return;
+
+                failed = true;
+                running = false;
+
+                state(
+                    "idle",
+                    event.error === "not-allowed"
+                        ? "Microphone permission Allow karo, phir Doraemon par tap karo."
+                        : "Mic problem. Doraemon par tap karke retry karo."
+                );
+            };
+
+            current.onend = () => {
+                if (recognizer === current) recognizer = null;
+                if (leaving || failed) return;
+
+                if (heard) {
+                    answer(heard);
+                } else {
+                    running = false;
+                    state(
+                        "idle",
+                        "Awaaz nahi mili. Dobara baat karne ke liye Doraemon par tap karo."
+                    );
+                }
+            };
+
+            try {
+                state("listening", "💛 Sun raha hoon... bolo!");
+                current.start();
+            } catch {
+                running = false;
+                state("idle", "Mic start nahi hua. Doraemon par tap karo.");
+            }
+        }
+
+        async function answer(message) {
+            try {
+                state("thinking", "💭 Soch raha hoon...");
+
+                const data = await requestJSON(GEMINI_URL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        message: message.slice(0, 1500),
+                        history: history.slice(-10)
+                    })
+                });
+
+                if (typeof data.reply !== "string" || !data.reply.trim()) {
+                    throw new Error("Gemini ka jawab nahi mila.");
+                }
+
+                history.push(
+                    { role: "user", text: message.slice(0, 1500) },
+                    { role: "model", text: data.reply.slice(0, 3000) }
+                );
+
+                history = history.slice(-10);
+
+                await speak(data.reply);
+                listen();
+
+            } catch (error) {
+                running = false;
+                if (!leaving) {
+                    state("idle", error.message + " Doraemon par tap karke retry karo.");
+                }
+            }
+        }
+
+        async function start() {
+            if (leaving || running) return;
+            running = true;
+
+            try {
+                if (!greeted) {
+                    await speak(
+                        "हेलो! मेरा नाम डोरेमोन है। आपका नाम क्या है?"
+                    );
+                    greeted = true;
+                }
+
+                listen();
+
+            } catch (error) {
+                running = false;
+                if (!leaving) {
+                    state("idle", error.message + " Doraemon par tap karo.");
+                }
+            }
+        }
+
+        character.addEventListener("click", () => {
+            if (resumeAudio) {
+                resumeAudio();
+            } else {
+                start();
+            }
+        });
+
+        window.addEventListener("pagehide", () => {
+            leaving = true;
+            player.pause();
+            recognizer?.abort();
+        });
+
+        start();
+    })();
+    </script>
+</body>
+</html>
