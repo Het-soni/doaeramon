@@ -1,354 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f1f9ff">
 
-    <meta charset="UTF-8">
+  <title>Characters | Doraemon World</title>
+  <meta
+    name="description"
+    content="Meet Doraemon, Nobita, Shizuka and their friends. Search character profiles, explore movie characters and discover their stories."
+  >
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+  <!-- Same header, footer and bottom bar as Episodes -->
+  <link rel="stylesheet" href="./css/episodes.css">
+  <link rel="stylesheet" href="./css/characters.css">
 
-    <title>Doraemon World - Characters</title>
+  <!-- Existing database and character popup -->
+  <script src="./js/characters.js" defer></script>
 
-    <link rel="stylesheet" href="css/characters.css">
+  <!-- Navigation and keyboard controls for this page -->
+  <script src="./js/characters-page.js" defer></script>
 
-<link rel="stylesheet" href="css/site-navigation.css">
+  <script
+    async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8772972065670336"
+    crossorigin="anonymous"
+  ></script>
 </head>
 
 <body>
+  <!-- TOP HEADER -->
+  <header class="topbar">
+    <div class="header-inner">
+      <button
+        id="menuButton"
+        class="icon-button menu-button"
+        type="button"
+        aria-label="Open menu"
+        aria-controls="sideMenu"
+        aria-expanded="false"
+      >☰</button>
 
+      <a class="brand" href="index.html">DORAEMON 🌐</a>
 
-<!-- =====================================================
-     DESKTOP HEADER
-===================================================== -->
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="movies.html">Movies</a>
+        <a href="episodes.html">Episodes</a>
+        <a href="characters.html" aria-current="page">Characters</a>
+        <a href="wallpapers.html">Wallpapers</a>
+        <a href="music.html">Music</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="gadgets.html">Gadgets</a>
+        <a href="test.html">Test</a>
+      </nav>
 
-<header class="topbar">
+      <button
+        id="searchButton"
+        class="icon-button"
+        type="button"
+        aria-label="Search characters"
+      >🔍</button>
+    </div>
 
-    <a href="index.html" class="logo">
-        DORAEMON 🌐
-    </a>
-
-    <nav class="desktop-nav">
-
-        <a href="index.html">🏠 Home</a>
-
-        <a href="movies.html">🎬 Movies</a>
-
-        <a href="episodes.html">📺 Episodes</a>
-
-        <a href="characters.html" class="active">
-            👥 Characters
-        </a>
-
-        <a href="wallpapers.html">🖼️ Wallpapers</a>
-
-        <a href="music.html">🎵 Music</a>
-
-        <a href="gallery.html">📸 Gallery</a>
-
-        <a href="gadgets.html">🪄 Gadgets</a>
-
-        <a href="test.html">📝 Test</a>
-
+    <nav id="sideMenu" class="side-menu" aria-label="All pages" hidden>
+      <a href="index.html">🏠 Home</a>
+      <a href="movies.html">🎬 Movies</a>
+      <a href="episodes.html">📺 Episodes</a>
+      <a href="characters.html" aria-current="page">👥 Characters</a>
+      <a href="wallpapers.html">🖼️ Wallpapers</a>
+      <a href="music.html">🎵 Music</a>
+      <a href="gallery.html">📸 Gallery</a>
+      <a href="gadgets.html">🚪 Gadgets</a>
+      <a href="test.html">🏆 Test</a>
+      <a href="motivation.html">💙 Motivation</a>
+      <a href="doraemon-ai.html">🤖 Doraemon AI</a>
+      <a href="secret-login.html">💌 Secret Message</a>
     </nav>
+  </header>
 
-</header>
+  <main class="people-page">
 
-
-<!-- =====================================================
-     MOBILE HEADER
-===================================================== -->
-
-<header class="mobile-header">
-
-    <button id="mobileMenu"
-            class="mobile-menu-btn">
-        ☰
-    </button>
-
-    <a href="index.html"
-       class="mobile-logo">
-        DORAEMON 🌐
-    </a>
-
-    <button id="mobileSearch"
-            class="mobile-search-btn">
-        🔍
-    </button>
-
-</header>
-
-
-<!-- =====================================================
-     MOBILE MENU
-===================================================== -->
-
-<div id="mobileMenuPanel"
-     class="mobile-menu-panel">
-
-    <a href="index.html">🏠 Home</a>
-
-    <a href="movies.html">🎬 Movies</a>
-
-    <a href="episodes.html">📺 Episodes</a>
-
-    <a href="characters.html" class="active">
-        👥 Characters
-    </a>
-
-    <a href="wallpapers.html">🖼️ Wallpapers</a>
-
-    <a href="music.html">🎵 Music</a>
-
-    <a href="gallery.html">📸 Gallery</a>
-
-    <a href="gadgets.html">🪄 Gadgets</a>
-
-    <a href="test.html">📝 Test</a>
-
-</div>
-
-
-<!-- =====================================================
-     HERO
-===================================================== -->
-
-<section class="hero">
-
-    <div class="hero-content">
-
-        <span class="hero-badge">
-            👥 DORAEMON WORLD
-        </span>
-
-        <h1>
-            Doraemon
-            <strong>Characters</strong>
-        </h1>
+    <!-- WELCOME BANNER -->
+    <section class="people-hero" aria-labelledby="heroTitle">
+      <div class="people-hero-copy">
+        <h1 id="heroTitle">Doraemon <span>Characters</span></h1>
 
         <p>
-            Doraemon World ke saare favourite
-            characters ko ek hi jagah explore karo.
+          Nobita ke friends, family aur movie adventures mein milne wale
+          characters ko jaano.
         </p>
 
-        <a href="#characters"
-           class="hero-button">
-            Explore Characters
+        <a class="people-browse" href="#characters">
+          Meet the characters ↓
         </a>
+      </div>
 
-    </div>
+      <div class="people-hero-art">
+  <img
+    src="assets/images/characters/Doremon.ch.png"
+    alt="Doraemon"
+    class="banner-friend"
+  >
 
+  <img
+    src="assets/images/characters/nobita.png"
+    alt="Nobita"
+    class="banner-friend"
+  >
 
-    <div class="hero-art">
+  <img
+    src="assets/images/characters/gian.png"
+    alt="Gian"
+    class="banner-friend"
+  >
 
-        <img
-            src="assets/images/characters/doraemon.png"
-            alt="Doraemon">
+  <img
+    src="assets/images/characters/suneo.png"
+    alt="Suneo"
+    class="banner-friend"
+  >
 
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     SEARCH + FILTER
-===================================================== -->
-
-<section class="controls-section">
-
-    <div class="search-box">
-
-        <span>🔍</span>
-
-        <input
-            type="search"
-            id="characterSearch"
-            placeholder="Search character...">
-
-    </div>
-
-
-    <div class="filter-wrapper">
-
-        <button class="character-filter active"
-                data-category="all">
-            🌎 All
-        </button>
-
-        <button class="character-filter"
-                data-category="main">
-            ⭐ Main
-        </button>
-
-        <button class="character-filter"
-                data-category="family">
-            👨‍👩‍👧 Family
-        </button>
-
-        <button class="character-filter"
-                data-category="friends">
-            👥 Friends
-        </button>
-
-        <button class="character-filter"
-                data-category="school">
-            🏫 School
-        </button>
-
-        <button class="character-filter"
-                data-category="robot">
-            🤖 Robot
-        </button>
-
-        <button class="character-filter"
-                data-category="movie">
-            🎬 Movie
-        </button>
-
-        <button class="character-filter"
-                data-category="minor">
-            🌍 Others
-        </button>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     CHARACTERS
-===================================================== -->
-
-<main id="characters"
-      class="all-characters">
-
-    <section class="characters-section">
-
-        <div class="section-heading">
-
-            <div>
-
-                <span>
-                    DORAEMON WORLD
-                </span>
-
-                <h2 id="charactersHeading">
-                    All Characters
-                </h2>
-
-                <p id="charactersDescription">
-                    Doraemon ke saare characters
-                    ek hi jagah.
-                </p>
-
-            </div>
-
-
-            <div class="character-count-box">
-
-                <strong id="characterCount">
-                    0
-                </strong>
-
-                <small>
-                    Characters
-                </small>
-
-            </div>
-
-        </div>
-
-
-        <!-- CHARACTER GRID -->
-
-        <div id="characterGrid"
-             class="character-grid">
-        </div>
-
-
-        <!-- NO RESULT -->
-
-        <div id="noCharacters"
-             class="no-characters"
-             hidden>
-
-            <div class="no-icon">
-                😔
-            </div>
-
-            <h3>
-                Character Not Found
-            </h3>
-
-            <p>
-                Search ya category change karke
-                dobara try karo.
-            </p>
-
-        </div>
-
+  <img
+    src="assets/images/characters/shizuka.png"
+    alt="Shizuka"
+    class="banner-friend"
+  >
+</div>
     </section>
 
-</main>
+    <!-- CHARACTER DIRECTORY -->
+    <section id="characters" class="directory" aria-labelledby="charactersHeading">
+      <div class="directory-heading">
+        <h2 id="charactersHeading">All Characters</h2>
 
+        <span class="count-box" role="status">
+          <strong id="characterCount">32</strong> characters
+        </span>
+      </div>
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+      <label class="people-search">
+        <span aria-hidden="true">🔎</span>
+        <input
+          id="characterSearch"
+          type="search"
+          aria-label="Search characters"
+          placeholder="Search Doraemon, Nobita, Dorami…"
+          autocomplete="off"
+        >
+      </label>
 
-<footer>
+      <div class="character-filters" role="group" aria-label="Character category">
+        <button class="character-filter active" type="button"
+                data-category="all" aria-pressed="true">All</button>
+        <button class="character-filter" type="button"
+                data-category="main" aria-pressed="false">Main</button>
+        <button class="character-filter" type="button"
+                data-category="family" aria-pressed="false">Family</button>
+        <button class="character-filter" type="button"
+                data-category="friends" aria-pressed="false">Friends</button>
+        <button class="character-filter" type="button"
+                data-category="school" aria-pressed="false">School</button>
+        <button class="character-filter" type="button"
+                data-category="robot" aria-pressed="false">Robots</button>
+        <button class="character-filter" type="button"
+                data-category="movie" aria-pressed="false">Movies</button>
+        <button class="character-filter" type="button"
+                data-category="minor" aria-pressed="false">Others</button>
+      </div>
 
-    <div class="footer-logo">
-        DORAEMON WORLD
-    </div>
+      <!-- js/characters.js inserts the cards here -->
+      <div id="characterGrid" class="character-grid"></div>
 
-    <p>
-        Unofficial Doraemon Fan Website
-    </p>
+      <div id="noCharacters" class="people-empty" hidden>
+        <h3>No characters found</h3>
+        <p>Try another name or show all categories.</p>
+        <button id="resetCharacters" type="button">Show all characters</button>
+      </div>
 
-    <p>
-        © 2026 Doraemon World
-    </p>
+      <noscript>
+        <p>Enable JavaScript to browse the character profiles.</p>
+      </noscript>
+    </section>
 
-</footer>
+    <!-- ADVERTISEMENT -->
+    <aside class="ad-space" aria-label="Advertisement">
+      <small>Advertisement</small>
+      <!-- Paste your responsive AdSense display ad unit here. -->
+    </aside>
+  </main>
 
+  <footer class="footer">
+    <strong>DORAEMON WORLD 💙</strong>
+    <p>Unofficial fan project · © <span id="year">2026</span></p>
+  </footer>
 
-<!-- =====================================================
-     MOBILE BOTTOM NAV
-===================================================== -->
-
-<nav class="mobile-bottom-nav">
-
-    <a href="index.html">
-        <span>🏠</span>
-        <small>Home</small>
-    </a>
-
-    <a href="movies.html">
-        <span>🎬</span>
-        <small>Movies</small>
-    </a>
-
-    <a href="episodes.html">
-        <span>📺</span>
-        <small>Episodes</small>
-    </a>
-
-    <a href="characters.html" class="active">
-        <span>👥</span>
-        <small>Characters</small>
-    </a>
-
-    <a href="music.html">
-        <span>🎵</span>
-        <small>Music</small>
-    </a>
-
-</nav>
-
-
-<script src="js/characters.js"></script>
-
-<script src="js/site-navigation.js" defer></script>
+  <!-- MOBILE BOTTOM BAR -->
+  <nav class="bottom-nav" aria-label="Mobile navigation">
+    <a href="index.html"><span>🏠</span>Home</a>
+    <a href="movies.html"><span>🎬</span>Movies</a>
+    <a href="episodes.html"><span>📺</span>Episodes</a>
+    <a href="characters.html" aria-current="page"><span>👥</span>Characters</a>
+    <a href="music.html"><span>🎵</span>Music</a>
+  </nav>
 </body>
-
 </html>

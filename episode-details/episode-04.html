@@ -1,1012 +1,277 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f1f9ff">
 
-    <meta charset="UTF-8">
+  <title>Episode 04 · Nobita Ka Udan Khatola | Doraemon World</title>
+  <meta name="description" content="Watch Episode 04, Nobita Ka Udan Khatola, and explore its story, characters and gadgets.">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+  <!-- Same header and bottom bar as episodes.html -->
+  <link rel="stylesheet" href="../css/episodes.css">
 
-    <title>Doraemon World - Nobita Ka Udan Khatola</title>
+  <!-- Common to all episode detail pages -->
+  <link rel="stylesheet" href="../css/episode-details.css">
+  <script src="../js/episode-details.js" defer></script>
 
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-          rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
-    <!-- Common CSS -->
-    <link rel="stylesheet"
-          href="../css/style.css">
-
-    <!-- Episode Details CSS -->
-    <link rel="stylesheet"
-          href="../css/episode-details.css">
-
-<link rel="stylesheet" href="../css/site-navigation.css">
+  <script
+    async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8772972065670336"
+    crossorigin="anonymous"
+  ></script>
 </head>
 
+<body class="dw-episode-page">
 
-<body class="episode-detail-body">
+  <!-- TOP HEADER -->
+  <header class="topbar">
+    <div class="header-inner">
+      <button
+        id="menuButton"
+        class="icon-button menu-button"
+        type="button"
+        aria-label="Open menu"
+        aria-controls="sideMenu"
+        aria-expanded="false"
+      >☰</button>
 
+      <a class="brand" href="../index.html">DORAEMON 🌐</a>
 
-<!-- =========================================================
-     DESKTOP TOP NAVBAR
-========================================================= -->
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="../index.html">Home</a>
+        <a href="../movies.html">Movies</a>
+        <a href="../episodes.html" aria-current="location">Episodes</a>
+        <a href="../characters.html">Characters</a>
+        <a href="../wallpapers.html">Wallpapers</a>
+        <a href="../music.html">Music</a>
+        <a href="../gallery.html">Gallery</a>
+        <a href="../gadgets.html">Gadgets</a>
+        <a href="../test.html">Test</a>
+      </nav>
 
-<header class="topbar">
-
-    <div class="logo">
-        DORAEMON 🌐
+      <a
+        class="icon-button"
+        href="../episodes.html#episodeSearch"
+        aria-label="Search the episode collection"
+      >🔍</a>
     </div>
 
-    <nav id="nav">
-
-        <a href="../index.html">
-            🏠 Home
-        </a>
-
-        <a href="../movies.html">
-            🎬 Movies
-        </a>
-
-        <a href="../episodes.html"
-           class="active">
-            📺 Episodes
-        </a>
-
-        <a href="../characters.html">
-            👥 Characters
-        </a>
-
-        <a href="../wallpapers.html">
-            🖼️ Wallpapers
-        </a>
-
-        <a href="../music.html">
-            🎵 Music
-        </a>
-
-        <a href="../gallery.html">
-            🖼️ Gallery
-        </a>
-
-        <a href="../gadgets.html">
-            🔧 Gadgets
-        </a>
-
-        <a href="../test.html">
-            📝 Test
-        </a>
-
+    <nav id="sideMenu" class="side-menu" aria-label="All pages" hidden>
+      <a href="../index.html">🏠 Home</a>
+      <a href="../movies.html">🎬 Movies</a>
+      <a href="../episodes.html" aria-current="location">📺 Episodes</a>
+      <a href="../characters.html">👥 Characters</a>
+      <a href="../wallpapers.html">🖼️ Wallpapers</a>
+      <a href="../music.html">🎵 Music</a>
+      <a href="../gallery.html">📸 Gallery</a>
+      <a href="../gadgets.html">🚪 Gadgets</a>
+      <a href="../test.html">🏆 Test</a>
+      <a href="../motivation.html">💙 Motivation</a>
+      <a href="../doraemon-ai.html">🤖 Doraemon AI</a>
+      <a href="../secret-login.html">💌 Secret Message</a>
     </nav>
+  </header>
 
-</header>
+  <main class="dw-episode-main">
 
+  <nav class="ep-crumbs" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span aria-hidden="true">›</span>
+    <a href="../episodes.html">Episodes</a>
+    <span aria-hidden="true">›</span>
+    <span aria-current="page">Episode 04</span>
+  </nav>
 
-<!-- =========================================================
-     MOBILE HEADER
-========================================================= -->
+  <section class="ep-hero" aria-labelledby="episodeTitle">
+    <div class="ep-art">
+      <img src="../assets/episodes/covers/episode-04.jpg" alt="Nobita Ka Udan Khatola" fetchpriority="high">
+      <span class="ep-cover-number">EPISODE 04</span>
 
-<header class="mobile-header">
-
-    <button id="mobileMenuBtn"
-            class="mobile-menu-btn">
-        ☰
-    </button>
-
-    <div class="mobile-logo">
-        DORAEMON 🔵
+      <button
+        class="ep-cover-play"
+        type="button"
+        data-play-episode
+        aria-label="Play Episode 04"
+        aria-haspopup="dialog"
+      >▶</button>
     </div>
 
-    <button class="mobile-search-btn">
-        🔍
-    </button>
+    <div class="ep-hero-copy">
+      <p class="ep-category">Classic episode</p>
+      <h1 id="episodeTitle">Nobita Ka Udan Khatola</h1>
+      <p class="ep-intro">Nobita wants to see the world from above. With Doraemon&#x27;s help, he finally gets a chance to take to the sky.</p>
 
-</header>
+      <dl class="ep-stats">
+        <div><dt>📺 Episode</dt><dd>04</dd></div>
+        <div><dt>📅 Year</dt><dd>1979</dd></div>
+        <div><dt>⭐ Rating</dt><dd>8.9</dd></div>
+      </dl>
 
+      <div class="ep-actions">
+        <button
+          class="ep-button ep-primary"
+          type="button"
+          data-play-episode
+          aria-haspopup="dialog"
+        >▶ Watch Episode</button>
 
-<!-- =========================================================
-     MOBILE MENU
-========================================================= -->
-
-<div id="mobileMenuPanel"
-     class="mobile-menu-panel">
-
-    <a href="../index.html">
-        🏠 Home
-    </a>
-
-    <a href="../movies.html">
-        🎬 Movies
-    </a>
-
-    <a href="../episodes.html">
-        📺 Episodes
-    </a>
-
-    <a href="../characters.html">
-        👥 Characters
-    </a>
-
-    <a href="../wallpapers.html">
-        🖼️ Wallpapers
-    </a>
-
-    <a href="../music.html">
-        🎵 Music
-    </a>
-
-    <a href="../gallery.html">
-        🖼️ Gallery
-    </a>
-
-    <a href="../gadgets.html">
-        🔧 Gadgets
-    </a>
-
-    <a href="../test.html">
-        📝 Test
-    </a>
-
-</div>
-
-
-<!-- =========================================================
-     MAIN PAGE
-========================================================= -->
-
-<main class="episode-detail-page">
-
-
-    <!-- =====================================================
-         BREADCRUMB
-    ====================================================== -->
-
-    <div class="episode-breadcrumb">
-
-        <a href="../index.html">
-            Home
+        <a class="ep-button ep-secondary" href="../episodes.html">
+          ← All Episodes
         </a>
+      </div>
+    </div>
+  </section>
 
-        <span>›</span>
+  <section class="ep-section" aria-labelledby="overviewTitle">
+    <h2 id="overviewTitle">Episode Overview</h2>
 
-        <a href="../episodes.html">
-            Episodes
-        </a>
+    <div class="ep-overview">
+      <a href="#story">
+        <span class="ep-icon ep-sky" aria-hidden="true">📖</span>
+        <div><small>Story</small><strong>Nobita Ka Udan Khatola</strong></div>
+      </a>
 
-        <span>›</span>
+      <a href="#characters">
+        <span class="ep-icon ep-pink" aria-hidden="true">👥</span>
+        <div><small>Characters</small><strong>5 main characters</strong></div>
+      </a>
 
-        <span>
-            Nobita Ka Udan Khatola
-        </span>
+      <a href="#gadgets">
+        <span class="ep-icon ep-yellow" aria-hidden="true">🔧</span>
+        <div><small>Gadgets</small><strong>2 featured gadgets</strong></div>
+      </a>
 
+      <a href="#details">
+        <span class="ep-icon ep-mint" aria-hidden="true">🏷️</span>
+        <div><small>Category</small><strong>Classic</strong></div>
+      </a>
+    </div>
+  </section>
+
+  <section class="ep-section" aria-labelledby="infoTitle">
+    <h2 id="infoTitle">Episode Information</h2>
+
+    <div class="ep-info-grid">
+      <article class="ep-panel ep-story" id="story">
+        <div class="ep-panel-head">
+          <span class="ep-icon ep-sky" aria-hidden="true">📖</span>
+          <div>
+            <small>Story</small>
+            <h3>Nobita Takes Flight</h3>
+          </div>
+        </div>
+
+        <p>Nobita gets the chance to fly with one of Doraemon&#x27;s gadgets. From up in the air, even familiar places look different.</p>
+<p>Learning to handle the flying gadget becomes an adventure of its own for Nobita and his friends.</p>
+      </article>
+
+      <article class="ep-panel" id="characters">
+        <div class="ep-panel-head">
+          <span class="ep-icon ep-pink" aria-hidden="true">👥</span>
+          <h3>Main Characters</h3>
+        </div>
+
+        <ul class="ep-chips"><li>🔵 Doraemon</li>
+<li>👦 Nobita</li>
+<li>🌸 Shizuka</li>
+<li>💪 Gian</li>
+<li>😎 Suneo</li></ul>
+        <a class="ep-text-link" href="../characters.html">Explore characters →</a>
+      </article>
+
+      <article class="ep-panel" id="gadgets">
+        <div class="ep-panel-head">
+          <span class="ep-icon ep-yellow" aria-hidden="true">🔧</span>
+          <h3>Featured Gadgets</h3>
+        </div>
+
+        <ul class="ep-chips"><li>🚁 Take-Copter</li>
+<li>🎒 4D Pocket</li></ul>
+        <a class="ep-text-link" href="../gadgets.html">Explore gadgets →</a>
+      </article>
+
+      <article class="ep-panel" id="details">
+        <div class="ep-panel-head">
+          <span class="ep-icon ep-mint" aria-hidden="true">ℹ️</span>
+          <h3>Episode Details</h3>
+        </div>
+
+        <dl class="ep-facts"><div><dt>Series</dt><dd>Doraemon</dd></div>
+<div><dt>Episode</dt><dd>04</dd></div>
+<div><dt>Title</dt><dd>Nobita Ka Udan Khatola</dd></div>
+<div><dt>Category</dt><dd>Classic</dd></div>
+<div><dt>Release</dt><dd>1979</dd></div></dl>
+      </article>
+    </div>
+  </section>
+
+  <section class="ep-about" aria-labelledby="aboutTitle">
+    <h2 id="aboutTitle">💙 About This Episode</h2>
+    <p>Flying is one of Nobita&#x27;s favourite uses for Doraemon&#x27;s gadgets. In this episode, the attraction is simple: seeing everyday life from a completely different height.</p>
+  </section>
+
+  <nav class="ep-pager" aria-label="Browse episodes">
+    
+      <a href="episode-03.html">
+        <small>← Previous episode</small>
+        <strong>03 · Vacuum Mosquito</strong>
+      </a>
+    
+    
+          <a class="ep-next" href="episode-05.html">
+            <small>Next episode →</small>
+            <strong>05 · Nobita&#x27;s Rocket to the Milky Way</strong>
+          </a>
+        
+  </nav>
+
+  <aside class="ad-space" aria-label="Advertisement">
+    <small>Advertisement</small>
+    <!-- Paste your responsive AdSense display ad unit here. -->
+  </aside>
+
+  <dialog class="ep-dialog" id="episodeDialog" aria-labelledby="videoTitle">
+    <div class="ep-dialog-head">
+      <h2 id="videoTitle">Episode 04 · Nobita Ka Udan Khatola</h2>
+
+      <button
+        class="ep-close"
+        id="closePlayer"
+        type="button"
+        aria-label="Close video player"
+      >✕</button>
     </div>
 
-
-    <!-- =====================================================
-         HERO SECTION
-    ====================================================== -->
-
-    <section class="episode-hero">
-
-
-        <!-- COVER -->
-        <div class="episode-cover">
-
-            <img src="../assets/episodes/covers/episode-04.jpg"
-                 alt="Nobita Ka Udan Khatola">
-
-            <div class="cover-gradient"></div>
-
-            <div class="episode-badge">
-                EPISODE 04
-            </div>
-
-            <button id="coverPlayBtn"
-                    class="cover-play-btn"
-                    aria-label="Play Episode">
-
-                <i class="fa-solid fa-play"></i>
-
-            </button>
-
-        </div>
-
-
-        <!-- HERO CONTENT -->
-        <div class="episode-hero-content">
-
-            <div class="episode-label">
-                CLASSIC EPISODE
-            </div>
-
-            <h1>
-                Nobita Ka Udan Khatola
-            </h1>
-
-            <p class="episode-intro">
-                Nobita ko aasman mein udne ka ek amazing
-                mauka milta hai. Doraemon ke fantastic
-                gadgets ke saath Nobita ka ye flying
-                adventure kaafi exciting aur funny ban jata hai.
-            </p>
-
-
-            <!-- META -->
-            <div class="episode-meta">
-
-                <div class="meta-box">
-
-                    <span class="meta-icon">
-                        📺
-                    </span>
-
-                    <div>
-                        <small>Episode</small>
-                        <strong>04</strong>
-                    </div>
-
-                </div>
-
-
-                <div class="meta-box">
-
-                    <span class="meta-icon">
-                        📅
-                    </span>
-
-                    <div>
-                        <small>Year</small>
-                        <strong>1979</strong>
-                    </div>
-
-                </div>
-
-
-                <div class="meta-box">
-
-                    <span class="meta-icon">
-                        ⭐
-                    </span>
-
-                    <div>
-                        <small>Rating</small>
-                        <strong>8.9</strong>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- BUTTONS -->
-            <div class="hero-buttons">
-
-                <button id="watchBtn"
-                        class="watch-btn">
-
-                    <i class="fa-solid fa-play"></i>
-
-                    Watch Episode
-
-                </button>
-
-
-                <a href="../episodes.html"
-                   class="back-btn">
-
-                    <i class="fa-solid fa-arrow-left"></i>
-
-                    Back to Episodes
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         QUICK INFORMATION
-    ====================================================== -->
-
-    <section class="quick-info">
-
-        <div class="section-heading">
-
-            <h2>
-                Episode Overview
-            </h2>
-
-            <p>
-                A quick look at Nobita Ka Udan Khatola
-            </p>
-
-        </div>
-
-
-        <div class="quick-grid">
-
-
-            <div class="quick-card">
-
-                <div class="quick-icon">
-                    📖
-                </div>
-
-                <div>
-
-                    <span>Story</span>
-
-                    <strong>
-                        Nobita Ka Udan Khatola
-                    </strong>
-
-                </div>
-
-            </div>
-
-
-            <div class="quick-card">
-
-                <div class="quick-icon">
-                    👥
-                </div>
-
-                <div>
-
-                    <span>Characters</span>
-
-                    <strong>
-                        Doraemon & Friends
-                    </strong>
-
-                </div>
-
-            </div>
-
-
-            <div class="quick-card">
-
-                <div class="quick-icon">
-                    🚀
-                </div>
-
-                <div>
-
-                    <span>Adventure</span>
-
-                    <strong>
-                        Flying Adventure
-                    </strong>
-
-                </div>
-
-            </div>
-
-
-            <div class="quick-card">
-
-                <div class="quick-icon">
-                    ⭐
-                </div>
-
-                <div>
-
-                    <span>Category</span>
-
-                    <strong>
-                        Classic
-                    </strong>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         EPISODE INFORMATION
-    ====================================================== -->
-
-    <section class="episode-information">
-
-        <div class="section-heading">
-
-            <h2>
-                📖 Episode Information
-            </h2>
-
-            <p>
-                Everything you need to know about
-                Nobita Ka Udan Khatola
-            </p>
-
-        </div>
-
-
-        <div class="info-grid">
-
-
-            <!-- STORY -->
-            <div class="info-card story-card">
-
-                <div class="info-card-icon">
-                    📖
-                </div>
-
-                <h3>
-                    Nobita Ka Flying Adventure
-                </h3>
-
-                <p>
-                    Nobita ko udne ka bahut shauk hota hai.
-                    Doraemon ke amazing gadgets ki help se
-                    Nobita aasman mein udne ka experience
-                    karta hai. Lekin Nobita ki adventures
-                    aksar simple nahi hoti, aur ye flying
-                    adventure bhi ek funny situation mein
-                    badal jata hai.
-                </p>
-
-            </div>
-
-
-
-            <!-- CHARACTERS -->
-            <div class="info-card">
-
-                <div class="info-card-icon">
-                    👥
-                </div>
-
-                <h3>
-                    Characters
-                </h3>
-
-                <div class="tag-list">
-
-                    <span>Doraemon</span>
-
-                    <span>Nobita</span>
-
-                    <span>Shizuka</span>
-
-                    <span>Gian</span>
-
-                    <span>Suneo</span>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- GADGETS -->
-            <div class="info-card">
-
-                <div class="info-card-icon">
-                    🔧
-                </div>
-
-                <h3>
-                    Gadgets
-                </h3>
-
-                <div class="tag-list">
-
-                    <span>Take-Copter</span>
-
-                    <span>Anywhere Door</span>
-
-                    <span>Flying Gadget</span>
-
-                    <span>Doraemon Gadgets</span>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- DETAILS -->
-            <div class="info-card">
-
-                <div class="info-card-icon">
-                    ℹ️
-                </div>
-
-                <h3>
-                    Episode Details
-                </h3>
-
-
-                <div class="detail-list">
-
-                    <div>
-
-                        <span>Series</span>
-
-                        <strong>
-                            Doraemon
-                        </strong>
-
-                    </div>
-
-
-                    <div>
-
-                        <span>Episode</span>
-
-                        <strong>
-                            04
-                        </strong>
-
-                    </div>
-
-
-                    <div>
-
-                        <span>Title</span>
-
-                        <strong>
-                            Nobita Ka Udan Khatola
-                        </strong>
-
-                    </div>
-
-
-                    <div>
-
-                        <span>Category</span>
-
-                        <strong>
-                            Classic
-                        </strong>
-
-                    </div>
-
-
-                    <div>
-
-                        <span>Release</span>
-
-                        <strong>
-                            1979
-                        </strong>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         ABOUT EPISODE
-    ====================================================== -->
-
-    <section class="about-episode">
-
-        <div class="section-heading">
-
-            <h2>
-                💙 About This Episode
-            </h2>
-
-            <p>
-                A fun flying adventure with Doraemon and Nobita
-            </p>
-
-        </div>
-
-
-        <div class="about-box">
-
-            <p>
-                <strong>Nobita Ka Udan Khatola</strong>
-                ek fun-filled classic Doraemon adventure hai
-                jahan Nobita ko aasman mein udne ka chance
-                milta hai. Doraemon ke gadgets is adventure
-                ko aur bhi interesting bana dete hain.
-            </p>
-
-            <p>
-                Nobita ke flying adventure mein Doraemon aur
-                friends bhi important role play karte hain.
-                Dekhiye kaise ek simple flying idea ek
-                exciting adventure ban jata hai.
-            </p>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         EPISODE NAVIGATION
-    ====================================================== -->
-
-    <section class="episode-navigation">
-
-
-        <!-- PREVIOUS -->
-        <a href="episode-03.html"
-           class="episode-nav-btn">
-
-            <span>
-                ← Previous Episode
-            </span>
-
-            <strong>
-                Episode 03
-            </strong>
-
-        </a>
-
-
-        <!-- NEXT -->
-        <a href="episode-05.html"
-           class="episode-nav-btn next">
-
-            <span>
-                Next Episode →
-            </span>
-
-            <strong>
-                Episode 05
-            </strong>
-
-        </a>
-
-
-    </section>
-
+    <video
+      id="episodePlayer"
+      controls
+      playsinline
+      preload="none"
+      poster="../assets/episodes/covers/episode-04.jpg"
+      src="../assets/episodes/compressed/episode-04.mp4"
+    >
+      Your browser does not support video playback.
+    </video>
+
+    <p class="ep-player-message" id="playerMessage" role="status" hidden></p>
+  </dialog>
 
 </main>
 
+  <footer class="footer">
+    <strong>DORAEMON WORLD 💙</strong>
+    <p>Unofficial fan project · © <span id="year">2026</span></p>
+  </footer>
+
+  <!-- MOBILE BOTTOM NAVIGATION -->
+  <nav class="bottom-nav" aria-label="Mobile navigation">
+    <a href="../index.html"><span>🏠</span>Home</a>
+    <a href="../movies.html"><span>🎬</span>Movies</a>
+    <a href="../episodes.html" aria-current="location"><span>📺</span>Episodes</a>
+    <a href="../characters.html"><span>👥</span>Characters</a>
+    <a href="../music.html"><span>🎵</span>Music</a>
+  </nav>
 
-
-<!-- =========================================================
-     VIDEO MODAL
-========================================================= -->
-
-<div id="videoModal"
-     class="video-modal">
-
-
-    <div class="video-modal-box">
-
-
-        <!-- HEADER -->
-        <div class="video-modal-header">
-
-            <div>
-
-                <span>
-                    DORAEMON WORLD
-                </span>
-
-                <h3>
-                    Episode 04 — Nobita Ka Udan Khatola
-                </h3>
-
-            </div>
-
-
-            <button id="videoClose"
-                    class="video-close"
-                    aria-label="Close Video">
-
-                <i class="fa-solid fa-xmark"></i>
-
-            </button>
-
-        </div>
-
-
-
-        <!-- VIDEO -->
-        <div class="video-player">
-
-            <video id="episodeVideo"
-                   controls
-                   playsinline
-                   preload="metadata"
-                   poster="../assets/episodes/covers/episode-04.jpg">
-
-                <source src="../assets/episodes/episode-04.mp4"
-                        type="video/mp4">
-
-                Your browser does not support HTML5 video.
-
-            </video>
-
-        </div>
-
-
-
-        <!-- FOOTER -->
-        <div class="video-modal-footer">
-
-            <span>
-                🔵 Doraemon World
-            </span>
-
-            <span>
-                Episode 04 • Nobita Ka Udan Khatola
-            </span>
-
-        </div>
-
-
-    </div>
-
-</div>
-
-
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
-<footer class="episodes-footer">
-
-    <div class="footer-logo">
-        DORAEMON 🌐
-    </div>
-
-    <p>
-        Your Ultimate Doraemon Fan World
-    </p>
-
-    <small>
-        © 2026 Doraemon World.
-        Made with 💙 for Doraemon fans.
-    </small>
-
-</footer>
-
-
-
-<!-- =========================================================
-     JAVASCRIPT
-========================================================= -->
-
-<script>
-
-document.addEventListener("DOMContentLoaded", function () {
-
-
-    /* =====================================================
-       MOBILE MENU
-    ===================================================== */
-
-    const mobileMenuBtn =
-        document.getElementById("mobileMenuBtn");
-
-    const mobileMenuPanel =
-        document.getElementById("mobileMenuPanel");
-
-
-    if (mobileMenuBtn && mobileMenuPanel) {
-
-        mobileMenuBtn.addEventListener("click", function (event) {
-
-            event.stopPropagation();
-
-            mobileMenuPanel.classList.toggle("show");
-
-        });
-
-
-        document.addEventListener("click", function (event) {
-
-            if (
-                !mobileMenuPanel.contains(event.target) &&
-                !mobileMenuBtn.contains(event.target)
-            ) {
-
-                mobileMenuPanel.classList.remove("show");
-
-            }
-
-        });
-
-    }
-
-
-
-    /* =====================================================
-       VIDEO MODAL
-    ===================================================== */
-
-    const videoModal =
-        document.getElementById("videoModal");
-
-    const watchBtn =
-        document.getElementById("watchBtn");
-
-    const coverPlayBtn =
-        document.getElementById("coverPlayBtn");
-
-    const videoClose =
-        document.getElementById("videoClose");
-
-    const episodeVideo =
-        document.getElementById("episodeVideo");
-
-
-
-    /* =====================================================
-       OPEN VIDEO
-    ===================================================== */
-
-    function openVideo() {
-
-        if (!videoModal || !episodeVideo) return;
-
-
-        document.body.classList.add("video-open");
-
-        videoModal.classList.add("active");
-
-
-        episodeVideo.currentTime = 0;
-
-
-        const playPromise =
-            episodeVideo.play();
-
-
-        if (playPromise !== undefined) {
-
-            playPromise.catch(function () {
-
-                console.log(
-                    "Video autoplay was prevented."
-                );
-
-            });
-
-        }
-
-    }
-
-
-
-    /* =====================================================
-       CLOSE VIDEO
-    ===================================================== */
-
-    function closeVideo() {
-
-        if (!videoModal || !episodeVideo) return;
-
-
-        episodeVideo.pause();
-
-        episodeVideo.currentTime = 0;
-
-
-        videoModal.classList.remove("active");
-
-        document.body.classList.remove("video-open");
-
-    }
-
-
-
-    /* =====================================================
-       BUTTON EVENTS
-    ===================================================== */
-
-    if (watchBtn) {
-
-        watchBtn.addEventListener(
-            "click",
-            openVideo
-        );
-
-    }
-    
-    if (coverPlayBtn) {
-
-        coverPlayBtn.addEventListener(
-            "click",
-            openVideo
-        );
-
-    }
-
-
-    if (videoClose) {
-
-        videoClose.addEventListener(
-            "click",
-            closeVideo
-        );
-
-    }
-
-
-
-    /* =====================================================
-       CLOSE OUTSIDE MODAL
-    ===================================================== */
-
-    if (videoModal) {
-
-        videoModal.addEventListener(
-            "click",
-            function (event) {
-
-                if (event.target === videoModal) {
-
-                    closeVideo();
-
-                }
-
-            }
-        );
-
-    }
-
-
-
-    /* =====================================================
-       ESC KEY
-    ===================================================== */
-
-    document.addEventListener(
-        "keydown",
-        function (event) {
-
-            if (
-                event.key === "Escape" &&
-                videoModal &&
-                videoModal.classList.contains("active")
-            ) {
-
-                closeVideo();
-
-            }
-
-        }
-    );
-
-
-});
-
-</script>
-
-
-<script src="../js/site-navigation.js" defer></script>
 </body>
-
 </html>

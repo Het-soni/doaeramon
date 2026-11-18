@@ -1,1097 +1,395 @@
-/* =========================================================
-   DORAEMON WORLD
-   MOVIES PAGE JAVASCRIPT
-   COMPLETE MOVIE SYSTEM
-========================================================= */
+"use strict";
 
+// Existing Doraemon World catalogue.
+// Each entry contains title, year, rating, genre and story.
+// IDs follow the original 1–39 order used by Home and site search.
+const movieRows = [
+  ["Nobita's Dinosaur", 1980, "8.2", "Adventure, Fantasy, Family",
+    "Nobita discovers a dinosaur egg and raises a young dinosaur named Pisu."],
 
-/* =========================================================
-   TELEGRAM BOT
-========================================================= */
+  ["The Records of Nobita", 1981, "8.1", "Adventure, Fantasy, Family",
+    "Nobita and Doraemon travel through time on an adventure filled with gadgets and friendship."],
 
-const TELEGRAM_BOT = "ProSearchM7Bot";
+  ["Nobita and the Haunts", 1982, "8.0", "Adventure, Fantasy",
+    "Nobita and his friends discover mysterious events and set out to investigate with Doraemon."],
 
+  ["Nobita's Great Adventure", 1983, "8.3", "Adventure, Fantasy, Family",
+    "Nobita and his friends enter a mysterious world full of challenges."],
 
-/* =========================================================
-   MOVIE DATA
-========================================================= */
+  ["Nobita's Little Star Wars", 1985, "8.4", "Sci-Fi, Adventure, Fantasy",
+    "The friends help a tiny alien prince caught in an intergalactic battle."],
 
-const movies = [
+  ["Nobita and the Steel Troops", 1986, "8.5", "Sci-Fi, Adventure",
+    "Mysterious robot parts lead Nobita and his friends into a battle against an army of robots."],
 
-    {
-        id: 1,
-        title: "Nobita's Dinosaur",
-        year: 1980,
-        rating: "8.2",
-        image: "assets/images/movies/movie-01.jpg",
-        video: "assets/videos/movies/movie-01.mp4",
-        description:
-            "Nobita discovers a dinosaur egg and raises a young dinosaur named Pisu.",
-        genre: "Adventure, Fantasy, Family"
-    },
+  ["Nobita and the Knights", 1987, "8.4", "Fantasy, Adventure",
+    "Nobita and his friends enter a hidden world and become part of a new adventure."],
 
-    {
-        id: 2,
-        title: "The Records of Nobita",
-        year: 1981,
-        rating: "8.1",
-        image: "assets/images/movies/movie-02.jpg",
-        video: "assets/videos/movies/movie-02.mp4",
-        description:
-            "Nobita and Doraemon travel through time and face another exciting adventure filled with gadgets, friendship and fun.",
-        genre: "Adventure, Fantasy, Family"
-    },
+  ["Nobita and the Parallel Journey", 1988, "8.5", "Fantasy, Adventure, Sci-Fi",
+    "Doraemon and Nobita discover a parallel world and face an enemy threatening both worlds."],
 
-    {
-        id: 3,
-        title: "Nobita and the Haunts",
-        year: 1982,
-        rating: "8.0",
-        image: "assets/images/movies/movie-03.jpg",
-        video: "assets/videos/movies/movie-03.mp4",
-        description:
-            "Nobita and his friends discover mysterious events and begin an unforgettable adventure with Doraemon.",
-        genre: "Adventure, Fantasy"
-    },
+  ["Nobita's Birth of Japan", 1989, "8.6", "Adventure, Historical, Fantasy",
+    "Nobita and his friends travel back to prehistoric Japan."],
 
-    {
-        id: 4,
-        title: "Nobita's Great Adventure",
-        year: 1983,
-        rating: "8.3",
-        image: "assets/images/movies/movie-04.jpg",
-        video: "assets/videos/movies/movie-04.mp4",
-        description:
-            "A great adventure begins when Nobita and his friends enter a mysterious world full of challenges.",
-        genre: "Adventure, Fantasy, Family"
-    },
+  ["Nobita and the Animal Planet", 1990, "8.5", "Adventure, Fantasy, Sci-Fi",
+    "Nobita discovers a world of intelligent animals and helps them protect their home."],
 
-    {
-        id: 5,
-        title: "Nobita's Little Star Wars",
-        year: 1985,
-        rating: "8.4",
-        image: "assets/images/movies/movie-05.jpg",
-        video: "assets/videos/movies/movie-05.mp4",
-        description:
-            "Nobita and his friends help a tiny alien prince and become involved in an exciting intergalactic battle.",
-        genre: "Sci-Fi, Adventure, Fantasy"
-    },
+  ["Nobita's Dorabian Nights", 1991, "8.4", "Fantasy, Adventure",
+    "Nobita and his friends enter the stories of the Arabian Nights."],
 
-    {
-        id: 6,
-        title: "Nobita and the Steel Troops",
-        year: 1986,
-        rating: "8.5",
-        image: "assets/images/movies/movie-06.jpg",
-        video: "assets/videos/movies/movie-06.mp4",
-        description:
-            "Nobita and his friends encounter mysterious robot parts and become involved in a dangerous battle against an army of robots.",
-        genre: "Sci-Fi, Adventure"
-    },
+  ["Nobita and the Kingdom of Clouds", 1992, "8.5", "Fantasy, Adventure",
+    "Nobita builds a kingdom in the clouds and discovers a civilization with plans of its own."],
 
-    {
-        id: 7,
-        title: "Nobita and the Knights",
-        year: 1987,
-        rating: "8.4",
-        image: "assets/images/movies/movie-07.jpg",
-        video: "assets/videos/movies/movie-07.mp4",
-        description:
-            "Nobita and his friends enter a fantasy world and become part of an exciting medieval adventure.",
-        genre: "Fantasy, Adventure"
-    },
+  ["Nobita's Tin Labyrinth", 1993, "8.3", "Adventure, Sci-Fi, Mystery",
+    "The friends explore a labyrinth and uncover a secret connected to robots."],
 
-    {
-        id: 8,
-        title: "Nobita and the Parallel Journey",
-        year: 1988,
-        rating: "8.5",
-        image: "assets/images/movies/movie-08.jpg",
-        video: "assets/videos/movies/movie-08.mp4",
-        description:
-            "Doraemon and Nobita discover a parallel world and face a powerful enemy threatening both worlds.",
-        genre: "Fantasy, Adventure, Sci-Fi"
-    },
+  ["Nobita's Three Visionary Swordsmen", 1994, "8.4", "Fantasy, Adventure",
+    "Nobita dreams of becoming a swordsman and finds himself on a fantasy adventure."],
 
-    {
-        id: 9,
-        title: "Nobita's Birth of Japan",
-        year: 1989,
-        rating: "8.6",
-        image: "assets/images/movies/movie-09.jpg",
-        video: "assets/videos/movies/movie-09.mp4",
-        description:
-            "Nobita and his friends travel back to prehistoric Japan and become involved in an incredible adventure.",
-        genre: "Adventure, Historical, Fantasy"
-    },
+  ["Nobita's Diary on the Creation of the World", 1995, "8.5", "Fantasy, Adventure, Sci-Fi",
+    "Nobita and his friends create a miniature world and watch its history unfold."],
 
-    {
-        id: 10,
-        title: "Nobita and the Animal Planet",
-        year: 1990,
-        rating: "8.5",
-        image: "assets/images/movies/movie-10.jpg",
-        video: "assets/videos/movies/movie-10.mp4",
-        description:
-            "Nobita discovers a world inhabited by intelligent animals and helps them fight against a dangerous threat.",
-        genre: "Adventure, Fantasy, Sci-Fi"
-    },
+  ["Nobita and the Galaxy Super-express", 1996, "8.6", "Sci-Fi, Adventure",
+    "Nobita boards a mysterious galaxy train for a journey through space."],
 
-    {
-        id: 11,
-        title: "Nobita's Dorabian Nights",
-        year: 1991,
-        rating: "8.4",
-        image: "assets/images/movies/movie-11.jpg",
-        video: "assets/videos/movies/movie-11.mp4",
-        description:
-            "Nobita travels into the world of Arabian Nights and begins a magical adventure with his friends.",
-        genre: "Fantasy, Adventure"
-    },
+  ["Nobita's Adventure in the South Seas", 1998, "8.4", "Adventure, Fantasy",
+    "Nobita and his friends sail to the South Seas and discover a mysterious island."],
 
-    {
-        id: 12,
-        title: "Nobita and the Kingdom of Clouds",
-        year: 1992,
-        rating: "8.5",
-        image: "assets/images/movies/movie-12.jpg",
-        video: "assets/videos/movies/movie-12.mp4",
-        description:
-            "Nobita creates a kingdom in the clouds, but soon discovers a mysterious civilization with its own plans.",
-        genre: "Fantasy, Adventure"
-    },
+  ["Nobita Drifts in the Universe", 1999, "8.5", "Sci-Fi, Adventure",
+    "The friends are drawn into a space adventure and must find their way home."],
 
-    {
-        id: 13,
-        title: "Nobita's Tin Labyrinth",
-        year: 1993,
-        rating: "8.3",
-        image: "assets/images/movies/movie-13.jpg",
-        video: "assets/videos/movies/movie-13.mp4",
-        description:
-            "Nobita and his friends enter a mysterious labyrinth and discover a secret connected to robots.",
-        genre: "Adventure, Sci-Fi, Mystery"
-    },
+  ["Nobita's Legend of the Sun King", 2000, "8.6", "Fantasy, Adventure",
+    "Nobita meets a prince who looks exactly like him and becomes part of a royal adventure."],
 
-    {
-        id: 14,
-        title: "Nobita's Three Visionary Swordsmen",
-        year: 1994,
-        rating: "8.4",
-        image: "assets/images/movies/movie-14.jpg",
-        video: "assets/videos/movies/movie-14.mp4",
-        description:
-            "Nobita dreams of becoming a swordsman and finds himself involved in a fantasy adventure.",
-        genre: "Fantasy, Adventure"
-    },
+  ["Nobita and the Winged Braves", 2001, "8.5", "Fantasy, Adventure",
+    "Nobita discovers a bird civilization and helps its people face a threat."],
 
-    {
-        id: 15,
-        title: "Nobita's Diary on the Creation of the World",
-        year: 1995,
-        rating: "8.5",
-        image: "assets/images/movies/movie-15.jpg",
-        video: "assets/videos/movies/movie-15.mp4",
-        description:
-            "Nobita and his friends create a miniature world and watch it develop into something much bigger than expected.",
-        genre: "Fantasy, Adventure, Sci-Fi"
-    },
+  ["Nobita and the Robot Kingdom", 2002, "8.4", "Sci-Fi, Adventure",
+    "The friends visit a robot kingdom caught in a conflict between humans and robots."],
 
-    {
-        id: 16,
-        title: "Nobita and the Galaxy Super-express",
-        year: 1996,
-        rating: "8.6",
-        image: "assets/images/movies/movie-16.jpg",
-        video: "assets/videos/movies/movie-16.mp4",
-        description:
-            "Nobita boards a mysterious galaxy train and begins an exciting journey through space.",
-        genre: "Sci-Fi, Adventure"
-    },
+  ["Nobita and the Windmasters", 2003, "8.5", "Fantasy, Adventure",
+    "Nobita meets people who can control the wind and helps them protect their world."],
 
-    {
-        id: 17,
-        title: "Nobita's Adventure in the South Seas",
-        year: 1998,
-        rating: "8.4",
-        image: "assets/images/movies/movie-17.jpg",
-        video: "assets/videos/movies/movie-17.mp4",
-        description:
-            "Nobita and his friends travel to the South Seas and discover a mysterious island.",
-        genre: "Adventure, Fantasy"
-    },
+  ["Nobita's Wan-Nyan Space-Time Odyssey", 2004, "8.6", "Sci-Fi, Adventure, Fantasy",
+    "A journey through time leads the friends to a civilization connected to dogs and cats."],
 
-    {
-        id: 18,
-        title: "Nobita Drifts in the Universe",
-        year: 1999,
-        rating: "8.5",
-        image: "assets/images/movies/movie-18.jpg",
-        video: "assets/videos/movies/movie-18.mp4",
-        description:
-            "Nobita and his friends are pulled into a dangerous space adventure and must find their way home.",
-        genre: "Sci-Fi, Adventure"
-    },
+  ["Nobita's Dinosaur 2006", 2006, "8.7", "Adventure, Fantasy, Family",
+    "Nobita discovers a dinosaur egg and raises a dinosaur named Pisuke."],
 
-    {
-        id: 19,
-        title: "Nobita's Legend of the Sun King",
-        year: 2000,
-        rating: "8.6",
-        image: "assets/images/movies/movie-19.jpg",
-        video: "assets/videos/movies/movie-19.mp4",
-        description:
-            "Nobita meets a prince who looks exactly like him and becomes involved in a royal adventure.",
-        genre: "Fantasy, Adventure"
-    },
+  ["Nobita's New Great Adventure", 2007, "8.4", "Fantasy, Adventure",
+    "Nobita and his friends set out on an adventure in a world of magic."],
 
-    {
-        id: 20,
-        title: "Nobita and the Winged Braves",
-        year: 2001,
-        rating: "8.5",
-        image: "assets/images/movies/movie-20.jpg",
-        video: "assets/videos/movies/movie-20.mp4",
-        description:
-            "Nobita discovers a mysterious bird civilization and joins them in their fight against an enemy.",
-        genre: "Fantasy, Adventure"
-    },
+  ["Nobita and the Green Giant Legend", 2008, "8.3", "Fantasy, Adventure, Family",
+    "A mysterious plant brings Nobita into contact with a green civilization."],
 
-    {
-        id: 21,
-        title: "Nobita and the Robot Kingdom",
-        year: 2002,
-        rating: "8.4",
-        image: "assets/images/movies/movie-21.jpg",
-        video: "assets/videos/movies/movie-21.mp4",
-        description:
-            "Nobita and his friends travel to a robot kingdom and become involved in a conflict between humans and robots.",
-        genre: "Sci-Fi, Adventure"
-    },
+  ["The New Record of Nobita", 2009, "8.4", "Adventure, Fantasy",
+    "Nobita and his friends explore a world filled with adventure and secrets."],
 
-    {
-        id: 22,
-        title: "Nobita and the Windmasters",
-        year: 2003,
-        rating: "8.5",
-        image: "assets/images/movies/movie-22.jpg",
-        video: "assets/videos/movies/movie-22.mp4",
-        description:
-            "Nobita meets people who can control the wind and helps them protect their world.",
-        genre: "Fantasy, Adventure"
-    },
+  ["Nobita's Great Battle of the Mermaid King", 2010, "8.5", "Fantasy, Adventure",
+    "The friends explore an underwater kingdom and help a mermaid princess."],
 
-    {
-        id: 23,
-        title: "Nobita's Wan-Nyan Space-Time Odyssey",
-        year: 2004,
-        rating: "8.6",
-        image: "assets/images/movies/movie-23.jpg",
-        video: "assets/videos/movies/movie-23.mp4",
-        description:
-            "Nobita travels through space and time and meets a civilization connected to dogs and cats.",
-        genre: "Sci-Fi, Adventure, Fantasy"
-    },
+  ["Nobita and the New Steel Troops", 2011, "8.6", "Sci-Fi, Adventure",
+    "Nobita and his friends discover powerful robot soldiers and face a dangerous threat."],
 
-    {
-        id: 24,
-        title: "Nobita's Dinosaur 2006",
-        year: 2006,
-        rating: "8.7",
-        image: "assets/images/movies/movie-24.jpg",
-        video: "assets/videos/movies/movie-24.mp4",
-        description:
-            "Nobita discovers a dinosaur egg and raises a dinosaur named Pisuke in this modern remake.",
-        genre: "Adventure, Fantasy, Family"
-    },
+  ["Nobita and the Island of Miracles", 2012, "8.3", "Adventure, Fantasy",
+    "Nobita discovers an island where extinct animals still live."],
 
-    {
-        id: 25,
-        title: "Nobita's New Great Adventure",
-        year: 2007,
-        rating: "8.4",
-        image: "assets/images/movies/movie-25.jpg",
-        video: "assets/videos/movies/movie-25.mp4",
-        description:
-            "Nobita and his friends become involved in a magical adventure in a mysterious fantasy world.",
-        genre: "Fantasy, Adventure"
-    },
+  ["Nobita's Secret Gadget Museum", 2013, "8.5", "Mystery, Adventure, Sci-Fi",
+    "When Doraemon's bell is stolen, the search leads the friends to a gadget museum."],
 
-    {
-        id: 26,
-        title: "Nobita and the Green Giant Legend",
-        year: 2008,
-        rating: "8.3",
-        image: "assets/images/movies/movie-26.jpg",
-        video: "assets/videos/movies/movie-26.mp4",
-        description:
-            "Nobita discovers a mysterious plant and becomes involved in an adventure involving a green civilization.",
-        genre: "Fantasy, Adventure, Family"
-    },
+  ["New Nobita's Great Demon", 2014, "8.4", "Fantasy, Adventure",
+    "Nobita and his friends enter a magical world and face a powerful enemy."],
 
-    {
-        id: 27,
-        title: "The New Record of Nobita",
-        year: 2009,
-        rating: "8.4",
-        image: "assets/images/movies/movie-27.jpg",
-        video: "assets/videos/movies/movie-27.mp4",
-        description:
-            "Nobita and his friends enter a mysterious underwater world filled with adventure and secrets.",
-        genre: "Adventure, Fantasy"
-    },
+  ["Stand by Me Doraemon", 2014, "9.0", "Drama, Fantasy, Family",
+    "A story about Nobita and Doraemon's friendship and their journey together."],
 
-    {
-        id: 28,
-        title: "Nobita's Great Battle of the Mermaid King",
-        year: 2010,
-        rating: "8.5",
-        image: "assets/images/movies/movie-28.jpg",
-        video: "assets/videos/movies/movie-28.mp4",
-        description:
-            "Nobita and his friends explore an underwater kingdom and help a mermaid princess.",
-        genre: "Fantasy, Adventure"
-    },
+  ["Nobita's Space Heroes", 2015, "8.3", "Sci-Fi, Adventure, Superhero",
+    "Nobita and his friends become superheroes and embark on a space adventure."],
 
-    {
-        id: 29,
-        title: "Nobita and the New Steel Troops",
-        year: 2011,
-        rating: "8.6",
-        image: "assets/images/movies/movie-29.jpg",
-        video: "assets/videos/movies/movie-29.mp4",
-        description:
-            "Nobita and his friends discover powerful robot soldiers and face a dangerous threat.",
-        genre: "Sci-Fi, Adventure"
-    },
+  ["New Nobita's Birth of Japan", 2016, "8.5", "Adventure, Fantasy",
+    "Nobita and his friends travel back to prehistoric Japan for a new adventure."],
 
-    {
-        id: 30,
-        title: "Nobita and the Island of Miracles",
-        year: 2012,
-        rating: "8.3",
-        image: "assets/images/movies/movie-30.jpg",
-        video: "assets/videos/movies/movie-30.mp4",
-        description:
-            "Nobita discovers a mysterious island filled with extinct animals and incredible secrets.",
-        genre: "Adventure, Fantasy"
-    },
+  ["Great Adventure in the Antarctic", 2017, "8.4", "Adventure, Sci-Fi, Fantasy",
+    "The friends travel to Antarctica and discover an ancient civilization beneath the ice."],
 
-    {
-        id: 31,
-        title: "Nobita's Secret Gadget Museum",
-        year: 2013,
-        rating: "8.5",
-        image: "assets/images/movies/movie-31.jpg",
-        video: "assets/videos/movies/movie-31.mp4",
-        description:
-            "Doraemon's bell is stolen, leading Nobita and his friends to a mysterious gadget museum.",
-        genre: "Mystery, Adventure, Sci-Fi"
-    },
+  ["Nobita's Treasure Island", 2018, "8.6", "Adventure, Fantasy",
+    "Nobita and his friends search for treasure while facing pirates and unexpected dangers."],
 
-    {
-        id: 32,
-        title: "New Nobita's Great Demon",
-        year: 2014,
-        rating: "8.4",
-        image: "assets/images/movies/movie-32.jpg",
-        video: "assets/videos/movies/movie-32.mp4",
-        description:
-            "Nobita and his friends enter a magical world and become involved in a battle against a powerful demon.",
-        genre: "Fantasy, Adventure"
-    },
+  ["Nobita's Chronicle of the Moon Exploration", 2019, "8.5", "Sci-Fi, Adventure, Fantasy",
+    "Nobita discovers a mysterious world on the Moon and joins the battle to protect it."],
 
-    {
-        id: 33,
-        title: "Stand by Me Doraemon",
-        year: 2014,
-        rating: "9.0",
-        image: "assets/images/movies/movie-33.jpg",
-        video: "assets/videos/movies/movie-33.mp4",
-        description:
-            "A special story about Nobita and Doraemon's friendship, their memories and their journey together.",
-        genre: "Drama, Fantasy, Family"
-    },
-
-    {
-        id: 34,
-        title: "Nobita's Space Heroes",
-        year: 2015,
-        rating: "8.3",
-        image: "assets/images/movies/movie-34.jpg",
-        video: "assets/videos/movies/movie-34.mp4",
-        description:
-            "Nobita and his friends become superheroes and embark on a space adventure.",
-        genre: "Sci-Fi, Adventure, Superhero"
-    },
-
-    {
-        id: 35,
-        title: "New Nobita's Birth of Japan",
-        year: 2016,
-        rating: "8.5",
-        image: "assets/images/movies/movie-35.jpg",
-        video: "assets/videos/movies/movie-35.mp4",
-        description:
-            "Nobita and his friends travel back to prehistoric Japan and become involved in a mysterious adventure.",
-        genre: "Adventure, Fantasy"
-    },
-
-    {
-        id: 36,
-        title: "Great Adventure in the Antarctic",
-        year: 2017,
-        rating: "8.4",
-        image: "assets/images/movies/movie-36.jpg",
-        video: "assets/videos/movies/movie-36.mp4",
-        description:
-            "Nobita and his friends travel to Antarctica and discover a mysterious ancient civilization beneath the ice.",
-        genre: "Adventure, Sci-Fi, Fantasy"
-    },
-
-    {
-        id: 37,
-        title: "Nobita's Treasure Island",
-        year: 2018,
-        rating: "8.6",
-        image: "assets/images/movies/movie-37.jpg",
-        video: "assets/videos/movies/movie-37.mp4",
-        description:
-            "Nobita and his friends search for treasure on a mysterious island while facing pirates and unexpected dangers.",
-        genre: "Adventure, Fantasy"
-    },
-
-    {
-        id: 38,
-        title: "Nobita's Chronicle of the Moon Exploration",
-        year: 2019,
-        rating: "8.5",
-        image: "assets/images/movies/movie-38.jpg",
-        video: "assets/videos/movies/movie-38.mp4",
-        description:
-            "Nobita discovers a mysterious world on the Moon and becomes involved in a battle to protect it.",
-        genre: "Sci-Fi, Adventure, Fantasy"
-    },
-
-    {
-        id: 39,
-        title: "New Nobita's Dinosaur",
-        year: 2020,
-        rating: "8.7",
-        image: "assets/images/movies/movie-39.jpg",
-        video: "assets/videos/movies/movie-39.mp4",
-        description:
-            "Nobita discovers twin dinosaur brothers and begins an exciting journey to help them return to their original time.",
-        genre: "Adventure, Fantasy, Family"
-    }
-
+  ["New Nobita's Dinosaur", 2020, "8.7", "Adventure, Fantasy, Family",
+    "Nobita discovers twin dinosaurs and sets out to help them return to their own time."]
 ];
 
+const movies = movieRows.map(([title, year, rating, genre, story], index) => {
+  const id = index + 1;
+  const posterNumber = String(id).padStart(2, "0");
 
-/* =========================================================
-   DOM ELEMENTS
-========================================================= */
+  return {
+    id,
+    title,
+    year,
+    rating,
+    genre,
+    story,
+    image: `assets/images/movies/movie-${posterNumber}.jpg`
+  };
+});
 
-const moviesGrid = document.getElementById("moviesGrid");
-const movieDetail = document.getElementById("movieDetail");
-const movieSearch = document.getElementById("movieSearch");
-const movieYearFilter = document.getElementById("movieYearFilter");
-const movieNoResult = document.getElementById("movieNoResult");
+const byId = (id) => document.getElementById(id);
 
+const listView = byId("listView");
+const detailView = byId("detailView");
+const grid = byId("movieGrid");
+const search = byId("movieSearch");
+const yearFilter = byId("yearFilter");
+const pagination = byId("pagination");
+const menu = byId("sideMenu");
+const menuButton = byId("menuButton");
 
-/* =========================================================
-   GET MOVIE ID FROM URL
-========================================================= */
+const mobileScreen = window.matchMedia("(max-width: 700px)");
+const pageSize = 8;
+let pageNumber = 1;
 
-function getMovieIdFromURL() {
-
-    const params = new URLSearchParams(window.location.search);
-
-    const id = parseInt(params.get("movie"));
-
-    return Number.isInteger(id) ? id : null;
+// Navigation works with the static header and bottom bar in movies.html.
+function setMenu(open) {
+  menu.hidden = !open;
+  menuButton.setAttribute("aria-expanded", String(open));
+  menuButton.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  menuButton.textContent = open ? "✕" : "☰";
 }
 
+menuButton.addEventListener("click", () => setMenu(menu.hidden));
 
-/* =========================================================
-   UPDATE URL
-========================================================= */
+document.addEventListener("click", (event) => {
+  if (!menu.contains(event.target) && !menuButton.contains(event.target)) {
+    setMenu(false);
+  }
+});
 
-function updateMovieURL(id) {
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && !menu.hidden) {
+    setMenu(false);
+    menuButton.focus();
+  }
+});
 
-    const url = new URL(window.location.href);
+window.matchMedia("(min-width: 1024px)").addEventListener("change", () => {
+  setMenu(false);
+});
 
-    if (id) {
-        url.searchParams.set("movie", id);
-    } else {
-        url.searchParams.delete("movie");
-    }
-
-    window.history.pushState(
-        { movieId: id },
-        "",
-        url
-    );
+// Relative links also work inside a GitHub Pages project folder.
+function movieURL(id) {
+  return id == null ? "movies.html" : `movies.html?movie=${id}`;
 }
 
+function addPoster(frame, movie, lazy = true) {
+  const img = document.createElement("img");
 
-/* =========================================================
-   SHOW MOVIE LIST
-========================================================= */
+  img.alt = "";
+  img.loading = lazy ? "lazy" : "eager";
 
-function showMovieList(updateURL = true) {
+  img.addEventListener("error", () => {
+    frame.textContent = "Poster unavailable";
+  }, { once: true });
 
-    if (updateURL) {
-        updateMovieURL(null);
-    }
-
-    if (movieDetail) {
-        movieDetail.innerHTML = "";
-        movieDetail.style.display = "none";
-    }
-
-    if (moviesGrid) {
-        moviesGrid.style.display = "";
-    }
-
-    if (movieNoResult) {
-        movieNoResult.style.display = "none";
-    }
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+  frame.replaceChildren(img);
+  img.src = movie.image;
 }
 
+function createCard(movie) {
+  const card = document.createElement("a");
+  card.className = "movie-card";
+  card.href = movieURL(movie.id);
 
-/* =========================================================
-   SHOW MOVIE DETAIL
-========================================================= */
+  const frame = document.createElement("div");
+  frame.className = "poster";
+  addPoster(frame, movie);
 
-function showMovieDetail(id, updateURL = true) {
+  const info = document.createElement("div");
+  info.className = "card-info";
 
-    const movie = movies.find(item => item.id === Number(id));
+  const title = document.createElement("h3");
+  title.textContent = movie.title;
 
-    if (!movie || !movieDetail) {
-        return;
-    }
+  const meta = document.createElement("div");
+  meta.className = "card-meta";
 
-    if (updateURL) {
-        updateMovieURL(movie.id);
-    }
+  const year = document.createElement("span");
+  year.textContent = `📅 ${movie.year}`;
 
-    if (moviesGrid) {
-        moviesGrid.style.display = "none";
-    }
+  const rating = document.createElement("span");
+  rating.textContent = `⭐ ${movie.rating}`;
 
-    if (movieNoResult) {
-        movieNoResult.style.display = "none";
-    }
+  meta.append(year, rating);
+  info.append(title, meta);
+  card.append(frame, info);
 
-    movieDetail.style.display = "block";
-
-    movieDetail.innerHTML = `
-
-        <div class="movie-detail-wrapper">
-
-            <button
-                class="movie-back-btn"
-                type="button"
-                onclick="showMovieList()"
-            >
-                ← Back to Movies
-            </button>
-
-
-            <div class="movie-detail-card">
-
-
-                <!-- MOVIE COVER -->
-
-                <div class="movie-detail-poster">
-
-                    <img
-                        class="movie-detail-image"
-                        src="${movie.image}"
-                        alt="${movie.title}"
-                        loading="eager"
-                        onerror="this.src='assets/images/movies/movie-01.jpg'"
-                    >
-
-                </div>
-
-
-                <!-- MOVIE INFORMATION -->
-
-                <div class="movie-detail-content">
-
-                    <div class="movie-detail-number">
-                        MOVIE ${String(movie.id).padStart(2, "0")}
-                    </div>
-
-
-                    <h1>
-                        ${movie.title}
-                    </h1>
-
-
-                    <div class="movie-detail-meta">
-
-                        <span>
-                            📅 ${movie.year}
-                        </span>
-
-                        <span>
-                            ⭐ ${movie.rating}
-                        </span>
-
-                        <span>
-                            🎬 ${movie.genre}
-                        </span>
-
-                    </div>
-
-
-                    <p class="movie-detail-description">
-                        ${movie.description}
-                    </p>
-
-
-                    <!-- WATCH BUTTON -->
-
-                    <button
-                        class="movie-watch-btn"
-                        type="button"
-                        onclick="watchMovie(${movie.id})"
-                    >
-                        ▶ Watch Movie
-                    </button>
-
-
-                    <button
-                        class="movie-close-btn"
-                        type="button"
-                        onclick="showMovieList()"
-                    >
-                        ✕ Close
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    `;
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+  return card;
 }
 
+function renderPagination(totalPages) {
+  pagination.replaceChildren();
+  pagination.hidden = !mobileScreen.matches || totalPages <= 1;
 
-/* =========================================================
-   WATCH MOVIE
-   TELEGRAM DIRECT MOVIE QUERY
-========================================================= */
+  if (pagination.hidden) return;
 
-function watchMovie(id) {
+  for (let page = 1; page <= totalPages; page++) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = page;
+    button.setAttribute("aria-label", `Movie page ${page}`);
 
-    const movie = movies.find(item => item.id === Number(id));
-
-    if (!movie) {
-        return;
+    if (page === pageNumber) {
+      button.setAttribute("aria-current", "page");
     }
 
-
-    /*
-       Exact movie title
-       Example:
-       Nobita's Dinosaur
-    */
-
-    const searchQuery = movie.title.trim();
-
-
-    /*
-       Telegram bot deep link
-
-       The movie title is encoded safely
-       and passed to the bot through /start.
-    */
-
-    const telegramURL =
-        `https://t.me/${TELEGRAM_BOT}?start=${encodeURIComponent(searchQuery)}`;
-
-
-    /*
-       Open Telegram in a new tab/window
-    */
-
-    window.open(
-        telegramURL,
-        "_blank",
-        "noopener,noreferrer"
-    );
-}
-
-
-/* =========================================================
-   CREATE MOVIE CARDS
-========================================================= */
-
-function setupMovieCards() {
-
-    if (!moviesGrid) {
-        return;
-    }
-
-    const cards = moviesGrid.querySelectorAll(".movie-card");
-
-    cards.forEach(card => {
-
-        card.addEventListener("click", function () {
-
-            const id = parseInt(
-                this.dataset.id
-            );
-
-            if (Number.isInteger(id)) {
-
-                showMovieDetail(id);
-
-            }
-
-        });
-
+    button.addEventListener("click", () => {
+      pageNumber = page;
+      renderList();
+      grid.querySelector("a")?.focus();
     });
 
+    pagination.append(button);
+  }
 }
 
+function renderList() {
+  const query = search.value.trim().toLowerCase();
+  const year = yearFilter.value;
 
-/* =========================================================
-   FILTER MOVIES
-========================================================= */
+  const matches = movies.filter((movie) => {
+    return movie.title.toLowerCase().includes(query) &&
+      (!year || String(movie.year) === year);
+  });
 
-function filterMovies() {
+  const totalPages = Math.ceil(matches.length / pageSize);
+  pageNumber = Math.max(1, Math.min(pageNumber, totalPages));
 
-    if (!moviesGrid) {
-        return;
-    }
+  const start = (pageNumber - 1) * pageSize;
+  const visible = mobileScreen.matches
+    ? matches.slice(start, start + pageSize)
+    : matches;
 
-    const searchValue =
-        movieSearch
-            ? movieSearch.value.trim().toLowerCase()
-            : "";
+  grid.replaceChildren(...visible.map(createCard));
 
-    const yearValue =
-        movieYearFilter
-            ? movieYearFilter.value
-            : "all";
+  byId("movieCount").textContent =
+    `${matches.length} ${matches.length === 1 ? "movie" : "movies"}`;
 
-
-    const cards =
-        moviesGrid.querySelectorAll(".movie-card");
-
-
-    let visibleCount = 0;
-
-
-    cards.forEach(card => {
-
-        const title =
-            (card.dataset.title || card.textContent)
-                .toLowerCase();
-
-        const year =
-            card.dataset.year || "";
-
-
-        const matchesSearch =
-            title.includes(searchValue);
-
-
-        const matchesYear =
-            yearValue === "all" ||
-            year === yearValue;
-
-
-        if (
-            matchesSearch &&
-            matchesYear
-        ) {
-
-            card.style.display = "";
-
-            visibleCount++;
-
-        } else {
-
-            card.style.display = "none";
-
-        }
-
-    });
-
-
-    if (movieNoResult) {
-
-        movieNoResult.style.display =
-            visibleCount === 0
-                ? "block"
-                : "none";
-
-    }
-
+  byId("emptyState").hidden = matches.length > 0;
+  renderPagination(totalPages);
 }
 
+function updateDetailLink(id, movie) {
+  const link = byId(id);
+  link.hidden = !movie;
 
-/* =========================================================
-   SEARCH EVENT
-========================================================= */
-
-if (movieSearch) {
-
-    movieSearch.addEventListener(
-        "input",
-        filterMovies
-    );
-
+  if (movie) {
+    link.href = movieURL(movie.id);
+  } else {
+    link.removeAttribute("href");
+  }
 }
 
+function renderView() {
+  const requestedId = new URLSearchParams(location.search).get("movie");
+  const index = movies.findIndex((movie) => String(movie.id) === requestedId);
+  const movie = movies[index];
 
-/* =========================================================
-   YEAR FILTER EVENT
-========================================================= */
+  listView.hidden = Boolean(movie);
+  detailView.hidden = !movie;
 
-if (movieYearFilter) {
+  if (!movie) {
+    document.title = "Movies | Doraemon World";
+    renderList();
+    return;
+  }
 
-    movieYearFilter.addEventListener(
-        "change",
-        filterMovies
-    );
+  document.title = `${movie.title} | Doraemon World`;
 
+  addPoster(byId("detailPoster"), movie, false);
+
+  byId("detailNumber").textContent = `Movie ${String(movie.id).padStart(2, "0")}`;
+  byId("detailTitle").textContent = movie.title;
+  byId("detailYear").textContent = `📅 ${movie.year}`;
+  byId("detailRating").textContent = `⭐ ${movie.rating}`;
+  byId("detailGenre").textContent = movie.genre;
+  byId("detailStory").textContent = movie.story;
+
+  byId("telegramLink").href =
+    `https://t.me/ProSearchM7Bot?start=${encodeURIComponent(movie.title)}`;
+
+  updateDetailLink("previousMovie", movies[index - 1]);
+  updateDetailLink("nextMovie", movies[index + 1]);
 }
 
+// Keep direct URLs, browser Back/Forward and opening links in a new tab.
+document.querySelector(".page").addEventListener("click", (event) => {
+  const link = event.target.closest(
+    ".movie-card, #backLink, #previousMovie, #nextMovie"
+  );
 
-/* =========================================================
-   MOBILE MENU
-========================================================= */
+  if (!link || event.defaultPrevented || event.button !== 0) return;
+  if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
 
-function setupMobileMenu() {
+  // On a local file, let the browser follow the ordinary HTML link.
+  if (location.protocol === "file:") return;
 
-    const mobileMenuBtn =
-        document.getElementById("mobileMenuBtn");
+  event.preventDefault();
+  history.pushState(null, "", link.href);
+  renderView();
 
-    const mobileMenuPanel =
-        document.getElementById("mobileMenuPanel");
+  if (detailView.hidden) {
+    search.focus({ preventScroll: true });
+    byId("collection").scrollIntoView();
+  } else {
+    byId("detailTitle").focus({ preventScroll: true });
+    window.scrollTo(0, 0);
+  }
+});
 
+byId("searchButton").addEventListener("click", () => {
+  setMenu(false);
 
-    if (
-        !mobileMenuBtn ||
-        !mobileMenuPanel
-    ) {
-        return;
+  if (!detailView.hidden) {
+    if (location.protocol === "file:") {
+      location.href = "movies.html#movieSearch";
+      return;
     }
 
+    history.pushState(null, "", movieURL());
+    renderView();
+  }
 
-    mobileMenuBtn.addEventListener(
-        "click",
-        function () {
+  search.focus({ preventScroll: true });
+  byId("collection").scrollIntoView();
+});
 
-            mobileMenuPanel.classList.toggle("show");
-
-        }
-    );
-
-
-    /*
-       Close menu after clicking a link
-    */
-
-    const menuLinks =
-        mobileMenuPanel.querySelectorAll("a");
-
-
-    menuLinks.forEach(link => {
-
-        link.addEventListener(
-            "click",
-            function () {
-
-                mobileMenuPanel.classList.remove("show");
-
-            }
-        );
-
-    });
-
+function resetPage() {
+  pageNumber = 1;
+  renderList();
 }
 
+const years = [...new Set(movies.map((movie) => movie.year))];
+years.sort((a, b) => b - a);
 
-/* =========================================================
-   MOBILE SEARCH
-========================================================= */
-
-function setupMobileSearch() {
-
-    const mobileSearchBtn =
-        document.getElementById("mobileSearchBtn");
-
-
-    if (!mobileSearchBtn) {
-        return;
-    }
-
-
-    mobileSearchBtn.addEventListener(
-        "click",
-        function () {
-
-            if (!movieSearch) {
-                return;
-            }
-
-
-            movieSearch.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
-
-
-            setTimeout(
-                function () {
-
-                    movieSearch.focus();
-
-                },
-                500
-            );
-
-        }
-    );
-
+for (const year of years) {
+  yearFilter.add(new Option(year, year));
 }
 
+search.addEventListener("input", resetPage);
+yearFilter.addEventListener("change", resetPage);
+mobileScreen.addEventListener("change", resetPage);
 
-/* =========================================================
-   BROWSER BACK / FORWARD
-========================================================= */
+byId("clearFilters").addEventListener("click", () => {
+  search.value = "";
+  yearFilter.value = "";
+  resetPage();
+  search.focus();
+});
 
-window.addEventListener(
-    "popstate",
-    function () {
+window.addEventListener("popstate", renderView);
 
-        const movieId =
-            getMovieIdFromURL();
-
-
-        if (movieId) {
-
-            showMovieDetail(
-                movieId,
-                false
-            );
-
-        } else {
-
-            showMovieList(
-                false
-            );
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   PAGE INITIALIZATION
-========================================================= */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-
-
-        /*
-           Setup movie cards
-        */
-
-        setupMovieCards();
-
-
-        /*
-           Mobile menu
-        */
-
-        // Mobile menu is handled by js/script.js.
-        // setupMobileMenu();setupMobileMenu();
-
-
-        /*
-           Mobile search
-        */
-
-        setupMobileSearch();
-
-
-        /*
-           Check URL for movie
-        */
-
-        const movieId =
-            getMovieIdFromURL();
-
-
-        if (movieId) {
-
-            const movie =
-                movies.find(
-                    item => item.id === movieId
-                );
-
-
-            if (movie) {
-
-                showMovieDetail(
-                    movieId,
-                    false
-                );
-
-            } else {
-
-                showMovieList(
-                    false
-                );
-
-            }
-
-        } else {
-
-            showMovieList(
-                false
-            );
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   GLOBAL FUNCTIONS
-   Required for HTML onclick=""
-========================================================= */
-
-window.watchMovie =
-    watchMovie;
-
-window.showMovieDetail =
-    showMovieDetail;
-
-window.showMovieList =
-    showMovieList;
+byId("year").textContent = new Date().getFullYear();
+renderView();

@@ -1,242 +1,195 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#087dcc">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f1f9ff">
+  <title>Movies | Doraemon World</title>
 
-    <title>Doraemon Movies | Doraemon World</title>
-    <meta name="description"
-          content="Explore Doraemon movie adventures, movie details, characters, stories and release years on Doraemon World.">
+  <link rel="stylesheet" href="./css/movies.css">
+  <script src="./js/movies.js" defer></script>
 
-    <link rel="stylesheet" href="css/movies.css">
-    <script src="js/movies.js" defer></script>
-
-<!-- Google AdSense -->
-<script async
-  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8772972065670336"
-  crossorigin="anonymous"></script>
-
+  <script
+    async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8772972065670336"
+    crossorigin="anonymous"
+  ></script>
 </head>
+
 <body>
+  <!-- TOP HEADER -->
+  <header class="topbar">
+    <div class="header-inner">
+      <button
+        type="button"
+        class="icon-button menu-button"
+        id="menuButton"
+        aria-label="Open menu"
+        aria-controls="sideMenu"
+        aria-expanded="false"
+      >☰</button>
 
-    <!-- DESKTOP HEADER -->
-    <header class="topbar">
-        <a href="index.html" class="logo">
-            DORAEMON 🌐
-        </a>
+      <a class="brand" href="index.html">DORAEMON 🌐</a>
 
-        <nav class="desktop-nav" aria-label="Main navigation">
-            <a href="index.html">🏠 Home</a>
-            <a href="movies.html" class="active">🎬 Movies</a>
-            <a href="episodes.html">📺 Episodes</a>
-            <a href="characters.html">👥 Characters</a>
-            <a href="wallpapers.html">🖼️ Wallpapers</a>
-            <a href="music.html">🎵 Music</a>
-            <a href="gallery.html">📸 Gallery</a>
-            <a href="gadgets.html">🚪 Gadgets</a>
-            <a href="test.html">🏆 Test</a>
-        </nav>
-    </header>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="movies.html" aria-current="page">Movies</a>
+        <a href="episodes.html">Episodes</a>
+        <a href="characters.html">Characters</a>
+        <a href="wallpapers.html">Wallpapers</a>
+        <a href="music.html">Music</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="gadgets.html">Gadgets</a>
+        <a href="test.html">Test</a>
+      </nav>
 
-    <!-- MOBILE HEADER -->
-    <header class="mobile-header">
+      <button
+        type="button"
+        class="icon-button"
+        id="searchButton"
+        aria-label="Search movies"
+      >🔍</button>
+    </div>
 
-        <button type="button"
-                id="mobileMenuBtn"
-                class="mobile-menu-btn"
-                aria-label="Open menu"
-                aria-expanded="false">
-            ☰
-        </button>
-
-        <a href="index.html" class="mobile-logo">
-            DORAEMON 🌐
-        </a>
-
-        <button type="button"
-                id="mobileSearchBtn"
-                class="mobile-search-btn"
-                aria-label="Search movies">
-            🔍
-        </button>
-    </header>
-
-    <!-- MOBILE SIDE MENU -->
-    <nav id="mobileMenuPanel"
-         class="mobile-menu-panel"
-         aria-label="Mobile navigation">
-
-        <a href="index.html">🏠 Home</a>
-        <a href="movies.html" class="active">🎬 Movies</a>
-        <a href="episodes.html">📺 Episodes</a>
-        <a href="characters.html">👥 Characters</a>
-        <a href="wallpapers.html">🖼️ Wallpapers</a>
-        <a href="music.html">🎵 Music</a>
-        <a href="gallery.html">📸 Gallery</a>
-        <a href="gadgets.html">🚪 Gadgets</a>
-        <a href="test.html">🏆 Test</a>
-        <a href="motivation.html">💙 Motivation</a>
+    <!-- MOBILE AND TABLET MENU -->
+    <nav id="sideMenu" class="side-menu" aria-label="All pages" hidden>
+      <a href="index.html">🏠 Home</a>
+      <a href="movies.html" aria-current="page">🎬 Movies</a>
+      <a href="episodes.html">📺 Episodes</a>
+      <a href="characters.html">👥 Characters</a>
+      <a href="wallpapers.html">🖼️ Wallpapers</a>
+      <a href="music.html">🎵 Music</a>
+      <a href="gallery.html">📸 Gallery</a>
+      <a href="gadgets.html">🚪 Gadgets</a>
+      <a href="test.html">🏆 Test</a>
+      <a href="motivation.html">💙 Motivation</a>
+      <a href="doraemon-ai.html">🤖 Doraemon AI</a>
+      <a href="secret-login.html">💌 Secret Message</a>
     </nav>
+  </header>
 
-    <main class="movies-page">
+  <main class="page">
+    <!-- MOVIE COLLECTION -->
+    <div id="listView">
+      <section class="hero" aria-labelledby="heroTitle">
+        <div class="hero-copy">
+          <h1 id="heroTitle">Doraemon <span>Movies</span></h1>
 
-        <!-- HERO -->
-        <section class="movies-header">
-            <span class="movies-label">
-                ✨ DORAEMON WORLD
-            </span>
+          <p>
+            Nobita aur Doraemon ke adventures explore karo.
+            Apni favourite movie chuno aur uski story padho.
+          </p>
 
-            <h1>🎬 Doraemon Movies</h1>
-
-            <p>
-                Explore Doraemon's amazing movie adventures,
-                from classic stories to modern adventures
-                with Nobita and his friends.
-            </p>
-
-            <div class="movie-stats">
-                <span>🎞️ 39 Movies</span>
-                <span>💙 Adventures</span>
-                <span>🌏 Japan</span>
-            </div>
-        </section>
-
-        <!-- LIST VIEW -->
-        <div id="movieListView">
-
-            <!-- SEARCH & FILTER -->
-            <section class="movies-controls">
-
-                <div class="movie-search">
-                    <span aria-hidden="true">🔍</span>
-
-                    <input
-                        type="search"
-                        id="movieSearch"
-                        placeholder="Search movies..."
-                        aria-label="Search movies"
-                        autocomplete="off">
-                </div>
-
-                <select
-                    id="movieYearFilter"
-                    class="movie-year-filter"
-                    aria-label="Filter movies by year">
-
-                    <option value="all">All Years</option>
-
-                    <!-- JS adds available years -->
-                </select>
-            </section>
-
-            <!-- MOVIE COUNT -->
-            <div class="movies-list-heading">
-                <div>
-                    <span>THE MOVIE COLLECTION</span>
-                    <h2>All Doraemon Movies 💙</h2>
-                </div>
-
-                <p id="movieCount" aria-live="polite">
-                    Loading movies...
-                </p>
-            </div>
-
-            <!-- MOVIE CARDS -->
-            <section
-                id="moviesGrid"
-                class="movies-grid"
-                aria-label="Doraemon movie collection">
-
-                <!-- JS will generate all 39 movie cards -->
-            </section>
-
-            <!-- EMPTY RESULTS -->
-            <div
-                id="movieNoResult"
-                class="movie-no-result"
-                hidden>
-
-                <span>😔</span>
-                <h3>No movies found</h3>
-                <p>Try another name or year.</p>
-            </div>
-
-            <!-- PAGINATION: MOBILE ONLY -->
-            <nav
-                id="moviesPagination"
-                class="movies-pagination"
-                aria-label="Movie pages"
-                hidden>
-            </nav>
-
-            <!-- ADVERTISEMENT PLACEHOLDER -->
-            <section
-                class="movies-ad-section"
-                aria-label="Advertisement">
-
-                <span class="movies-ad-label">
-                    Advertisement
-                </span>
-
-                <div class="movies-ad-box">
-                    <span>📢</span>
-                    <p>Advertisement Space</p>
-                    <small>Google Ads will appear here</small>
-                </div>
-            </section>
-
+          <a class="hero-button" href="#collection">Browse movies ↓</a>
         </div>
 
-        <!-- MOVIE DETAILS -->
-        <section
-            id="movieDetail"
-            class="movie-detail"
-            hidden>
+        <img
+          class="hero-image"
+          src="assets/images/characters/doraemon.png"
+          alt="Doraemon"
+          fetchpriority="high"
+        >
+      </section>
 
-            <!-- JS generates movie details -->
-        </section>
+      <section id="collection" aria-labelledby="collectionTitle">
+        <div class="section-heading">
+          <h2 id="collectionTitle">🎬 Movie Collection</h2>
+          <span id="movieCount" role="status"></span>
+        </div>
 
-    </main>
+        <div class="filters">
+          <input
+            type="search"
+            id="movieSearch"
+            aria-label="Search movie name"
+            placeholder="🔎 Search movie name…"
+            autocomplete="off"
+          >
 
-    <footer class="movies-footer">
-        <h3>DORAEMON WORLD 💙</h3>
-        <p>Explore • Discover • Enjoy</p>
-        <small>Unofficial Doraemon Fan Project</small>
-    </footer>
+          <select id="yearFilter" aria-label="Filter movies by year">
+            <option value="">All years</option>
+          </select>
+        </div>
 
-    <!-- FLOATING MOBILE NAV -->
-    <nav
-        class="mobile-bottom-nav"
-        aria-label="Bottom navigation">
+        <div id="movieGrid" class="movie-grid"></div>
 
-        <a href="index.html" class="bottom-nav-item">
-            <span class="bottom-nav-icon">🏠</span>
-            <small>Home</small>
-        </a>
+        <div id="emptyState" class="empty-state" hidden>
+          <h3>No movies found</h3>
+          <p>Try another title or choose a different year.</p>
+          <button class="secondary-button" id="clearFilters" type="button">
+            Clear filters
+          </button>
+        </div>
 
-        <a href="movies.html" class="bottom-nav-item active">
-            <span class="bottom-nav-icon">🎬</span>
-            <small>Movies</small>
-        </a>
+        <nav
+          id="pagination"
+          class="pagination"
+          aria-label="Movie collection pages"
+          hidden
+        ></nav>
 
-        <a href="episodes.html" class="bottom-nav-item">
-            <span class="bottom-nav-icon">📺</span>
-            <small>Episodes</small>
-        </a>
+        <noscript>
+          <p>Enable JavaScript to browse the movie collection.</p>
+        </noscript>
+      </section>
+    </div>
 
-        <a href="characters.html" class="bottom-nav-item">
-            <span class="bottom-nav-icon">👥</span>
-            <small>Characters</small>
-        </a>
+    <!-- MOVIE DETAILS -->
+    <section id="detailView" aria-labelledby="detailTitle" hidden>
+      <a class="back-link" id="backLink" href="movies.html">
+        ← Back to movies
+      </a>
 
-        <a href="music.html" class="bottom-nav-item">
-            <span class="bottom-nav-icon">🎵</span>
-            <small>Music</small>
-        </a>
+      <article class="detail-card">
+        <div id="detailPoster" class="poster detail-poster"></div>
 
-    </nav>
+        <div class="detail-copy">
+          <p class="movie-number" id="detailNumber"></p>
+          <h1 id="detailTitle" tabindex="-1"></h1>
 
+          <div class="detail-tags">
+            <span id="detailYear"></span>
+            <span id="detailRating"></span>
+          </div>
+
+          <p class="genre" id="detailGenre"></p>
+          <p class="story" id="detailStory"></p>
+
+          <a
+            class="primary-button"
+            id="telegramLink"
+            href="https://t.me/ProSearchM7Bot"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Open on Telegram ↗</a>
+
+          <nav class="detail-nav" aria-label="Browse movie details">
+            <a id="previousMovie" href="movies.html">← Previous movie</a>
+            <a id="nextMovie" href="movies.html">Next movie →</a>
+          </nav>
+        </div>
+      </article>
+    </section>
+
+    <!-- ADVERTISEMENT SPACE -->
+    <aside class="ad-space" aria-label="Advertisement">
+      <small>Advertisement</small>
+      <!-- Paste your responsive AdSense display ad unit here. -->
+    </aside>
+  </main>
+
+  <footer class="footer">
+    <strong>DORAEMON WORLD 💙</strong>
+    <p>Unofficial fan project · © <span id="year">2026</span></p>
+  </footer>
+
+  <!-- MOBILE BOTTOM NAVIGATION -->
+  <nav class="bottom-nav" aria-label="Mobile navigation">
+    <a href="index.html"><span>🏠</span>Home</a>
+    <a href="movies.html" aria-current="page"><span>🎬</span>Movies</a>
+    <a href="episodes.html"><span>📺</span>Episodes</a>
+    <a href="characters.html"><span>👥</span>Characters</a>
+    <a href="music.html"><span>🎵</span>Music</a>
+  </nav>
 </body>
 </html>

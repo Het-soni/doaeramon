@@ -1,453 +1,304 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#087bdc">
-<title>Doraemon World | Home</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
-<script src="js/script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f1f9ff">
 
-<title>Doraemon World | Movies, Episodes, Characters & Gadgets</title>
+  <title>Doraemon World | Home</title>
+  <meta
+    name="description"
+    content="Explore Doraemon movies, episodes, characters, gadgets, music and wallpapers."
+  >
 
-<meta name="description"
-      content="Explore Doraemon World! Discover Doraemon movies, episodes, characters, wallpapers, music, gadgets and fun quizzes on our unofficial fan website.">
+  <link rel="canonical" href="https://het-soni.github.io/doaeramon/">
 
-<link rel="canonical"
-      href="https://het-soni.github.io/doaeramon/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap"
+  >
 
-<!-- Google AdSense -->
-<script async
-  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8772972065670336"
-  crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
 
+  <script
+    async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8772972065670336"
+    crossorigin="anonymous"
+  ></script>
 </head>
+
 <body>
 
-<!-- DESKTOP NAVIGATION -->
-<header class="topbar">
-  <a href="index.html" class="logo">DORAEMON 🌐</a>
-  <button id="menu" class="menu-btn" aria-label="Menu">☰</button>
-  <nav id="nav">
-    <a class="active" href="index.html">Home</a>
-    <a href="movies.html">Movies</a>
-    <a href="episodes.html">Episodes</a>
-    <a href="characters.html">Characters</a>
-    <a href="wallpapers.html">Wallpapers</a>
-    <a href="music.html">Music</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="gadgets.html">Gadgets</a>
-    <a href="test.html">Test</a>
-  </nav>
-</header>
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <button
+        class="icon-button menu-button"
+        id="menuButton"
+        type="button"
+        aria-label="Open menu"
+        aria-controls="siteMenu"
+        aria-expanded="false"
+      >☰</button>
 
-<!-- MOBILE HEADER -->
-<header class="mobile-header">
-  <button class="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
-  <a href="index.html" class="mobile-logo">
-    DORAEMON <span>🌐</span>
-  </a>
-  <button class="mobile-search-btn" aria-label="Search">⌕</button>
-</header>
-
-<!-- MOBILE MENU -->
-<nav id="mobileMenuPanel" class="mobile-menu-panel">
-  <a href="index.html">🏠 Home</a>
-  <a href="movies.html">🎬 Movies</a>
-  <a href="episodes.html">📺 Episodes</a>
-  <a href="characters.html">👥 Characters</a>
-  <a href="wallpapers.html">🖼️ Wallpapers</a>
-  <a href="music.html">🎵 Music</a>
-  <a href="gallery.html">📸 Gallery</a>
-  <a href="gadgets.html">🚀 Gadgets</a>
-  <a href="test.html">📝 Test</a>
-  <a href="motivation.html">💙 Motivation</a>
-  <a href="doraemon-ai.html">🤖 Doraemon AI</a>
-  <a href="secret-login.html">💌 Secret</a>
-</nav>
-
-<main>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-    <span class="badge">💙 UNOFFICIAL FAN PROJECT</span>
-    <h1>Doraemon ki<br><strong>Magic World!</strong></h1>
-    <p>
-      Movies, episodes, characters, wallpapers,
-      music aur gadgets — sab ek hi jagah!
-    </p>
-    <div class="hero-buttons">
-      <a href="movies.html" class="btn primary">🎬 Explore Movies</a>
-      <a href="doraemon-ai.html" class="btn secondary">🤖 Doraemon AI</a>
-    </div>
-  </div>
-  <img src="assets/images/characters/doraemon.png"
-       class="desktop-doraemon" alt="Doraemon">
-  <div class="hero-cloud cloud-one"></div>
-  <div class="hero-cloud cloud-two"></div>
-</section>
-
-<!-- MOBILE HOME -->
-<section class="mobile-home">
-
-  <div class="mobile-welcome">
-    <div class="mobile-cloud cloud-one"></div>
-    <div class="mobile-cloud cloud-two"></div>
-    <div class="sun"></div>
-    <div class="hill hill-one"></div>
-    <div class="hill hill-two"></div>
-
-    <div class="mobile-welcome-text">
-      <span class="welcome-label">✨ WELCOME TO</span>
-      <h1>DORAEMON</h1>
-      <h2>Magic World!</h2>
-      <p class="mobile-description">
-        Ek magical duniya, jahan har din
-        ek naya adventure hai.
-      </p>
-      <a href="#mobileExplore" class="mobile-explore-button">
-        Explore Now <span>↗</span>
+      <a class="brand" href="index.html" aria-label="Doraemon World home">
+        DORAEMON <span aria-hidden="true">🌐</span>
       </a>
+
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="movies.html">Movies</a>
+        <a href="episodes.html">Episodes</a>
+        <a href="characters.html">Characters</a>
+        <a href="wallpapers.html">Wallpapers</a>
+        <a href="music.html">Music</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="gadgets.html">Gadgets</a>
+        <a href="test.html">Test</a>
+      </nav>
+
+      <button
+        class="icon-button"
+        id="searchButton"
+        type="button"
+        aria-label="Search Doraemon World"
+        aria-haspopup="dialog"
+        aria-controls="searchDialog"
+      >🔍</button>
     </div>
 
-    <img src="assets/images/characters/doraemon.png"
-         class="mobile-doraemon" alt="Doraemon">
+    <nav class="site-menu" id="siteMenu" aria-label="All pages" hidden>
+      <a href="index.html" aria-current="page">🏠 Home</a>
+      <a href="movies.html">🎬 Movies</a>
+      <a href="episodes.html">📺 Episodes</a>
+      <a href="characters.html">👥 Characters</a>
+      <a href="wallpapers.html">🖼️ Wallpapers</a>
+      <a href="music.html">🎵 Music</a>
+      <a href="gallery.html">📸 Gallery</a>
+      <a href="gadgets.html">🚪 Gadgets</a>
+      <a href="test.html">🏆 Test</a>
+      <a href="motivation.html">💙 Motivation</a>
+      <a href="doraemon-ai.html">🤖 Doraemon AI</a>
+      <a href="secret-login.html">💌 Secret Message</a>
+    </nav>
+  </header>
 
-    <div class="mobile-mausam-name">hey 💙</div>
-    <div class="hero-bottom-wave"></div>
-  </div>
+  <main class="home">
 
- 
-<!-- POPULAR MOVIES -->
-<div class="mobile-section-title movies-first">
-  <h2>🎬 Popular Movies</h2>
-  <a href="movies.html">View All →</a>
-</div>
+    <!-- SAME WELCOME BANNER ON MOBILE AND DESKTOP -->
+    <section class="welcome" aria-labelledby="welcomeTitle">
+      <div class="cloud cloud-one" aria-hidden="true"></div>
+      <div class="cloud cloud-two" aria-hidden="true"></div>
+      <div class="sun" aria-hidden="true"></div>
+      <div class="hill hill-one" aria-hidden="true"></div>
+      <div class="hill hill-two" aria-hidden="true"></div>
 
-<!-- ======================================
-     GOOGLE ADS - HOME PAGE
-====================================== -->
-<section class="home-ad-section" aria-label="Advertisement">
+      <div class="welcome-copy">
+        <p class="welcome-label">✨ Welcome to</p>
 
-  <div class="home-ad-label">
-    Advertisement
-  </div>
+        <h1 id="welcomeTitle">
+          DORAEMON
+          <span>Magic World!</span>
+        </h1>
 
-  <div class="home-ad-box">
-    <span class="ad-placeholder-icon">📢</span>
-    <p>Advertisement Space</p>
-    <small>Google Ads will appear here</small>
-  </div>
+        <p class="welcome-description">
+          Ek magical duniya, jahan har din ek naya adventure hai.
+        </p>
 
-</section>
+        <a class="explore-button" href="#popularMovies">
+          Explore Movies <span aria-hidden="true">↗</span>
+        </a>
+      </div>
 
+      <img
+        class="hero-doraemon"
+        src="assets/images/characters/doraemon.png"
+        alt="Doraemon"
+        fetchpriority="high"
+      >
+    </section>
 
-<div class="mobile-movie-row">
-  <a href="movies.html" class="mobile-movie-card">
-    <div class="mobile-movie-image">
-      <img src="assets/images/movies/movie-01.jpg"
-           alt="Nobita's Dinosaur">
+    <!-- POPULAR MOVIES -->
+    <section class="home-section" id="popularMovies" aria-labelledby="moviesTitle">
+      <div class="section-heading">
+        <h2 id="moviesTitle">🎬 Popular Movies</h2>
+        <a href="movies.html">View all →</a>
+      </div>
+
+      <div class="movie-row">
+        <a class="movie-card" href="movies.html?movie=1">
+          <img src="assets/images/movies/movie-01.jpg" alt="" loading="lazy">
+          <h3>Nobita's Dinosaur</h3>
+        </a>
+
+        <a class="movie-card" href="movies.html?movie=38">
+          <img src="assets/images/movies/movie-38.jpg" alt="" loading="lazy">
+          <h3>Chronicle of the Moon</h3>
+        </a>
+
+        <a class="movie-card" href="movies.html?movie=35">
+          <img src="assets/images/movies/movie-35.jpg" alt="" loading="lazy">
+          <h3>New Nobita's Birth of Japan</h3>
+        </a>
+
+        <a class="movie-card" href="movies.html?movie=6">
+          <img src="assets/images/movies/movie-06.jpg" alt="" loading="lazy">
+          <h3>Nobita and the Steel Troops</h3>
+        </a>
+
+        <a class="movie-card" href="movies.html?movie=12">
+          <img src="assets/images/movies/movie-12.jpg" alt="" loading="lazy">
+          <h3>Nobita and the Kingdom of Clouds</h3>
+        </a>
+
+        <a class="movie-card" href="movies.html?movie=39">
+          <img src="assets/images/movies/movie-39.jpg" alt="" loading="lazy">
+          <h3>New Nobita's Dinosaur</h3>
+        </a>
+      </div>
+    </section>
+
+    <!-- ADVERTISEMENT SPACE -->
+    <aside class="ad-space" aria-label="Advertisement">
+      <small>Advertisement</small>
+      <!-- Paste your responsive AdSense display ad unit here. -->
+    </aside>
+
+    <!-- ALL CATEGORIES -->
+    <section class="home-section" aria-labelledby="categoriesTitle">
+      <div class="section-heading">
+        <h2 id="categoriesTitle">All Categories</h2>
+      </div>
+
+      <div class="category-grid">
+        <a class="category-card" href="movies.html">
+          <span class="tile-icon pink">🎬</span><strong>Movies</strong>
+        </a>
+
+        <a class="category-card" href="episodes.html">
+          <span class="tile-icon sky">📺</span><strong>Episodes</strong>
+        </a>
+
+        <a class="category-card" href="characters.html">
+          <span class="tile-icon yellow">👥</span><strong>Characters</strong>
+        </a>
+
+        <a class="category-card" href="wallpapers.html">
+          <span class="tile-icon peach">🖼️</span><strong>Wallpapers</strong>
+        </a>
+
+        <a class="category-card" href="music.html">
+          <span class="tile-icon purple">🎵</span><strong>Music</strong>
+        </a>
+
+        <a class="category-card" href="gallery.html">
+          <span class="tile-icon mint">📸</span><strong>Gallery</strong>
+        </a>
+
+        <a class="category-card" href="gadgets.html">
+          <span class="tile-icon sky">🚁</span><strong>Gadgets</strong>
+        </a>
+
+        <a class="category-card" href="test.html">
+          <span class="tile-icon yellow">🏆</span><strong>Test</strong>
+        </a>
+      </div>
+
+      <a class="ai-card" href="doraemon-ai.html">
+        <span class="tile-icon">🤖</span>
+        <strong>Doraemon AI</strong>
+        <span class="card-action">Talk now →</span>
+      </a>
+    </section>
+
+    <!-- GADGETS -->
+    <section class="home-section" aria-labelledby="gadgetsTitle">
+      <div class="section-heading">
+        <h2 id="gadgetsTitle">🚀 Magic Gadgets</h2>
+        <a href="gadgets.html">View all →</a>
+      </div>
+
+      <a class="door-banner" href="gadgets.html">
+        <span class="door-art" aria-hidden="true">🚪</span>
+        <div>
+          <h3>Anywhere Door!</h3>
+          <p>Chalo kahin bhi, kabhi bhi!</p>
+          <strong>Explore gadgets →</strong>
+        </div>
+      </a>
+
+      <div class="gadget-row">
+        <a href="gadgets.html"><span>🚪</span>Anywhere Door</a>
+        <a href="gadgets.html"><span>🎒</span>4D Pocket</a>
+        <a href="gadgets.html"><span>🚁</span>Take-copter</a>
+        <a href="gadgets.html"><span>⏰</span>Time Machine</a>
+      </div>
+    </section>
+
+    <!-- MOTIVATION AND SECRET MESSAGE -->
+    <section class="home-section" aria-labelledby="motivationTitle">
+      <div class="section-heading">
+        <h2 id="motivationTitle">Doraemon Motivation 💙</h2>
+      </div>
+
+      <a class="motivation-card" href="motivation.html">
+        <img src="assets/images/characters/doraemon.png" alt="" loading="lazy">
+        <div>
+          <h3>Never Give Up!</h3>
+          <p>Har mushkil ke baad ek nayi umeed hoti hai.</p>
+          <strong>Get motivation →</strong>
+        </div>
+      </a>
+
+      <a class="secret-card" href="secret-login.html">
+        <span>💌 A Special Secret Message</span>
+        <span aria-hidden="true">↗</span>
+      </a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <strong>DORAEMON WORLD 💙</strong>
+    <p>Unofficial fan project · © <span id="year">2026</span></p>
+  </footer>
+
+  <!-- MOBILE BOTTOM NAVIGATION -->
+  <nav class="bottom-nav" aria-label="Mobile navigation">
+    <a href="index.html" aria-current="page"><span>🏠</span>Home</a>
+    <a href="movies.html"><span>🎬</span>Movies</a>
+    <a href="episodes.html"><span>📺</span>Episodes</a>
+    <a href="characters.html"><span>👥</span>Characters</a>
+    <a href="music.html"><span>🎵</span>Music</a>
+  </nav>
+
+  <!-- SEARCH -->
+  <dialog id="searchDialog" class="search-dialog" aria-labelledby="searchTitle">
+    <div class="search-heading">
+      <h2 id="searchTitle">Search Doraemon World</h2>
+      <button
+        id="closeSearch"
+        class="icon-button"
+        type="button"
+        aria-label="Close search"
+      >✕</button>
     </div>
-    <h3>Nobita's Dinosaur</h3>
-    <p>Explore Movie ↗</p>
-  </a>
 
-  <a href="movies.html" class="mobile-movie-card">
-    <div class="mobile-movie-image">
-      <img src="assets/images/movies/movie-40.jpg"
-           alt="Chronicle of the Moon">
-    </div>
-    <h3>Chronicle of the Moon</h3>
-    <p>Explore Movie ↗</p>
-  </a>
+    <form id="searchForm" role="search">
+      <input
+        id="searchInput"
+        type="search"
+        placeholder="Search movies, episodes or pages…"
+        aria-label="Search movies, episodes or pages"
+        autocomplete="off"
+      >
+    </form>
 
-  <a href="movies.html" class="mobile-movie-card">
-    <div class="mobile-movie-image">
-      <img src="assets/images/movies/movie-35.jpg"
-           alt="Birth of Japan">
-    </div>
-    <h3>Birth of Japan</h3>
-    <p>Explore Movie ↗</p>
-  </a>
-</div>
-
-<!-- ALL OPTIONS -->
-<div class="quick-heading">
-  <div>
-    <span>DORAEMON WORLD 💙</span>
-    <h2>All Categories <b>✦</b></h2>
-  </div>
-</div>
-
-<div class="mobile-quick-menu">
-
-  <a href="movies.html" class="mobile-quick-card">
-    <span class="quick-icon pink">🎬</span>
-    <strong>Movies</strong>
-  </a>
-
-  <a href="episodes.html" class="mobile-quick-card">
-    <span class="quick-icon sky">📺</span>
-    <strong>Episodes</strong>
-  </a>
-
-  <a href="characters.html" class="mobile-quick-card">
-    <span class="quick-icon yellow">👥</span>
-    <strong>Characters</strong>
-  </a>
-
-  <a href="wallpapers.html" class="mobile-quick-card">
-    <span class="quick-icon peach">🖼️</span>
-    <strong>Wallpapers</strong>
-  </a>
-
-  <a href="music.html" class="mobile-quick-card">
-    <span class="quick-icon purple">🎵</span>
-    <strong>Music</strong>
-  </a>
-
-  <a href="gallery.html" class="mobile-quick-card">
-    <span class="quick-icon mint">📸</span>
-    <strong>Gallery</strong>
-  </a>
-
-  <a href="gadgets.html" class="mobile-quick-card">
-    <span class="quick-icon sky">🚁</span>
-    <strong>Gadgets</strong>
-  </a>
-
-  <a href="test.html" class="mobile-quick-card">
-    <span class="quick-icon yellow">🏆</span>
-    <strong>Test</strong>
-  </a>
-
-  <a href="doraemon-ai.html"
-     class="mobile-quick-card ai-quick-card">
-    <span class="quick-icon ai-icon">🤖</span>
-    <strong>Doraemon AI</strong>
-  </a>
-
-</div>
-
-<!-- ANYWHERE DOOR -->
-<a href="gadgets.html" class="anywhere-banner">
-  <div class="anywhere-art">🚪</div>
-
-  <div class="anywhere-info">
-    <span>✨ MAGIC GADGET</span>
-    <h2>Anywhere Door!</h2>
-    <p>Chalo kahin bhi, kabhi bhi!</p>
-    <strong>Explore Gadgets →</strong>
-  </div>
-
-  <span class="banner-spark">✦</span>
-</a>
-
-
-  <!-- GADGETS -->
-  <div class="mobile-section-title">
-    <h2>Magic Gadgets <span>🚀</span></h2>
-    <a href="gadgets.html">View All →</a>
-  </div>
-
-  <div class="mobile-gadget-row">
-    <a href="gadgets.html" class="mobile-gadget-card">
-      <span>🚪</span><strong>Anywhere Door</strong>
-    </a>
-    <a href="gadgets.html" class="mobile-gadget-card">
-      <span>🎒</span><strong>4D Pocket</strong>
-    </a>
-    <a href="gadgets.html" class="mobile-gadget-card">
-      <span>🚁</span><strong>Take-copter</strong>
-    </a>
-    <a href="gadgets.html" class="mobile-gadget-card">
-      <span>⏰</span><strong>Time Machine</strong>
-    </a>
-  </div>
-
-  <!-- MOTIVATION -->
-  <div class="mobile-section-title">
-    <h2>Doraemon Motivation 💙</h2>
-    <a href="motivation.html">View All →</a>
-  </div>
-
-  <a href="motivation.html" class="mobile-motivation-card">
-    <img src="assets/images/characters/doraemon.png"
-         alt="Doraemon" class="motivation-doraemon">
-    <div class="mobile-motivation-content">
-      <span>✨ DAILY MOTIVATION</span>
-      <h3>Never Give Up!</h3>
-      <p>Har mushkil ke baad ek nayi umeed hoti hai.</p>
-      <strong>Get Motivation →</strong>
-    </div>
-  </a>
-
-  <a href="secret-login.html" class="secret-banner">
-    💌 <span>A Special Secret Message</span> ↗
-  </a>
-</section>
-
-<!-- DESKTOP SECTIONS -->
-<section class="explore">
-  <div class="section-title">
-    <span>DISCOVER THE MAGIC</span>
-    <h2>Explore Doraemon World 🌈</h2>
-    <p>Apni favourite Doraemon duniya explore karo.</p>
-  </div>
-
-  <div class="feature-grid">
-    <a href="movies.html" class="feature-card">
-      <div class="feature-icon">🎬</div>
-      <h3>Movies</h3>
-      <p>Explore amazing Doraemon movie adventures.</p>
-      <span class="card-arrow">↗</span>
-    </a>
-    <a href="episodes.html" class="feature-card">
-      <div class="feature-icon">📺</div>
-      <h3>Episodes</h3>
-      <p>Watch your favourite episode information.</p>
-      <span class="card-arrow">↗</span>
-    </a>
-    <a href="characters.html" class="feature-card">
-      <div class="feature-icon">👥</div>
-      <h3>Characters</h3>
-      <p>Meet Doraemon, Nobita and friends.</p>
-      <span class="card-arrow">↗</span>
-    </a>
-    <a href="wallpapers.html" class="feature-card">
-      <div class="feature-icon">🖼️</div>
-      <h3>Wallpapers</h3>
-      <p>Beautiful mobile and desktop wallpapers.</p>
-      <span class="card-arrow">↗</span>
-    </a>
-    <a href="music.html" class="feature-card">
-      <div class="feature-icon">🎵</div>
-      <h3>Music</h3>
-      <p>Explore Doraemon music and songs.</p>
-      <span class="card-arrow">↗</span>
-    </a>
-    <a href="gallery.html" class="feature-card">
-      <div class="feature-icon">📸</div>
-      <h3>Gallery</h3>
-      <p>Favourite Doraemon memories and pictures.</p>
-      <span class="card-arrow">↗</span>
-    </a>
-  </div>
-</section>
-
-<section class="gadget-section">
-  <div class="section-title">
-    <span>MAGIC GADGETS</span>
-    <h2>Doraemon ke Gadgets ✨</h2>
-  </div>
-  <div class="gadget-grid">
-    <a href="gadgets.html" class="gadget-card">
-      <div class="gadget-icon">🚪</div>
-      <h3>Anywhere Door</h3>
-      <p>Travel anywhere.</p>
-    </a>
-    <a href="gadgets.html" class="gadget-card">
-      <div class="gadget-icon">🎒</div>
-      <h3>4D Pocket</h3>
-      <p>Unlimited magical gadgets.</p>
-    </a>
-    <a href="gadgets.html" class="gadget-card">
-      <div class="gadget-icon">🚁</div>
-      <h3>Take-copter</h3>
-      <p>Fly through the sky.</p>
-    </a>
-    <a href="gadgets.html" class="gadget-card">
-      <div class="gadget-icon">⏰</div>
-      <h3>Time Machine</h3>
-      <p>Travel through time.</p>
-    </a>
-  </div>
-</section>
-
-<section class="favorite-section">
-  <div class="section-title">
-    <span>FAN FAVOURITES</span>
-    <h2>Sabse Popular 💙</h2>
-  </div>
-  <div class="favorite-grid">
-    <a class="favorite-card" href="movies.html">
-      <span class="favorite-number">01</span>
-      <div><h3>Popular Movies</h3><p>Explore movie stories.</p></div>
-      <span class="card-arrow">↗</span>
-    </a>
-    <a class="favorite-card" href="characters.html">
-      <span class="favorite-number">02</span>
-      <div><h3>Characters</h3><p>Meet your favourites.</p></div>
-      <span class="card-arrow">↗</span>
-    </a>
-    <a class="favorite-card" href="wallpapers.html">
-      <span class="favorite-number">03</span>
-      <div><h3>Wallpapers</h3><p>Beautiful Doraemon images.</p></div>
-      <span class="card-arrow">↗</span>
-    </a>
-  </div>
-</section>
-
-</main>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">DORAEMON WORLD 💙</div>
-  <p>Made with love for Doraemon fans.</p>
-  <p class="copyright">© 2026 Doraemon World</p>
-</footer>
-
-<!-- BOTTOM NAV -->
-<nav class="mobile-bottom-nav">
-  <a href="index.html" class="bottom-nav-item active">
-    <span>🏠</span><small>Home</small>
-  </a>
-  <a href="movies.html" class="bottom-nav-item">
-    <span>🎬</span><small>Movies</small>
-  </a>
-  <a href="episodes.html" class="bottom-nav-item">
-    <span>📺</span><small>Episodes</small>
-  </a>
-  <a href="characters.html" class="bottom-nav-item">
-    <span>👥</span><small>Characters</small>
-  </a>
-  <a href="music.html" class="bottom-nav-item">
-    <span>🎵</span><small>Music</small>
-  </a>
-</nav>
-
-<!-- SEARCH -->
-<div id="dw-search" class="dw-search" role="dialog"
-     aria-modal="true" aria-label="Search" hidden>
-  <div class="dw-search-box">
-    <div class="dw-search-head">
-      <h2>Search World 🔍</h2>
-      <button id="dw-close-search" aria-label="Close">✕</button>
-    </div>
-    <input id="dw-search-input" type="search"
-           placeholder="Search pages..." autocomplete="off">
-    <div id="dw-search-results"></div>
-    <p id="dw-search-status" aria-live="polite"></p>
-  </div>
-</div>
-
-<!-- ORIGINAL DORAEMON START EFFECT -->
-<div id="doraemon-effect" aria-hidden="true">
-  <div class="doraemon-start-content">
-    <img id="doraemon-start-image"
-         src="assets/images/doraemon/doraemon-01.png"
-         alt="Doraemon">
-  </div>
-</div>
-
-<!-- Set the real MP3 filename in src -->
-<audio id="doraemon-audio" preload="none">
-  <source src="assets/music/doraemon-start.mp3" type="audio/mpeg">
-</audio>
+    <div class="search-results" id="searchResults"></div>
+    <p class="search-status" id="searchStatus" role="status"></p>
+  </dialog>
 
 </body>
 </html>

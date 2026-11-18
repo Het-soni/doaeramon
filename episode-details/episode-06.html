@@ -1,1054 +1,280 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f1f9ff">
 
-    <meta charset="UTF-8">
+  <title>Episode 06 · Doraemon Now Belongs to Suneo!? | Doraemon World</title>
+  <meta name="description" content="Watch Episode 06, Doraemon Now Belongs to Suneo!?, and explore its story, characters and gadgets.">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+  <!-- Same header and bottom bar as episodes.html -->
+  <link rel="stylesheet" href="../css/episodes.css">
 
-    <title>Doraemon World - Episode 06</title>
+  <!-- Common to all episode detail pages -->
+  <link rel="stylesheet" href="../css/episode-details.css">
+  <script src="../js/episode-details.js" defer></script>
 
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/episode-details.css">
-
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
-<link rel="stylesheet" href="../css/site-navigation.css">
+  <script
+    async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8772972065670336"
+    crossorigin="anonymous"
+  ></script>
 </head>
 
-<body class="episode-detail-body">
+<body class="dw-episode-page">
 
+  <!-- TOP HEADER -->
+  <header class="topbar">
+    <div class="header-inner">
+      <button
+        id="menuButton"
+        class="icon-button menu-button"
+        type="button"
+        aria-label="Open menu"
+        aria-controls="sideMenu"
+        aria-expanded="false"
+      >☰</button>
 
-<!-- =====================================================
-     DESKTOP NAVBAR
-===================================================== -->
+      <a class="brand" href="../index.html">DORAEMON 🌐</a>
 
-<header class="topbar">
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="../index.html">Home</a>
+        <a href="../movies.html">Movies</a>
+        <a href="../episodes.html" aria-current="location">Episodes</a>
+        <a href="../characters.html">Characters</a>
+        <a href="../wallpapers.html">Wallpapers</a>
+        <a href="../music.html">Music</a>
+        <a href="../gallery.html">Gallery</a>
+        <a href="../gadgets.html">Gadgets</a>
+        <a href="../test.html">Test</a>
+      </nav>
 
-    <div class="logo">
-        DORAEMON 🌐
+      <a
+        class="icon-button"
+        href="../episodes.html#episodeSearch"
+        aria-label="Search the episode collection"
+      >🔍</a>
     </div>
 
-    <nav id="nav">
-
-        <a href="../index.html">🏠 Home</a>
-
-        <a href="../movies.html">🎬 Movies</a>
-
-        <a href="../episodes.html" class="active">📺 Episodes</a>
-
-        <a href="../characters.html">👥 Characters</a>
-
-        <a href="../wallpapers.html">🖼️ Wallpapers</a>
-
-        <a href="../music.html">🎵 Music</a>
-
-        <a href="../gallery.html">🖼️ Gallery</a>
-
-        <a href="../gadgets.html">🔧 Gadgets</a>
-
-        <a href="../test.html">📝 Test</a>
-
+    <nav id="sideMenu" class="side-menu" aria-label="All pages" hidden>
+      <a href="../index.html">🏠 Home</a>
+      <a href="../movies.html">🎬 Movies</a>
+      <a href="../episodes.html" aria-current="location">📺 Episodes</a>
+      <a href="../characters.html">👥 Characters</a>
+      <a href="../wallpapers.html">🖼️ Wallpapers</a>
+      <a href="../music.html">🎵 Music</a>
+      <a href="../gallery.html">📸 Gallery</a>
+      <a href="../gadgets.html">🚪 Gadgets</a>
+      <a href="../test.html">🏆 Test</a>
+      <a href="../motivation.html">💙 Motivation</a>
+      <a href="../doraemon-ai.html">🤖 Doraemon AI</a>
+      <a href="../secret-login.html">💌 Secret Message</a>
     </nav>
+  </header>
 
-</header>
+  <main class="dw-episode-main">
 
+  <nav class="ep-crumbs" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span aria-hidden="true">›</span>
+    <a href="../episodes.html">Episodes</a>
+    <span aria-hidden="true">›</span>
+    <span aria-current="page">Episode 06</span>
+  </nav>
 
-<!-- =====================================================
-     MOBILE HEADER
-===================================================== -->
+  <section class="ep-hero" aria-labelledby="episodeTitle">
+    <div class="ep-art">
+      <img src="../assets/episodes/covers/episode-06.jpg" alt="Doraemon Now Belongs to Suneo!?" fetchpriority="high">
+      <span class="ep-cover-number">EPISODE 06</span>
 
-<header class="mobile-header">
-
-    <button class="mobile-menu-btn"
-            id="mobileMenuBtn">
-
-        ☰
-
-    </button>
-
-    <div class="mobile-logo">
-        DORAEMON 🔵
+      <button
+        class="ep-cover-play"
+        type="button"
+        data-play-episode
+        aria-label="Play Episode 06"
+        aria-haspopup="dialog"
+      >▶</button>
     </div>
 
-    <button class="mobile-search-btn">
-        🔍
-    </button>
+    <div class="ep-hero-copy">
+      <p class="ep-category">Classic episode</p>
+      <h1 id="episodeTitle">Doraemon Now Belongs to Suneo!?</h1>
+      <p class="ep-intro">Suneo enjoys having Doraemon around, but Nobita begins to wonder what that means for his own friendship with Doraemon.</p>
 
-</header>
+      <dl class="ep-stats">
+        <div><dt>📺 Episode</dt><dd>06</dd></div>
+        <div><dt>📅 Year</dt><dd>2005</dd></div>
+        <div><dt>⭐ Rating</dt><dd>9.3</dd></div>
+      </dl>
 
+      <div class="ep-actions">
+        <button
+          class="ep-button ep-primary"
+          type="button"
+          data-play-episode
+          aria-haspopup="dialog"
+        >▶ Watch Episode</button>
 
-<!-- =====================================================
-     MOBILE MENU
-===================================================== -->
-
-<div class="mobile-menu-panel"
-     id="mobileMenuPanel">
-
-    <a href="../index.html">🏠 Home</a>
-
-    <a href="../movies.html">🎬 Movies</a>
-
-    <a href="../episodes.html">📺 Episodes</a>
-
-    <a href="../characters.html">👥 Characters</a>
-
-    <a href="../wallpapers.html">🖼️ Wallpapers</a>
-
-    <a href="../music.html">🎵 Music</a>
-
-    <a href="../gallery.html">🖼️ Gallery</a>
-
-    <a href="../gadgets.html">🔧 Gadgets</a>
-
-    <a href="../test.html">📝 Test</a>
-
-</div>
-
-
-<!-- =====================================================
-     MAIN
-===================================================== -->
-
-<main class="episode-detail-page">
-
-
-    <!-- BREADCRUMB -->
-
-    <div class="episode-breadcrumb">
-
-        <a href="../index.html">
-            Home
+        <a class="ep-button ep-secondary" href="../episodes.html">
+          ← All Episodes
         </a>
+      </div>
+    </div>
+  </section>
 
-        <span>›</span>
+  <section class="ep-section" aria-labelledby="overviewTitle">
+    <h2 id="overviewTitle">Episode Overview</h2>
 
-        <a href="../episodes.html">
-            Episodes
-        </a>
+    <div class="ep-overview">
+      <a href="#story">
+        <span class="ep-icon ep-sky" aria-hidden="true">📖</span>
+        <div><small>Story</small><strong>Doraemon Now Belongs to Suneo!?</strong></div>
+      </a>
 
-        <span>›</span>
+      <a href="#characters">
+        <span class="ep-icon ep-pink" aria-hidden="true">👥</span>
+        <div><small>Characters</small><strong>5 main characters</strong></div>
+      </a>
 
-        <span>
-            Episode 06
-        </span>
+      <a href="#gadgets">
+        <span class="ep-icon ep-yellow" aria-hidden="true">🔧</span>
+        <div><small>Gadgets</small><strong>4 featured gadgets</strong></div>
+      </a>
 
+      <a href="#details">
+        <span class="ep-icon ep-mint" aria-hidden="true">🏷️</span>
+        <div><small>Category</small><strong>Classic</strong></div>
+      </a>
+    </div>
+  </section>
+
+  <section class="ep-section" aria-labelledby="infoTitle">
+    <h2 id="infoTitle">Episode Information</h2>
+
+    <div class="ep-info-grid">
+      <article class="ep-panel ep-story" id="story">
+        <div class="ep-panel-head">
+          <span class="ep-icon ep-sky" aria-hidden="true">📖</span>
+          <div>
+            <small>Story</small>
+            <h3>Doraemon Becomes Suneo&#x27;s?</h3>
+          </div>
+        </div>
+
+        <p>Nobita is surprised to find Doraemon spending time with Suneo. For Suneo, having Doraemon and his gadgets nearby is an exciting change.</p>
+<p>For Nobita, the same situation feels very different. He worries about losing his best friend and tries to understand what has happened.</p>
+      </article>
+
+      <article class="ep-panel" id="characters">
+        <div class="ep-panel-head">
+          <span class="ep-icon ep-pink" aria-hidden="true">👥</span>
+          <h3>Main Characters</h3>
+        </div>
+
+        <ul class="ep-chips"><li>🔵 Doraemon</li>
+<li>👦 Nobita</li>
+<li>🌸 Shizuka</li>
+<li>💪 Gian</li>
+<li>😎 Suneo</li></ul>
+        <a class="ep-text-link" href="../characters.html">Explore characters →</a>
+      </article>
+
+      <article class="ep-panel" id="gadgets">
+        <div class="ep-panel-head">
+          <span class="ep-icon ep-yellow" aria-hidden="true">🔧</span>
+          <h3>Featured Gadgets</h3>
+        </div>
+
+        <ul class="ep-chips"><li>👜 4D Pocket</li>
+<li>🚪 Anywhere Door</li>
+<li>🚁 Take-Copter</li>
+<li>🔧 Future Gadgets</li></ul>
+        <a class="ep-text-link" href="../gadgets.html">Explore gadgets →</a>
+      </article>
+
+      <article class="ep-panel" id="details">
+        <div class="ep-panel-head">
+          <span class="ep-icon ep-mint" aria-hidden="true">ℹ️</span>
+          <h3>Episode Details</h3>
+        </div>
+
+        <dl class="ep-facts"><div><dt>Series</dt><dd>Doraemon</dd></div>
+<div><dt>Episode</dt><dd>06</dd></div>
+<div><dt>Title</dt><dd>Doraemon Now Belongs to Suneo!?</dd></div>
+<div><dt>Category</dt><dd>Classic</dd></div>
+<div><dt>Release</dt><dd>February 25, 2005</dd></div>
+<div><dt>Japanese title</dt><dd>ドラえもんはスネ夫のモノ!?</dd></div></dl>
+      </article>
+    </div>
+  </section>
+
+  <section class="ep-about" aria-labelledby="aboutTitle">
+    <h2 id="aboutTitle">💙 About This Episode</h2>
+    <p>Suneo sees the appeal of Doraemon&#x27;s gadgets. Nobita&#x27;s reaction shows how much he values the friend who carries them.</p>
+  </section>
+
+  <nav class="ep-pager" aria-label="Browse episodes">
+    
+      <a href="episode-05.html">
+        <small>← Previous episode</small>
+        <strong>05 · Nobita&#x27;s Rocket to the Milky Way</strong>
+      </a>
+    
+    
+          <a class="ep-next" href="episode-07.html">
+            <small>Next episode →</small>
+            <strong>07 · The Premiere Seal - Pakado Nobita Ko</strong>
+          </a>
+        
+  </nav>
+
+  <aside class="ad-space" aria-label="Advertisement">
+    <small>Advertisement</small>
+    <!-- Paste your responsive AdSense display ad unit here. -->
+  </aside>
+
+  <dialog class="ep-dialog" id="episodeDialog" aria-labelledby="videoTitle">
+    <div class="ep-dialog-head">
+      <h2 id="videoTitle">Episode 06 · Doraemon Now Belongs to Suneo!?</h2>
+
+      <button
+        class="ep-close"
+        id="closePlayer"
+        type="button"
+        aria-label="Close video player"
+      >✕</button>
     </div>
 
-
-    <!-- =================================================
-         EPISODE HERO
-    ================================================= -->
-
-    <section class="episode-hero">
-
-
-        <!-- COVER -->
-
-        <div class="episode-cover">
-
-            <img src="../assets/episodes/covers/episode-06.jpg"
-                 alt="Doraemon Episode 06">
-
-            <div class="cover-gradient"></div>
-
-            <div class="episode-badge">
-                EPISODE 06
-            </div>
-
-            <!-- PLAY COVER -->
-
-            <button class="cover-play-btn"
-                    id="coverPlayBtn"
-                    aria-label="Play Episode">
-
-                <span>▶</span>
-
-            </button>
-
-        </div>
-
-
-        <!-- CONTENT -->
-
-        <div class="episode-hero-content">
-
-            <span class="episode-label">
-                CLASSIC EPISODE
-            </span>
-
-            <h1>
-                Doraemon Now Belongs to Suneo!?
-            </h1>
-
-            <p class="episode-intro">
-
-                Welcome to Episode 06 of Doraemon World!
-                Things take an unexpected turn when Doraemon
-                becomes Suneo's helper. Nobita is shocked and
-                must find a way to deal with this surprising
-                situation.
-
-            </p>
-
-
-            <!-- META -->
-
-            <div class="episode-meta">
-
-                <div class="meta-box">
-
-                    <span>📺</span>
-
-                    <div>
-                        <small>Episode</small>
-                        <strong>06</strong>
-                    </div>
-
-                </div>
-
-
-                <div class="meta-box">
-
-                    <span>📅</span>
-
-                    <div>
-                        <small>Year</small>
-                        <strong>2005</strong>
-                    </div>
-
-                </div>
-
-
-                <div class="meta-box">
-
-                    <span>⭐</span>
-
-                    <div>
-                        <small>Rating</small>
-                        <strong>9.3</strong>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- BUTTONS -->
-
-            <div class="hero-buttons">
-
-                <button class="watch-btn"
-                        id="watchBtn">
-
-                    <span>▶</span>
-                    Watch Episode
-
-                </button>
-
-
-                <a href="../episodes.html"
-                   class="back-btn">
-
-                    ← All Episodes
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =================================================
-         QUICK INFO
-    ================================================= -->
-
-    <section class="quick-info">
-
-        <div class="quick-info-title">
-
-            <span>💙</span>
-
-            <div>
-
-                <h2>
-                    Episode Overview
-                </h2>
-
-                <p>
-                    A quick look at this Doraemon adventure
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="quick-grid">
-
-
-            <div class="quick-card">
-
-                <div class="quick-icon">
-                    📚
-                </div>
-
-                <div>
-
-                    <small>Story</small>
-
-                    <strong>
-                        Suneo's Doraemon
-                    </strong>
-
-                </div>
-
-            </div>
-
-
-            <div class="quick-card">
-
-                <div class="quick-icon">
-                    👥
-                </div>
-
-                <div>
-
-                    <small>Characters</small>
-
-                    <strong>
-                        5 Main Characters
-                    </strong>
-
-                </div>
-
-            </div>
-
-
-            <div class="quick-card">
-
-                <div class="quick-icon">
-                    🔧
-                </div>
-
-                <div>
-
-                    <small>Gadgets</small>
-
-                    <strong>
-                        Doraemon's Gadgets
-                    </strong>
-
-                </div>
-
-            </div>
-
-
-            <div class="quick-card">
-
-                <div class="quick-icon">
-                    🏷️
-                </div>
-
-                <div>
-
-                    <small>Category</small>
-
-                    <strong>
-                        Classic
-                    </strong>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =================================================
-         INFORMATION
-    ================================================= -->
-
-    <section class="episode-information">
-
-        <div class="section-title">
-
-            <span>📖</span>
-
-            <div>
-
-                <h2>
-                    Episode Information
-                </h2>
-
-                <p>
-                    Everything you need to know about Episode 06
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="info-grid">
-
-
-            <!-- STORY -->
-
-            <article class="info-card story-card">
-
-                <div class="info-card-top">
-
-                    <div class="info-icon">
-                        📚
-                    </div>
-
-                    <span>
-                        STORY
-                    </span>
-
-                </div>
-
-                <h3>
-                    Doraemon Becomes Suneo's?
-                </h3>
-
-                <p>
-
-                    Nobita is surprised when Doraemon
-                    suddenly becomes connected with Suneo
-                    instead of being there only for him.
-
-                    <br><br>
-
-                    Suneo enjoys having Doraemon around
-                    and makes use of his amazing futuristic
-                    gadgets. Nobita becomes worried about
-                    losing his best friend and tries to
-                    understand what is happening.
-
-                </p>
-
-            </article>
-
-
-            <!-- CHARACTERS -->
-
-            <article class="info-card">
-
-                <div class="info-card-top">
-
-                    <div class="info-icon">
-                        👥
-                    </div>
-
-                    <span>
-                        CHARACTERS
-                    </span>
-
-                </div>
-
-                <h3>
-                    Main Characters
-                </h3>
-
-                <div class="character-tags">
-
-                    <span>🔵 Doraemon</span>
-
-                    <span>👦 Nobita</span>
-
-                    <span>🌸 Shizuka</span>
-
-                    <span>💪 Gian</span>
-
-                    <span>😎 Suneo</span>
-
-                </div>
-
-            </article>
-
-
-            <!-- GADGETS -->
-
-            <article class="info-card">
-
-                <div class="info-card-top">
-
-                    <div class="info-icon">
-                        🔧
-                    </div>
-
-                    <span>
-                        GADGETS
-                    </span>
-
-                </div>
-
-                <h3>
-                    Featured Gadgets
-                </h3>
-
-                <div class="gadget-items">
-
-                    <div>
-
-                        👜
-
-                        <span>
-                            4D Pocket
-                        </span>
-
-                    </div>
-
-                    <div>
-
-                        🚪
-
-                        <span>
-                            Anywhere Door
-                        </span>
-
-                    </div>
-
-                    <div>
-
-                        🚁
-
-                        <span>
-                            Take-Copter
-                        </span>
-
-                    </div>
-
-                    <div>
-
-                        🔧
-
-                        <span>
-                            Future Gadgets
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- DETAILS -->
-
-            <article class="info-card">
-
-                <div class="info-card-top">
-
-                    <div class="info-icon">
-                        ℹ️
-                    </div>
-
-                    <span>
-                        DETAILS
-                    </span>
-
-                </div>
-
-                <h3>
-                    Episode Details
-                </h3>
-
-                <div class="detail-list">
-
-                    <div>
-
-                        <span>
-                            Series
-                        </span>
-
-                        <strong>
-                            Doraemon
-                        </strong>
-
-                    </div>
-
-                    <div>
-
-                        <span>
-                            Episode
-                        </span>
-
-                        <strong>
-                            06
-                        </strong>
-
-                    </div>
-
-                    <div>
-
-                        <span>
-                            Title
-                        </span>
-
-                        <strong>
-                            Doraemon Now Belongs to Suneo!?
-                        </strong>
-
-                    </div>
-
-                    <div>
-
-                        <span>
-                            Japanese
-                        </span>
-
-                        <strong>
-                            ドラえもんはスネ夫のモノ!?
-                        </strong>
-
-                    </div>
-
-                    <div>
-
-                        <span>
-                            Category
-                        </span>
-
-                        <strong>
-                            Classic
-                        </strong>
-
-                    </div>
-
-                    <div>
-
-                        <span>
-                            Release
-                        </span>
-
-                        <strong>
-                            February 25, 2005
-                        </strong>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- =================================================
-         ABOUT
-    ================================================= -->
-
-    <section class="about-episode">
-
-        <div class="section-title">
-
-            <span>💙</span>
-
-            <div>
-
-                <h2>
-                    About This Episode
-                </h2>
-
-                <p>
-                    An unexpected twist in Nobita and Doraemon's friendship
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="about-box">
-
-            <p>
-
-                In this exciting adventure, Nobita finds
-                himself in a surprising situation when
-                Doraemon becomes associated with Suneo.
-
-                The sudden change leaves Nobita confused
-                and worried about his special friendship
-                with Doraemon.
-
-            </p>
-
-
-            <p>
-
-                Suneo enjoys having Doraemon's futuristic
-                gadgets available to him, while Nobita
-                tries to understand how he can bring
-                things back to normal.
-
-            </p>
-
-
-            <p>
-
-                The episode brings comedy, friendship
-                and a little competition between Nobita
-                and Suneo, while showing just how important
-                Doraemon is in Nobita's life.
-
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- =================================================
-         EPISODE NAVIGATION
-    ================================================= -->
-
-    <section class="episode-navigation">
-
-        <a href="episode-05.html"
-           class="episode-nav-btn">
-
-            <span>
-                ←
-            </span>
-
-            <div>
-
-                <small>
-                    Previous Episode
-                </small>
-
-                <strong>
-                    Episode 05
-                </strong>
-
-            </div>
-
-        </a>
-
-
-        <a href="../episodes.html"
-           class="episode-nav-btn next">
-
-            <div>
-
-                <small>
-                    Back to Episodes
-                </small>
-
-                <strong>
-                    All Episodes
-                </strong>
-
-            </div>
-
-            <span>
-                →
-            </span>
-
-        </a>
-
-    </section>
+    <video
+      id="episodePlayer"
+      controls
+      playsinline
+      preload="none"
+      poster="../assets/episodes/covers/episode-06.jpg"
+      src="../assets/episodes/compressed/episode-06.mp4"
+    >
+      Your browser does not support video playback.
+    </video>
+
+    <p class="ep-player-message" id="playerMessage" role="status" hidden></p>
+  </dialog>
 
 </main>
 
+  <footer class="footer">
+    <strong>DORAEMON WORLD 💙</strong>
+    <p>Unofficial fan project · © <span id="year">2026</span></p>
+  </footer>
+
+  <!-- MOBILE BOTTOM NAVIGATION -->
+  <nav class="bottom-nav" aria-label="Mobile navigation">
+    <a href="../index.html"><span>🏠</span>Home</a>
+    <a href="../movies.html"><span>🎬</span>Movies</a>
+    <a href="../episodes.html" aria-current="location"><span>📺</span>Episodes</a>
+    <a href="../characters.html"><span>👥</span>Characters</a>
+    <a href="../music.html"><span>🎵</span>Music</a>
+  </nav>
 
-<!-- =====================================================
-     VIDEO MODAL
-===================================================== -->
-
-<div class="video-modal"
-     id="videoModal">
-
-    <div class="video-modal-box">
-
-
-        <div class="video-modal-header">
-
-            <div>
-
-                <span>
-                    DORAEMON WORLD
-                </span>
-
-                <h3>
-                    Episode 06 — Doraemon Now Belongs to Suneo!?
-                </h3>
-
-            </div>
-
-
-            <button class="video-close"
-                    id="videoClose">
-
-                ✕
-
-            </button>
-
-        </div>
-
-
-        <div class="video-player">
-
-            <video id="episodeVideo"
-                   controls
-                   playsinline
-                   preload="metadata"
-                   poster="../assets/episodes/covers/episode-06.jpg">
-
-                <source src="../assets/episodes/compressed/episode-06.mp4"
-                        type="video/mp4">
-
-                Your browser does not support HTML5 video.
-
-            </video>
-
-        </div>
-
-
-        <div class="video-modal-footer">
-
-            <span>
-                🔵 Doraemon World
-            </span>
-
-            <span>
-                Episode 06
-            </span>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer class="episodes-footer">
-
-    <div>
-
-        <strong>
-            DORAEMON 🌐
-        </strong>
-
-        <p>
-            Your Ultimate Doraemon Fan World
-        </p>
-
-    </div>
-
-    <p>
-        © 2026 Doraemon World. Made with 💙 for Doraemon fans.
-    </p>
-
-</footer>
-
-
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
-<script>
-
-document.addEventListener("DOMContentLoaded", function () {
-
-
-    /* ==========================================
-       MOBILE MENU
-    ========================================== */
-
-    const menuBtn =
-        document.getElementById("mobileMenuBtn");
-
-    const menuPanel =
-        document.getElementById("mobileMenuPanel");
-
-
-    if (menuBtn && menuPanel) {
-
-        menuBtn.addEventListener("click", function (e) {
-
-            e.stopPropagation();
-
-            menuPanel.classList.toggle("show");
-
-        });
-
-
-        document.addEventListener("click", function (e) {
-
-            if (
-                !menuPanel.contains(e.target) &&
-                !menuBtn.contains(e.target)
-            ) {
-
-                menuPanel.classList.remove("show");
-
-            }
-
-        });
-
-    }
-
-
-    /* ==========================================
-       VIDEO MODAL
-    ========================================== */
-
-    const watchBtn =
-        document.getElementById("watchBtn");
-
-    const coverPlayBtn =
-        document.getElementById("coverPlayBtn");
-
-    const videoModal =
-        document.getElementById("videoModal");
-
-    const videoClose =
-        document.getElementById("videoClose");
-
-    const video =
-        document.getElementById("episodeVideo");
-
-
-    function openVideo() {
-
-        if (!videoModal || !video) return;
-
-
-        document.body.classList.add("video-open");
-
-
-        videoModal.classList.add("active");
-
-
-        video.currentTime = 0;
-
-
-        const playPromise =
-            video.play();
-
-        if (playPromise !== undefined) {
-
-            playPromise.catch(function () {
-
-                /*
-                   Browser may block autoplay.
-                   Controls are still available.
-                */
-
-            });
-
-        }
-
-    }
-
-
-    function closeVideo() {
-
-        if (!videoModal || !video) return;
-
-
-        video.pause();
-
-        video.currentTime = 0;
-
-        videoModal.classList.remove("active");
-
-        document.body.classList.remove("video-open");
-
-    }
-
-
-    if (watchBtn) {
-
-        watchBtn.addEventListener(
-            "click",
-            openVideo
-        );
-
-    }
-
-
-    if (coverPlayBtn) {
-
-        coverPlayBtn.addEventListener(
-            "click",
-            openVideo
-        );
-
-    }
-
-
-    if (videoClose) {
-
-        videoClose.addEventListener(
-            "click",
-            closeVideo
-        );
-
-    }
-
-
-    /* Click outside video */
-
-    if (videoModal) {
-
-        videoModal.addEventListener(
-            "click",
-            function (e) {
-
-                if (e.target === videoModal) {
-
-                    closeVideo();
-
-                }
-
-            }
-        );
-
-    }
-
-
-    /* ESC key */
-
-    document.addEventListener(
-        "keydown",
-        function (e) {
-
-            if (
-                e.key === "Escape" &&
-                videoModal.classList.contains("active")
-            ) {
-
-                closeVideo();
-
-            }
-
-        }
-    );
-
-});
-
-</script>
-
-
-<script src="../js/site-navigation.js" defer></script>
 </body>
-
 </html>

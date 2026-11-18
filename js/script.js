@@ -1,217 +1,182 @@
+"use strict";
 
-document.addEventListener("DOMContentLoaded", () => {
+// Mobile and tablet menu
+const menuButton = document.getElementById("menuButton");
+const siteMenu = document.getElementById("siteMenu");
 
-  // ELEMENTS
-  const desktopMenu = document.getElementById("menu");
-  const desktopNav = document.getElementById("nav");
-  const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
-  const mobileMenu = document.getElementById("mobileMenuPanel");
-  const searchBtn = document.querySelector(".mobile-search-btn");
-  const search = document.getElementById("dw-search");
-  const searchInput = document.getElementById("dw-search-input");
-  const searchResults = document.getElementById("dw-search-results");
-  const searchStatus = document.getElementById("dw-search-status");
+function setMenuOpen(open) {
+  siteMenu.hidden = !open;
+  menuButton.setAttribute("aria-expanded", String(open));
+  menuButton.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  menuButton.textContent = open ? "✕" : "☰";
+}
 
-  // DESKTOP MENU
-  desktopMenu?.addEventListener("click", e => {
-    e.stopPropagation();
-    desktopNav?.classList.toggle("show");
-  });
-
-  // MOBILE MENU
-  function closeMenu() {
-    mobileMenu?.classList.remove("show");
-    mobileMenuBtn?.setAttribute("aria-expanded", "false");
-    if (mobileMenuBtn) mobileMenuBtn.textContent = "☰";
-  }
-
-  mobileMenuBtn?.addEventListener("click", e => {
-    e.stopPropagation();
-    const opened = mobileMenu.classList.toggle("show");
-    mobileMenuBtn.textContent = opened ? "✕" : "☰";
-    mobileMenuBtn.setAttribute("aria-expanded", String(opened));
-  });
-
-  document.addEventListener("click", e => {
-    if (!mobileMenu?.contains(e.target) &&
-        !mobileMenuBtn?.contains(e.target)) {
-      closeMenu();
-    }
-    if (!desktopNav?.contains(e.target) &&
-        !desktopMenu?.contains(e.target)) {
-      desktopNav?.classList.remove("show");
-    }
-  });
-
-  mobileMenu?.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", closeMenu);
-  });
-
-  // SEARCH
-  const pages = [
-    ["🏠 Home", "index.html"],
-    ["🎬 Movies", "movies.html"],
-    ["📺 Episodes", "episodes.html"],
-    ["👥 Characters", "characters.html"],
-    ["🖼️ Wallpapers", "wallpapers.html"],
-    ["🎵 Music", "music.html"],
-    ["📸 Gallery", "gallery.html"],
-    ["🚀 Gadgets", "gadgets.html"],
-    ["🏆 Test", "test.html"],
-    ["💙 Motivation", "motivation.html"],
-    ["🤖 Doraemon AI", "doraemon-ai.html"]
-  ];
-
-  function renderSearch(query = "") {
-    const q = query.trim().toLowerCase();
-    const filtered = pages.filter(([name]) =>
-      name.toLowerCase().includes(q)
-    );
-
-    searchResults.replaceChildren();
-
-    filtered.forEach(([name, url]) => {
-      const a = document.createElement("a");
-      a.href = url;
-      a.textContent = name + " ↗";
-      searchResults.appendChild(a);
-    });
-
-    searchStatus.textContent = filtered.length
-      ? `${filtered.length} matching pages`
-      : "No matching page found";
-  }
-
-  function openSearch() {
-    closeMenu();
-    search.hidden = false;
-    document.body.style.overflow = "hidden";
-    searchInput.value = "";
-    renderSearch();
-    searchInput.focus();
-  }
-
-  function closeSearch() {
-    search.hidden = true;
-    document.body.style.overflow = "";
-    searchBtn?.focus();
-  }
-
-  searchBtn?.addEventListener("click", openSearch);
-
-  document.getElementById("dw-close-search")
-    ?.addEventListener("click", closeSearch);
-
-  searchInput?.addEventListener("input", () => {
-    renderSearch(searchInput.value);
-  });
-
-  search?.addEventListener("click", e => {
-    if (e.target === search) closeSearch();
-  });
-
-  document.addEventListener("keydown", e => {
-    if (e.key === "Escape") {
-      if (search && !search.hidden) closeSearch();
-      closeMenu();
-      desktopNav?.classList.remove("show");
-    }
-  });
-
-  // ACTIVE NAVIGATION
-  const currentPage =
-    window.location.pathname.split("/").pop() || "index.html";
-
-  document.querySelectorAll(
-    "#nav a,.mobile-menu-panel a,.bottom-nav-item"
-  ).forEach(link => {
-    const target = link.getAttribute("href")?.split("?")[0];
-    link.classList.toggle("active", target === currentPage);
-  });
-
-  // DORAEMON ORIGINAL START EFFECT
-  const effect = document.getElementById("doraemon-effect");
-  const effectImage = document.getElementById("doraemon-start-image");
-  const effectAudio = document.getElementById("doraemon-audio");
-
-  const images = Array.from({ length: 8 }, (_, i) =>
-    `assets/images/doraemon/doraemon-${String(i + 1).padStart(2, "0")}.png`
-  );
-
-  let played = sessionStorage.getItem("doraemonEffectPlayed") === "true";
-  let imageTimer = null;
-  let stopTimer = null;
-
-  function stopEffect() {
-    clearInterval(imageTimer);
-    clearTimeout(stopTimer);
-    effect?.classList.remove("show");
-    if (effectAudio) {
-      effectAudio.pause();
-      try { effectAudio.currentTime = 0; } catch {}
-    }
-  }
-
-  function startEffect() {
-    if (played || !effect || !effectImage) return;
-
-    played = true;
-    sessionStorage.setItem("doraemonEffectPlayed", "true");
-
-    let index = 0;
-    effectImage.src = images[0];
-    effect.classList.add("show");
-
-    imageTimer = setInterval(() => {
-      if (index < images.length - 1) {
-        index++;
-        effectImage.src = images[index];
-      } else {
-        clearInterval(imageTimer);
-      }
-    }, 875);
-
-    if (effectAudio) {
-      effectAudio.currentTime = 0;
-      effectAudio.play().catch(() => {});
-      effectAudio.onended = stopEffect;
-    }
-
-    stopTimer = setTimeout(stopEffect, 7000);
-  }
-
-  document.addEventListener("click", e => {
-    if (played) return;
-
-    // Start only on a general page interaction,
-    // not on links or interface controls.
-    if (e.target.closest(
-      "a,button,input,nav,.dw-search,#doraemon-effect"
-    )) return;
-
-    startEffect();
-  });
-
-  effect?.addEventListener("click", e => e.stopPropagation());
-
-  // COPYRIGHT
-  const copyright = document.querySelector(".copyright");
-  if (copyright) {
-    copyright.textContent =
-      `© ${new Date().getFullYear()} Doraemon World`;
-  }
-
-  // HORIZONTAL CARD SCROLL
-  document.querySelectorAll(
-    ".mobile-movie-row,.mobile-gadget-row"
-  ).forEach(row => {
-    row.addEventListener("wheel", e => {
-      if (e.shiftKey && e.deltaY) {
-        e.preventDefault();
-        row.scrollLeft += e.deltaY;
-      }
-    }, { passive:false });
-  });
-
-  console.log("Doraemon World loaded 💙");
+menuButton.addEventListener("click", () => {
+  setMenuOpen(siteMenu.hidden);
 });
+
+document.addEventListener("click", (event) => {
+  if (
+    !siteMenu.hidden &&
+    !siteMenu.contains(event.target) &&
+    !menuButton.contains(event.target)
+  ) {
+    setMenuOpen(false);
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && !siteMenu.hidden) {
+    setMenuOpen(false);
+    menuButton.focus();
+  }
+});
+
+window.matchMedia("(min-width: 1024px)").addEventListener("change", () => {
+  setMenuOpen(false);
+});
+
+// Search starts with the actual page links and featured movie cards.
+const searchDialog = document.getElementById("searchDialog");
+const searchButton = document.getElementById("searchButton");
+const closeSearch = document.getElementById("closeSearch");
+const searchForm = document.getElementById("searchForm");
+const searchInput = document.getElementById("searchInput");
+const searchResults = document.getElementById("searchResults");
+const searchStatus = document.getElementById("searchStatus");
+
+const entries = [];
+
+for (const link of siteMenu.querySelectorAll("a")) {
+  entries.push({
+    title: link.textContent.trim(),
+    href: link.href
+  });
+}
+
+for (const card of document.querySelectorAll(".movie-card")) {
+  entries.push({
+    title: "🎬 " + card.querySelector("h3").textContent.trim(),
+    href: card.href
+  });
+}
+
+function renderSearch() {
+  const words = searchInput.value.trim().toLowerCase().split(/\s+/);
+  const seen = new Set();
+  const matches = [];
+
+  for (const entry of entries) {
+    const title = entry.title.toLowerCase();
+
+    if (seen.has(entry.href)) continue;
+    if (!words.every((word) => title.includes(word))) continue;
+
+    seen.add(entry.href);
+    matches.push(entry);
+  }
+
+  searchResults.replaceChildren();
+
+  for (const entry of matches.slice(0, 15)) {
+    const link = document.createElement("a");
+    link.href = entry.href;
+    link.textContent = entry.title;
+    searchResults.append(link);
+  }
+
+  if (matches.length === 0) {
+    searchStatus.textContent = "No results found. Try another name.";
+  } else if (matches.length > 15) {
+    searchStatus.textContent = `Showing 15 of ${matches.length} results.`;
+  } else {
+    searchStatus.textContent =
+      `${matches.length} ${matches.length === 1 ? "result" : "results"}`;
+  }
+}
+
+// Load the existing site index once for additional movies and episodes.
+let indexLoaded = false;
+let indexLoading = false;
+
+async function loadSiteIndex() {
+  if (indexLoaded || indexLoading || location.protocol === "file:") return;
+
+  indexLoading = true;
+
+  try {
+    const response = await fetch("js/site-search-index.json");
+    if (!response.ok) return;
+
+    const items = await response.json();
+    if (!Array.isArray(items)) return;
+
+    const siteRoot = new URL("./", document.baseURI);
+
+    for (const item of items) {
+      if (!item || typeof item.title !== "string") continue;
+      if (typeof item.url !== "string" || !item.url.trim()) continue;
+
+      let url;
+
+      try {
+        url = new URL(item.url, siteRoot);
+      } catch {
+        continue;
+      }
+
+      if (
+        url.origin !== siteRoot.origin ||
+        !url.pathname.startsWith(siteRoot.pathname)
+      ) {
+        continue;
+      }
+
+      entries.push({
+        title: `${item.icon || "🔎"} ${item.title}`,
+        href: url.href
+      });
+    }
+
+    indexLoaded = true;
+
+    if (searchDialog.open) {
+      renderSearch();
+    }
+  } catch {
+    // Page links and the six featured movies remain searchable offline.
+  } finally {
+    indexLoading = false;
+  }
+}
+
+searchButton.addEventListener("click", () => {
+  setMenuOpen(false);
+  searchInput.value = "";
+  renderSearch();
+  searchDialog.showModal();
+  searchInput.focus();
+  loadSiteIndex();
+});
+
+closeSearch.addEventListener("click", () => {
+  searchDialog.close();
+});
+
+searchDialog.addEventListener("close", () => {
+  searchButton.focus();
+});
+
+searchInput.addEventListener("input", renderSearch);
+
+searchForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  if (!searchInput.value.trim()) return;
+
+  const firstResult = searchResults.querySelector("a");
+  if (firstResult) firstResult.click();
+});
+
+// Footer year
+document.getElementById("year").textContent = new Date().getFullYear();
