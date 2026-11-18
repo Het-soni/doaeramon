@@ -1,48 +1,267 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Doraemon World - Episodes</title>
 
-    <!-- Episodes CSS -->
+    <!-- EPISODES CSS -->
     <link rel="stylesheet" href="css/episodes.css">
 
-    <!-- Main CSS -->
+    <!-- MAIN WEBSITE CSS -->
     <link rel="stylesheet" href="css/style.css">
 
-<link rel="stylesheet" href="css/site-navigation.css">
-</head>
+    <!-- NAVIGATION CSS -->
+    <link rel="stylesheet" href="css/site-navigation.css">
+     
 
+<!-- Google AdSense -->
+<script async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8772972065670336"
+  crossorigin="anonymous"></script>
+
+    <!-- FOOTER + ADVERTISEMENT CSS -->
+    <style>
+        /* ==========================================
+           EPISODES ADVERTISEMENT
+        ========================================== */
+
+        .episodes-ad-section {
+            width: 94%;
+            max-width: 1100px;
+            margin: 35px auto;
+            text-align: center;
+        }
+
+        .episodes-ad-label {
+            display: block;
+            margin-bottom: 8px;
+            color: #899baa;
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .episodes-ad-box {
+            min-height: 120px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            background: #f5faff;
+            border: 1px dashed #c4ddeb;
+            border-radius: 16px;
+        }
+
+        .episodes-ad-box > span {
+            font-size: 24px;
+        }
+
+        .episodes-ad-box p {
+            color: #7a93a5;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .episodes-ad-box small {
+            color: #a1b1bf;
+            font-size: 10px;
+        }
+
+        /* ==========================================
+           EPISODES FOOTER
+        ========================================== */
+
+        .episodes-footer {
+            width: 100%;
+            margin-top: 40px;
+            padding: 35px 20px;
+            background: linear-gradient(
+                135deg,
+                #063b75,
+                #087dcc,
+                #23b8f4
+            );
+            color: white;
+            text-align: center;
+        }
+
+        .episodes-footer h3 {
+            font-size: 23px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .episodes-footer p {
+            font-size: 13px;
+            color: #e1f4ff;
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
+
+        .episodes-footer small {
+            font-size: 11px;
+            color: #c8eaff;
+        }
+
+        .episodes-footer-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin: 18px 0;
+        }
+
+        .episodes-footer-links a {
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .episodes-footer-links a:hover {
+            color: #b7efff;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 700px) {
+            .episodes-ad-section {
+                margin: 25px auto;
+            }
+
+            .episodes-ad-box {
+                min-height: 100px;
+                border-radius: 14px;
+            }
+
+            .episodes-footer {
+                margin-top: 25px;
+                padding: 30px 15px 105px;
+            }
+
+            .episodes-footer h3 {
+                font-size: 19px;
+            }
+
+            .episodes-footer p,
+            .episodes-footer-links a {
+                font-size: 11px;
+            }
+
+            .episodes-footer small {
+                font-size: 10px;
+            }
+
+            .episodes-footer-links {
+                gap: 12px;
+                margin: 15px 0;
+            }
+        }
+    </style>
+</head>
 
 <body>
 
+    <!-- ==========================================
+         DESKTOP TOP NAVBAR
+    ========================================== -->
 
-<!-- =====================================================
-     DESKTOP TOP NAVBAR
-===================================================== -->
+    <header class="topbar">
 
-<header class="topbar">
+        <div class="logo">
+            DORAEMON 🌐
+        </div>
 
-    <div class="logo">
-        DORAEMON 🌐
-    </div>
+        <nav id="nav">
+
+            <a href="index.html">
+                🏠 Home
+            </a>
+
+            <a href="movies.html">
+                🎬 Movies
+            </a>
+
+            <a href="episodes.html" class="active">
+                📺 Episodes
+            </a>
+
+            <a href="characters.html">
+                👥 Characters
+            </a>
+
+            <a href="wallpapers.html">
+                🖼️ Wallpapers
+            </a>
+
+            <a href="music.html">
+                🎵 Music
+            </a>
+
+            <a href="gallery.html">
+                📸 Gallery
+            </a>
+
+            <a href="gadgets.html">
+                🪄 Gadgets
+            </a>
+
+            <a href="test.html">
+                📝 Test
+            </a>
+
+        </nav>
+
+    </header>
 
 
-    <nav id="nav">
+    <!-- ==========================================
+         MOBILE HEADER
+    ========================================== -->
 
-        <a href="index.html">
-            🏠 Home
-        </a>
+    <header class="mobile-header">
 
-        <a href="movies.html">
-            🎬 Movies
-        </a>
+        <button
+            type="button"
+            class="mobile-menu-btn"
+            id="mobileMenuBtn"
+            aria-label="Open menu">
+            ☰
+        </button>
+
+        <div class="mobile-logo">
+            DORAEMON 🔵
+        </div>
+
+        <button
+            type="button"
+            class="mobile-search-btn"
+            id="mobileSearchBtn"
+            aria-label="Search">
+            🔍
+        </button>
+
+    </header>
+
+
+    <!-- ==========================================
+         MOBILE MENU PANEL
+    ========================================== -->
+
+    <div
+        class="mobile-menu-panel"
+        id="mobileMenuPanel">
+
+        <a href="index.html">🏠 Home</a>
+
+        <a href="movies.html">🎬 Movies</a>
 
         <a href="episodes.html" class="active">
             📺 Episodes
@@ -72,997 +291,825 @@
             📝 Test
         </a>
 
-    </nav>
-
-</header>
-
-
-
-<!-- =====================================================
-     MOBILE HEADER
-===================================================== -->
-
-<header class="mobile-header">
-
-    <button
-        class="mobile-menu-btn"
-        id="mobileMenuBtn"
-        aria-label="Open menu">
-
-        ☰
-
-    </button>
-
-
-    <div class="mobile-logo">
-        DORAEMON 🔵
     </div>
 
 
-    <button
-        class="mobile-search-btn"
-        id="mobileSearchBtn"
-        aria-label="Search">
+    <!-- ==========================================
+         EPISODES MAIN PAGE
+    ========================================== -->
 
-        🔍
+    <main class="episodes-page">
 
-    </button>
+        <!-- PAGE HEADER -->
+        <section class="episodes-header">
 
-</header>
+            <span>
+                DORAEMON WORLD
+            </span>
 
+            <h1>
+                📺 Doraemon Episodes
+            </h1>
 
+            <p>
+                Explore the amazing world of Doraemon
+                episodes, adventures, friends, gadgets
+                and unforgettable moments with Nobita
+                and everyone.
+            </p>
 
-<!-- =====================================================
-     MOBILE MENU
-===================================================== -->
-
-<div class="mobile-menu-panel" id="mobileMenuPanel">
-
-    <a href="index.html">
-        🏠 Home
-    </a>
-
-    <a href="movies.html">
-        🎬 Movies
-    </a>
-
-    <a href="episodes.html" class="active">
-        📺 Episodes
-    </a>
-
-    <a href="characters.html">
-        👥 Characters
-    </a>
-
-    <a href="wallpapers.html">
-        🖼️ Wallpapers
-    </a>
-
-    <a href="music.html">
-        🎵 Music
-    </a>
-
-    <a href="gallery.html">
-        📸 Gallery
-    </a>
-
-    <a href="gadgets.html">
-        🪄 Gadgets
-    </a>
-
-    <a href="test.html">
-        📝 Test
-    </a>
-
-</div>
+        </section>
 
 
+        <!-- ==========================================
+             SEARCH AND FILTER
+        ========================================== -->
 
-<!-- =====================================================
-     EPISODES PAGE
-===================================================== -->
+        <section class="episode-controls">
 
-<main class="episodes-page">
+            <div class="episode-search">
+
+                <input
+                    type="text"
+                    id="episodeSearch"
+                    placeholder="Search episodes..."
+                    autocomplete="off"
+                    aria-label="Search episodes">
+
+            </div>
+
+            <select
+                class="episode-filter"
+                id="episodeFilter"
+                aria-label="Filter episodes">
+
+                <option value="all">
+                    All Episodes
+                </option>
+
+                <option value="classic">
+                    Classic
+                </option>
+
+                <option value="new">
+                    New Episodes
+                </option>
+
+                <option value="special">
+                    Specials
+                </option>
+
+            </select>
+
+        </section>
 
 
-    <!-- =================================================
-         PAGE HEADER
-    ================================================== -->
+        <!-- ==========================================
+             EPISODES GRID
+        ========================================== -->
 
-    <section class="episodes-header">
-
-        <span>
-            DORAEMON WORLD
-        </span>
-
-        <h1>
-            📺 Doraemon Episodes
-        </h1>
-
-        <p>
-            Explore the amazing world of Doraemon episodes,
-            adventures, friends, gadgets and unforgettable
-            moments with Nobita and everyone.
-        </p>
-
-    </section>
+        <section
+            class="episodes-grid"
+            id="episodesGrid">
 
 
+            <!-- EPISODE 01 -->
+            <article
+                class="episode-card"
+                data-title="Nobita and Doraemon's First Adventure"
+                data-category="classic">
 
-    <!-- =================================================
-         SEARCH + FILTER
-    ================================================== -->
+                <a href="episode-details/episode-01.html">
 
-    <section class="episode-controls">
+                    <div class="episode-cover">
+
+                        <img
+                            src="assets/episodes/covers/episode-01.jpg"
+                            alt="Doraemon Episode 1"
+                            loading="lazy">
+
+                        <div class="episode-number">
+                            EP 01
+                        </div>
+
+                    </div>
+
+                    <div class="episode-info">
+
+                        <h2>
+                            Nobita and Doraemon's First Adventure
+                        </h2>
+
+                        <p>
+                            Doraemon arrives from the future
+                            and begins his amazing journey
+                            with Nobita.
+                        </p>
+
+                        <div class="episode-meta">
+
+                            <span class="episode-year">
+                                1979
+                            </span>
+
+                            <span class="episode-rating">
+                                ⭐ 9.2
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+            </article>
 
 
-        <div class="episode-search">
+            <!-- EPISODE 02 -->
+            <article
+                class="episode-card"
+                data-title="Echo Mountain"
+                data-category="classic">
 
-            <input
-                type="text"
-                id="episodeSearch"
-                placeholder="Search episodes..."
-                autocomplete="off">
+                <a href="episode-details/episode-02.html">
 
+                    <div class="episode-cover">
+
+                        <img
+                            src="assets/episodes/covers/episode-02.jpg"
+                            alt="Doraemon Episode 2"
+                            loading="lazy">
+
+                        <div class="episode-number">
+                            EP 02
+                        </div>
+
+                    </div>
+
+                    <div class="episode-info">
+
+                        <h2>Echo Mountain</h2>
+
+                        <p>
+                            Nobita tries to escape from his
+                            homework with the help of
+                            Doraemon's gadgets.
+                        </p>
+
+                        <div class="episode-meta">
+
+                            <span class="episode-year">
+                                1979
+                            </span>
+
+                            <span class="episode-rating">
+                                ⭐ 8.8
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+            </article>
+
+
+            <!-- EPISODE 03 -->
+            <article
+                class="episode-card"
+                data-title="Vacuum Mosquito"
+                data-category="classic">
+
+                <a href="episode-details/episode-03.html">
+
+                    <div class="episode-cover">
+
+                        <img
+                            src="assets/episodes/covers/episode-03.jpg"
+                            alt="Doraemon Episode 3"
+                            loading="lazy">
+
+                        <div class="episode-number">
+                            EP 03
+                        </div>
+
+                    </div>
+
+                    <div class="episode-info">
+
+                        <h2>Vacuum Mosquito</h2>
+
+                        <p>
+                            Nobita discovers one of
+                            Doraemon's most famous gadgets.
+                        </p>
+
+                        <div class="episode-meta">
+
+                            <span class="episode-year">
+                                1979
+                            </span>
+
+                            <span class="episode-rating">
+                                ⭐ 9.0
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+            </article>
+
+
+            <!-- EPISODE 04 -->
+            <article
+                class="episode-card"
+                data-title="Nobita Ka Udan Khatola"
+                data-category="classic">
+
+                <a href="episode-details/episode-04.html">
+
+                    <div class="episode-cover">
+
+                        <img
+                            src="assets/episodes/covers/episode-04.jpg"
+                            alt="Doraemon Episode 4"
+                            loading="lazy">
+
+                        <div class="episode-number">
+                            EP 04
+                        </div>
+
+                    </div>
+
+                    <div class="episode-info">
+
+                        <h2>Nobita Ka Udan Khatola</h2>
+
+                        <p>
+                            Nobita learns how to fly using
+                            Doraemon's Take-Copter.
+                        </p>
+
+                        <div class="episode-meta">
+
+                            <span class="episode-year">
+                                1979
+                            </span>
+
+                            <span class="episode-rating">
+                                ⭐ 8.9
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+            </article>
+
+
+            <!-- EPISODE 05 -->
+            <article
+                class="episode-card"
+                data-title="Nobita's Rocket to the Milky Way"
+                data-category="classic">
+
+                <a href="episode-details/episode-05.html">
+
+                    <div class="episode-cover">
+
+                        <img
+                            src="assets/episodes/covers/episode-05.jpg"
+                            alt="Doraemon Episode 5"
+                            loading="lazy">
+
+                        <div class="episode-number">
+                            EP 05
+                        </div>
+
+                    </div>
+
+                    <div class="episode-info">
+
+                        <h2>
+                            Nobita's Rocket to the Milky Way
+                        </h2>
+
+                        <p>
+                            Nobita travels through time
+                            and gets into an unexpected
+                            adventure.
+                        </p>
+
+                        <div class="episode-meta">
+
+                            <span class="episode-year">
+                                1979
+                            </span>
+
+                            <span class="episode-rating">
+                                ⭐ 9.1
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+            </article>
+
+
+            <!-- EPISODE 06 -->
+            <article
+                class="episode-card"
+                data-title="Doraemon Now Belongs to Suneo!?"
+                data-category="classic">
+
+                <a href="episode-details/episode-06.html">
+
+                    <div class="episode-cover">
+
+                        <img
+                            src="assets/episodes/covers/episode-06.jpg"
+                            alt="Doraemon Episode 6"
+                            loading="lazy">
+
+                        <div class="episode-number">
+                            EP 06
+                        </div>
+
+                    </div>
+
+                    <div class="episode-info">
+
+                        <h2>
+                            Doraemon Now Belongs to Suneo!?
+                        </h2>
+
+                        <p>
+                            Nobita uses Memory Bread to
+                            prepare for his school
+                            examination.
+                        </p>
+
+                        <div class="episode-meta">
+
+                            <span class="episode-year">
+                                1979
+                            </span>
+
+                            <span class="episode-rating">
+                                ⭐ 9.3
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+            </article>
+
+
+            <!-- EPISODE 07 -->
+            <article
+                class="episode-card"
+                data-title="The Premiere Seal - Pakado Nobita Ko"
+                data-category="classic">
+
+                <a href="episode-details/episode-07.html">
+
+                    <div class="episode-cover">
+
+                        <img
+                            src="assets/episodes/covers/episode-07.jpg"
+                            alt="Doraemon Episode 7"
+                            loading="lazy">
+
+                        <div class="episode-number">
+                            EP 07
+                        </div>
+
+                    </div>
+
+                    <div class="episode-info">
+
+                        <h2>
+                            The Premiere Seal - Pakado Nobita Ko
+                        </h2>
+
+                        <p>
+                            Doraemon introduces Nobita
+                            to another amazing gadget.
+                        </p>
+
+                        <div class="episode-meta">
+
+                            <span class="episode-year">
+                                1979
+                            </span>
+
+                            <span class="episode-rating">
+                                ⭐ 8.7
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+            </article>
+
+
+            <!-- EPISODE 08 -->
+            <article
+                class="episode-card"
+                data-title="Nobita Company"
+                data-category="classic">
+
+                <a href="episode-details/episode-08.html">
+
+                    <div class="episode-cover">
+
+                        <img
+                            src="assets/episodes/covers/episode-08.jpg"
+                            alt="Doraemon Episode 8"
+                            loading="lazy">
+
+                        <div class="episode-number">
+                            EP 08
+                        </div>
+
+                    </div>
+
+                    <div class="episode-info">
+
+                        <h2>Nobita Company</h2>
+
+                        <p>
+                            Nobita experiments with a
+                            gadget that can make objects
+                            bigger.
+                        </p>
+
+                        <div class="episode-meta">
+
+                            <span class="episode-year">
+                                1979
+                            </span>
+
+                            <span class="episode-rating">
+                                ⭐ 8.8
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+            </article>
+
+
+            <!-- EPISODE 09 -->
+            <article
+                class="episode-card"
+                data-title="Thambilina"
+                data-category="classic">
+
+                <a href="episode-details/episode-09.html">
+
+                    <div class="episode-cover">
+
+                        <img
+                            src="assets/episodes/covers/episode-09.jpg"
+                            alt="Doraemon Episode 9"
+                            loading="lazy">
+
+                        <div class="episode-number">
+                            EP 09
+                        </div>
+
+                    </div>
+
+                    <div class="episode-info">
+
+                        <h2>Thambilina</h2>
+
+                        <p>
+                            A mysterious cloth gives Nobita
+                            the power to change an
+                            object's age.
+                        </p>
+
+                        <div class="episode-meta">
+
+                            <span class="episode-year">
+                                1979
+                            </span>
+
+                            <span class="episode-rating">
+                                ⭐ 8.9
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+            </article>
+
+
+            <!-- EPISODE 10 -->
+            <article
+                class="episode-card"
+                data-title="Nobita and Non-chan"
+                data-category="classic">
+
+                <a href="episode-details/episode-10.html">
+
+                    <div class="episode-cover">
+
+                        <img
+                            src="assets/episodes/covers/episode-10.jpg"
+                            alt="Doraemon Episode 10"
+                            loading="lazy">
+
+                        <div class="episode-number">
+                            EP 10
+                        </div>
+
+                    </div>
+
+                    <div class="episode-info">
+
+                        <h2>Nobita and Non-chan</h2>
+
+                        <p>
+                            Gian decides to show everyone
+                            his amazing singing talent.
+                        </p>
+
+                        <div class="episode-meta">
+
+                            <span class="episode-year">
+                                1979
+                            </span>
+
+                            <span class="episode-rating">
+                                ⭐ 9.0
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+            </article>
+
+        </section>
+
+
+        <!-- ==========================================
+             NO RESULT MESSAGE
+        ========================================== -->
+
+        <div class="no-result" id="noResult" style="display:none;">
+            😔
+            <p>No episodes found.</p>
         </div>
 
 
-        <select
-            class="episode-filter"
-            id="episodeFilter">
+        <!-- ==========================================
+             GOOGLE ADS PLACEHOLDER
+        ========================================== -->
 
-            <option value="all">
-                All Episodes
-            </option>
+        <section
+            class="episodes-ad-section"
+            aria-label="Advertisement">
 
-            <option value="classic">
-                Classic
-            </option>
+            <span class="episodes-ad-label">
+                Advertisement
+            </span>
 
-            <option value="new">
-                New Episodes
-            </option>
+            <div class="episodes-ad-box">
 
-            <option value="special">
-                Specials
-            </option>
+                <span>📢</span>
 
-        </select>
+                <p>
+                    Advertisement Space
+                </p>
 
+                <small>
+                    Google Ads will appear here
+                </small>
 
-    </section>
+            </div>
 
+        </section>
 
+    </main>
 
-    <!-- =================================================
-         EPISODE GRID
-    ================================================== -->
 
-    <section class="episodes-grid" id="episodesGrid">
-
-
-
-        <!-- =============================================
-             EPISODE 01
-        ============================================== -->
-
-        <article
-            class="episode-card"
-            data-title="Nobita and Doraemon's First Adventure"
-            data-category="classic">
-
-            <a href="episode-details/episode-01.html">
-
-                <div class="episode-cover">
-
-                    <img
-                        src="assets/episodes/covers/episode-01.jpg"
-                        alt="Doraemon Episode 1"
-                        loading="lazy">
-
-                    <div class="episode-number">
-                        EP 01
-                    </div>
-
-                </div>
-
-
-                <div class="episode-info">
-
-                    <h2>
-                        Nobita and Doraemon's First Adventure
-                    </h2>
-
-                    <p>
-                        Doraemon arrives from the future
-                        and begins his amazing journey with Nobita.
-                    </p>
-
-
-                    <div class="episode-meta">
-
-                        <span class="episode-year">
-                            1979
-                        </span>
-
-                        <span class="episode-rating">
-                            ⭐ 9.2
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </a>
-
-        </article>
-
-
-
-        <!-- =============================================
-             EPISODE 02
-        ============================================== -->
-
-        <article
-            class="episode-card"
-            data-title="Echo Mountain"
-            data-category="classic">
-
-            <a href="episode-details/episode-02.html">
-
-                <div class="episode-cover">
-
-                    <img
-                        src="assets/episodes/covers/episode-02.jpg"
-                        alt="Doraemon Episode 2"
-                        loading="lazy">
-
-                    <div class="episode-number">
-                        EP 02
-                    </div>
-
-                </div>
-
-
-                <div class="episode-info">
-
-                    <h2>
-                        Echo Mountain
-                    </h2>
-
-                    <p>
-                        Nobita tries to escape from his homework
-                        with the help of Doraemon's gadgets.
-                    </p>
-
-                    <div class="episode-meta">
-
-                        <span class="episode-year">
-                            1979
-                        </span>
-
-                        <span class="episode-rating">
-                            ⭐ 8.8
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </a>
-
-        </article>
-
-
-
-        <!-- =============================================
-             EPISODE 03
-        ============================================== -->
-
-        <article
-            class="episode-card"
-            data-title="Vacuum Mosquito"
-            data-category="classic">
-
-            <a href="episode-details/episode-03.html">
-
-                <div class="episode-cover">
-
-                    <img
-                        src="assets/episodes/covers/episode-03.jpg"
-                        alt="Doraemon Episode 3"
-                        loading="lazy">
-
-                    <div class="episode-number">
-                        EP 03
-                    </div>
-
-                </div>
-
-
-                <div class="episode-info">
-
-                    <h2>
-                        Vacuum Mosquito
-                    </h2>
-
-                    <p>
-                        Nobita discovers one of Doraemon's
-                        most famous gadgets.
-                    </p>
-
-                    <div class="episode-meta">
-
-                        <span class="episode-year">
-                            1979
-                        </span>
-
-                        <span class="episode-rating">
-                            ⭐ 9.0
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </a>
-
-        </article>
-
-
-
-        <!-- =============================================
-             EPISODE 04
-        ============================================== -->
-
-        <article
-            class="episode-card"
-            data-title="Nobita Ka Udan Khatola"
-            data-category="classic">
-
-            <a href="episode-details/episode-04.html">
-
-                <div class="episode-cover">
-
-                    <img
-                        src="assets/episodes/covers/episode-04.jpg"
-                        alt="Doraemon Episode 4"
-                        loading="lazy">
-
-                    <div class="episode-number">
-                        EP 04
-                    </div>
-
-                </div>
-
-
-                <div class="episode-info">
-
-                    <h2>
-                        Nobita Ka Udan Khatola
-                    </h2>
-
-                    <p>
-                        Nobita learns how to fly using
-                        Doraemon's Take-Copter.
-                    </p>
-
-                    <div class="episode-meta">
-
-                        <span class="episode-year">
-                            1979
-                        </span>
-
-                        <span class="episode-rating">
-                            ⭐ 8.9
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </a>
-
-        </article>
-
-
-
-        <!-- =============================================
-             EPISODE 05
-        ============================================== -->
-
-        <article
-            class="episode-card"
-            data-title="Nobita's Rocket to the Milky Way"
-            data-category="classic">
-
-            <a href="episode-details/episode-05.html">
-
-                <div class="episode-cover">
-
-                    <img
-                        src="assets/episodes/covers/episode-05.jpg"
-                        alt="Doraemon Episode 5"
-                        loading="lazy">
-
-                    <div class="episode-number">
-                        EP 05
-                    </div>
-
-                </div>
-
-
-                <div class="episode-info">
-
-                    <h2>
-                        Nobita's Rocket to the Milky Way
-                    </h2>
-
-                    <p>
-                        Nobita travels through time and
-                        gets into an unexpected adventure.
-                    </p>
-
-                    <div class="episode-meta">
-
-                        <span class="episode-year">
-                            1979
-                        </span>
-
-                        <span class="episode-rating">
-                            ⭐ 9.1
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </a>
-
-        </article>
-
-
-
-        <!-- =============================================
-             EPISODE 06
-        ============================================== -->
-
-        <article
-            class="episode-card"
-            data-title="Doraemon Now Belongs to Suneo!?"
-            data-category="classic">
-
-            <a href="episode-details/episode-06.html">
-
-                <div class="episode-cover">
-
-                    <img
-                        src="assets/episodes/covers/episode-06.jpg"
-                        alt="Doraemon Episode 6"
-                        loading="lazy">
-
-                    <div class="episode-number">
-                        EP 06
-                    </div>
-
-                </div>
-
-
-                <div class="episode-info">
-
-                    <h2>
-                        Doraemon Now Belongs to Suneo!?
-                    </h2>
-
-                    <p>
-                        Nobita uses Memory Bread to prepare
-                        for his school examination.
-                    </p>
-
-                    <div class="episode-meta">
-
-                        <span class="episode-year">
-                            1979
-                        </span>
-
-                        <span class="episode-rating">
-                            ⭐ 9.3
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </a>
-
-        </article>
-
-
-
-        <!-- =============================================
-             EPISODE 07
-        ============================================== -->
-
-        <article
-            class="episode-card"
-            data-title="The Premiere Seal - Pakado Nobita Ko"
-            data-category="classic">
-
-            <a href="episode-details/episode-07.html">
-
-                <div class="episode-cover">
-
-                    <img
-                        src="assets/episodes/covers/episode-07.jpg"
-                        alt="Doraemon Episode 7"
-                        loading="lazy">
-
-                    <div class="episode-number">
-                        EP 07
-                    </div>
-
-                </div>
-
-
-                <div class="episode-info">
-
-                    <h2>
-                        The Premiere Seal - Pakado Nobita Ko
-                    </h2>
-
-                    <p>
-                        Doraemon introduces Nobita to
-                        another amazing gadget.
-                    </p>
-
-                    <div class="episode-meta">
-
-                        <span class="episode-year">
-                            1979
-                        </span>
-
-                        <span class="episode-rating">
-                            ⭐ 8.7
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </a>
-
-        </article>
-
-
-
-        <!-- =============================================
-             EPISODE 08
-        ============================================== -->
-
-        <article
-            class="episode-card"
-            data-title="Nobita Company"
-            data-category="classic">
-
-            <a href="episode-details/episode-08.html">
-
-                <div class="episode-cover">
-
-                    <img
-                        src="assets/episodes/covers/episode-08.jpg"
-                        alt="Doraemon Episode 8"
-                        loading="lazy">
-
-                    <div class="episode-number">
-                        EP 08
-                    </div>
-
-                </div>
-
-
-                <div class="episode-info">
-
-                    <h2>
-                        Nobita Company
-                    </h2>
-
-                    <p>
-                        Nobita experiments with a gadget
-                        that can make objects bigger.
-                    </p>
-
-                    <div class="episode-meta">
-
-                        <span class="episode-year">
-                            1979
-                        </span>
-
-                        <span class="episode-rating">
-                            ⭐ 8.8
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </a>
-
-        </article>
-
-
-
-        <!-- =============================================
-             EPISODE 09
-        ============================================== -->
-
-        <article
-            class="episode-card"
-            data-title="Thambilina"
-            data-category="classic">
-
-            <a href="episode-details/episode-09.html">
-
-                <div class="episode-cover">
-
-                    <img
-                        src="assets/episodes/covers/episode-09.jpg"
-                        alt="Doraemon Episode 9"
-                        loading="lazy">
-
-                    <div class="episode-number">
-                        EP 09
-                    </div>
-
-                </div>
-
-
-                <div class="episode-info">
-
-                    <h2>
-                        Thambilina
-                    </h2>
-
-                    <p>
-                        A mysterious cloth gives Nobita
-                        the power to change an object's age.
-                    </p>
-
-                    <div class="episode-meta">
-
-                        <span class="episode-year">
-                            1979
-                        </span>
-
-                        <span class="episode-rating">
-                            ⭐ 8.9
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </a>
-
-        </article>
-
-
-
-        <!-- =============================================
-             EPISODE 10
-        ============================================== -->
-
-        <article
-            class="episode-card"
-            data-title="Nobita and Non-chan"
-            data-category="classic">
-
-            <a href="episode-details/episode-10.html">
-
-                <div class="episode-cover">
-
-                    <img
-                        src="assets/episodes/covers/episode-10.jpg"
-                        alt="Doraemon Episode 10"
-                        loading="lazy">
-
-                    <div class="episode-number">
-                        EP 10
-                    </div>
-
-                </div>
-
-
-                <div class="episode-info">
-
-                    <h2>
-                        Nobita and Non-chan
-                    </h2>
-
-                    <p>
-                        Gian decides to show everyone
-                        his amazing singing talent.
-                    </p>
-
-                    <div class="episode-meta">
-
-                        <span class="episode-year">
-                            1979
-                        </span>
-
-                        <span class="episode-rating">
-                            ⭐ 9.0
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </a>
-
-        </article>
-
-
-
-    </section>
-
-
-
-    <!-- =================================================
-         NO RESULT
-    ================================================== -->
-
-    <div class="no-result" id="noResult">
-
-        😔
-
-        <br><br>
-
-        No episodes found.
-
-    </div>
-
-
-
-    <!-- =================================================
-         FOOTER
-    ================================================== -->
+    <!-- ==========================================
+         DORAEMON WORLD FOOTER
+    ========================================== -->
 
     <footer class="episodes-footer">
 
-        <p>
+        <h3>
             💙 DORAEMON WORLD
-        </p>
+        </h3>
 
         <p>
-            Explore • Watch • Enjoy
+            Explore • Discover • Enjoy
         </p>
+
+        <div class="episodes-footer-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="movies.html">
+                Movies
+            </a>
+
+            <a href="episodes.html">
+                Episodes
+            </a>
+
+            <a href="characters.html">
+                Characters
+            </a>
+
+            <a href="gadgets.html">
+                Gadgets
+            </a>
+
+        </div>
+
+        <small>
+            Unofficial Doraemon Fan Project
+        </small>
 
     </footer>
 
 
-</main>
+    <!-- ==========================================
+         MOBILE BOTTOM NAVIGATION
+    ========================================== -->
 
+    <nav class="mobile-bottom-nav">
 
+        <a href="index.html" class="bottom-nav-item">
 
-<!-- =====================================================
-     MOBILE BOTTOM NAV
-===================================================== -->
+            <span>🏠</span>
+            <small>Home</small>
 
-<nav class="mobile-bottom-nav">
+        </a>
 
-    <a
-        href="index.html"
-        class="bottom-nav-item">
+        <a href="movies.html" class="bottom-nav-item">
 
-        <span>🏠</span>
+            <span>🎬</span>
+            <small>Movies</small>
 
-        <small>
-            Home
-        </small>
+        </a>
 
-    </a>
+        <a href="episodes.html" class="bottom-nav-item active">
 
+            <span>📺</span>
+            <small>Episodes</small>
 
-    <a
-        href="movies.html"
-        class="bottom-nav-item">
+        </a>
 
-        <span>🎬</span>
+        <a href="characters.html" class="bottom-nav-item">
 
-        <small>
-            Movies
-        </small>
+            <span>👥</span>
+            <small>Characters</small>
 
-    </a>
+        </a>
 
+        <a href="music.html" class="bottom-nav-item">
 
-    <a
-        href="episodes.html"
-        class="bottom-nav-item active">
+            <span>🎵</span>
+            <small>Music</small>
 
-        <span>📺</span>
+        </a>
 
-        <small>
-            Episodes
-        </small>
+    </nav>
 
-    </a>
 
+    <!-- ==========================================
+         WEBSITE JAVASCRIPT
+    ========================================== -->
 
-    <a
-        href="characters.html"
-        class="bottom-nav-item">
+    <script src="js/script.js"></script>
 
-        <span>👥</span>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
 
-        <small>
-            Characters
-        </small>
+            // MOBILE SEARCH BUTTON
+            const mobileSearchBtn =
+                document.getElementById("mobileSearchBtn");
 
-    </a>
+            const searchInput =
+                document.getElementById("episodeSearch");
 
+            if (mobileSearchBtn && searchInput) {
+                mobileSearchBtn.addEventListener("click", function () {
+                    searchInput.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
 
-    <a
-        href="music.html"
-        class="bottom-nav-item">
-
-        <span>🎵</span>
-
-        <small>
-            Music
-        </small>
-
-    </a>
-
-</nav>
-
-
-
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
-<script src="js/script.js"></script>
-
-
-<script>
-
-document.addEventListener("DOMContentLoaded", function () {
-
-
-    /* ================================================
-       MOBILE MENU
-    ================================================= */
-
-    const menuBtn =
-        document.getElementById("mobileMenuBtn");
-
-    const menuPanel =
-        document.getElementById("mobileMenuPanel");
-
-
-    if (menuBtn && menuPanel) {
-
-        menuBtn.addEventListener("click", function () {
-
-            menuPanel.classList.toggle("active");
-
-        });
-
-    }
-
-
-
-    /* ================================================
-       EPISODE SEARCH
-    ================================================= */
-
-    const searchInput =
-        document.getElementById("episodeSearch");
-
-    const filter =
-        document.getElementById("episodeFilter");
-
-    const cards =
-        document.querySelectorAll(".episode-card");
-
-    const noResult =
-        document.getElementById("noResult");
-
-
-    function filterEpisodes() {
-
-        const searchText =
-            searchInput.value
-            .toLowerCase()
-            .trim();
-
-        const category =
-            filter.value;
-
-        let visibleCount = 0;
-
-
-        cards.forEach(function (card) {
-
-            const title =
-                card.dataset.title
-                .toLowerCase();
-
-            const cardCategory =
-                card.dataset.category;
-
-
-            const matchesSearch =
-                title.includes(searchText);
-
-
-            const matchesCategory =
-                category === "all" ||
-                cardCategory === category;
-
-
-            if (
-                matchesSearch &&
-                matchesCategory
-            ) {
-
-                card.style.display = "block";
-
-                visibleCount++;
-
-            } else {
-
-                card.style.display = "none";
-
+                    searchInput.focus({ preventScroll: true });
+                });
             }
 
-        });
+            // EPISODE FILTER
+            const filter =
+                document.getElementById("episodeFilter");
 
+            const cards =
+                document.querySelectorAll(".episode-card");
 
-        if (noResult) {
+            const noResult =
+                document.getElementById("noResult");
 
-            if (visibleCount === 0) {
+            function filterEpisodes() {
 
-                noResult.style.display = "block";
+                const searchText = searchInput
+                    ? searchInput.value.toLowerCase().trim()
+                    : "";
 
-            } else {
+                const category = filter
+                    ? filter.value
+                    : "all";
 
-                noResult.style.display = "none";
+                let visibleCount = 0;
 
+                cards.forEach(function (card) {
+
+                    const title =
+                        (card.dataset.title || "").toLowerCase();
+
+                    const cardCategory =
+                        card.dataset.category || "";
+
+                    const matchesSearch =
+                        title.includes(searchText);
+
+                    const matchesCategory =
+                        category === "all" ||
+                        cardCategory === category;
+
+                    if (matchesSearch && matchesCategory) {
+
+                        card.style.display = "";
+                        visibleCount++;
+
+                    } else {
+
+                        card.style.display = "none";
+                    }
+                });
+
+                if (noResult) {
+                    noResult.style.display =
+                        visibleCount === 0 ? "block" : "none";
+                }
             }
 
-        }
+            if (searchInput) {
+                searchInput.addEventListener(
+                    "input",
+                    filterEpisodes
+                );
+            }
 
-    }
+            if (filter) {
+                filter.addEventListener(
+                    "change",
+                    filterEpisodes
+                );
+            }
 
+            filterEpisodes();
 
-    if (searchInput) {
+        });
+    </script>
 
-        searchInput.addEventListener(
-            "input",
-            filterEpisodes
-        );
+    <script src="js/site-navigation.js" defer></script>
 
-    }
-
-
-    if (filter) {
-
-        filter.addEventListener(
-            "change",
-            filterEpisodes
-        );
-
-    }
-
-
-});
-
-</script>
-
-
-<script src="js/site-navigation.js" defer></script>
 </body>
-
 </html>
