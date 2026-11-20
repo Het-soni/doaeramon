@@ -1,13 +1,7 @@
 
 /*
   Doraemon World
-  Advertisement Card After Every 6 Cards
-
-  Works with:
-  - Movies
-  - Wallpapers
-  - Gallery
-  - Reels
+  Adsterra Banner After Every 6 Cards
 */
 
 (() => {
@@ -15,35 +9,57 @@
 
   const AD_INTERVAL = 6;
 
-  // Create advertisement placeholder
+  // Keep false until ready to activate ads.
+  const ADS_ENABLED = true;
+
   function createAdCard() {
-    const ad = document.createElement("div");
+    const card = document.createElement("div");
 
-    ad.className = "dw-ad-card";
-    ad.dataset.insertedAd = "true";
-    ad.setAttribute("aria-label", "Advertisement");
+    card.className = "dw-ad-card";
+    card.dataset.insertedAd = "true";
+    card.setAttribute("aria-label", "Advertisement");
 
-    ad.innerHTML = `
-      <span class="dw-ad-label">
-        Advertisement
-      </span>
+    const label = document.createElement("span");
+    label.className = "dw-ad-label";
+    label.textContent = "Advertisement";
 
-      <div class="dw-ad-content">
+    card.appendChild(label);
+
+    if (ADS_ENABLED) {
+      const frame = document.createElement("iframe");
+
+      frame.src = "./adsterra-banner.html";
+      frame.width = "300";
+      frame.height = "250";
+      frame.loading = "lazy";
+      frame.title = "Advertisement";
+      frame.setAttribute("scrolling", "no");
+
+      frame.style.border = "0";
+      frame.style.display = "block";
+      frame.style.maxWidth = "100%";
+
+      card.appendChild(frame);
+    } else {
+      const placeholder = document.createElement("div");
+
+      placeholder.className = "dw-ad-content";
+      placeholder.innerHTML = `
         <div class="dw-ad-icon">📢</div>
         <p>Advertisement Space</p>
-      </div>
-    `;
+      `;
 
-    return ad;
+      card.appendChild(placeholder);
+    }
+
+    return card;
   }
 
-  // Add one ad after every 6 content cards
   function updateAds(grid) {
-    // Remove previously inserted ads
-    grid.querySelectorAll(":scope > [data-inserted-ad]")
-      .forEach(ad => ad.remove());
+    grid.querySelectorAll(
+      ":scope > [data-inserted-ad]"
+    ).forEach(ad => ad.remove());
 
-    // Count actual cards only
     const cards = Array.from(grid.children).filter(
       element =>
         element.nodeType === 1 &&
@@ -57,7 +73,6 @@
     });
   }
 
-  // Watch dynamically generated movie/reel cards
   function initGrid(grid) {
     let scheduled = false;
 
@@ -68,7 +83,6 @@
 
       requestAnimationFrame(() => {
         observer.disconnect();
-
         updateAds(grid);
 
         observer.observe(grid, {
@@ -87,7 +101,8 @@
   }
 
   function init() {
-    document.querySelectorAll("[data-ad-grid]")
+    document
+      .querySelectorAll("[data-ad-grid]")
       .forEach(initGrid);
   }
 

@@ -26,3 +26,32 @@
 @media (max-width: 600px) {
   .dw-ad-card { min-height: 190px; border-radius: 14px; }
 }
+.dw-ad-card {
+  min-height: 290px;
+  padding: 28px 8px 10px;
+  border: 1px dashed #b9d8ed;
+  border-radius: 16px;
+  background: #f5fbff;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.dw-ad-label {
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  font-size: 11px;
+  color: #64748b;
+}
+
+.dw-ad-content {
+  text-align: center;
+  color: #64748b;
+}
+
+.dw-ad-icon {
+  font-size: 30px;
+}
