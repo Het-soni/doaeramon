@@ -110,9 +110,14 @@
             }
         }
     </style>
+<link rel="stylesheet" href="css/community.css">
+<script src="js/buddy-model.js"></script><script src="js/buddy.js"></script>
+<link rel="stylesheet" href="./css/site-navigation.css">
+<script defer src="./js/site-config.js"></script>
+<script defer src="./js/site-navigation.js"></script>
 </head>
 
-<body data-state="idle">
+<body class="dw-voice" data-state="idle">
     <a class="back" href="index.html">← Home</a>
 
     <main>
@@ -130,7 +135,7 @@
         <p class="note">
             Yellow: sun raha hai • Green: bol raha hai
         </p>
-    </main>
+</main>
 
     <script>
     (() => {
@@ -139,8 +144,7 @@
         const GEMINI_URL =
             "https://doraemon-ai.hackerblackpanther2000.workers.dev";
 
-        const VOICE_URL =
-            "https://7fb3fe8673e111eefd.gradio.live";
+
 
         const Recognition =
             window.SpeechRecognition ||
@@ -149,15 +153,14 @@
         const character = document.getElementById("character");
         const status = document.getElementById("status");
 
-        const player = new Audio();
-        player.preload = "auto";
+
 
         let recognizer = null;
         let running = false;
         let leaving = false;
         let history = [];
         let greeted = false;
-        let resumeAudio = null;
+
 
         function state(name, message) {
             document.body.dataset.state = name;
@@ -188,142 +191,20 @@
         }
 
         // Gradio queue result arrives as server-sent events.
-        async function getVoice(text) {
-            const job = await requestJSON(
-                VOICE_URL + "/gradio_api/call/speak",
-                {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ data: [text] })
-                }
-            );
-
-            if (!job.event_id) {
-                throw new Error("Voice request start nahi hui.");
-            }
-
-            return new Promise((resolve, reject) => {
-                const events = new EventSource(
-                    VOICE_URL + "/gradio_api/call/speak/" +
-                    encodeURIComponent(job.event_id)
-                );
-
-                let finished = false;
-
-                function finish(error, url) {
-                    if (finished) return;
-                    finished = true;
-                    clearTimeout(timer);
-                    events.close();
-
-                    if (error) reject(error);
-                    else resolve(url);
-                }
-
-                const timer = setTimeout(() => {
-                    finish(new Error(
-                        "Voice timeout. Colab session check karo."
-                    ));
-                }, 120000);
-
-                events.addEventListener("complete", event => {
-                    try {
-                        const result = JSON.parse(event.data);
-                        const file = result?.[0];
-
-                        const url = file?.url ||
-                            (file?.path
-                                ? VOICE_URL + "/gradio_api/file=" +
-                                  encodeURI(file.path)
-                                : null);
-
-                        if (!url) {
-                            throw new Error("Generated audio nahi mili.");
-                        }
-
-                        finish(null, new URL(url, VOICE_URL).href);
-                    } catch (error) {
-                        finish(error);
-                    }
-                });
-
-                events.addEventListener("error", () => {
-                    finish(new Error(
-                        "Voice server error. Colab ka output check karo."
-                    ));
-                });
-            });
-        }
-
-        function playVoice(url) {
-            return new Promise((resolve, reject) => {
-                player.src = url;
-
-                function cleanup() {
-                    resumeAudio = null;
-                    player.onended = null;
-                    player.onerror = null;
-                }
-
-                player.onended = () => {
-                    cleanup();
-                    resolve();
-                };
-
-                player.onerror = () => {
-                    cleanup();
-                    reject(new Error("Audio play nahi hui."));
-                };
-
-                async function attempt() {
-                    try {
-                        await player.play();
-                        resumeAudio = null;
-                        state("speaking", "💚 Doraemon bol raha hai...");
-                    } catch (error) {
-                        if (error.name === "NotAllowedError") {
-                            resumeAudio = attempt;
-                            state(
-                                "idle",
-                                "Awaaz enable karne ke liye Doraemon par tap karo."
-                            );
-                        } else {
-                            cleanup();
-                            reject(error);
-                        }
-                    }
-                }
-
-                attempt();
-            });
-        }
-
-        // Each Gradio request accepts up to 400 characters.
-        function chunks(text) {
-            const result = [];
-            let remaining = text.trim();
-
-            while (remaining.length > 380) {
-                let cut = remaining.lastIndexOf(" ", 380);
-                if (cut < 1) cut = 380;
-                result.push(remaining.slice(0, cut));
-                remaining = remaining.slice(cut).trim();
-            }
-
-            if (remaining) result.push(remaining);
-            return result;
-        }
-
         async function speak(text) {
-            for (const part of chunks(text)) {
-                if (leaving) return;
-
-                state("thinking", "💙 Awaaz ban rahi hai...");
-                const url = await getVoice(part);
-
-                if (leaving) return;
-                await playVoice(url);
+            if ("speechSynthesis" in window) {
+                state("speaking", text);
+                await new Promise((resolve,reject) => {
+                    const line = new SpeechSynthesisUtterance(text);
+                    line.lang = /[ऀ-ॿ]/.test(text) ? "hi-IN" : "en-IN";
+                    line.onend = resolve;
+                    line.onerror = () => reject(new Error("Voice unavailable. Please try a speech-enabled browser."));
+                    speechSynthesis.speak(line);
+                });
+                return;
             }
+            state("idle", text);
+
         }
 
         function listen() {
@@ -394,7 +275,8 @@
             try {
                 state("thinking", "💭 Soch raha hoon...");
 
-                const data = await requestJSON(GEMINI_URL, {
+                const localReply = window.dwBuddyReply(message);
+                const data = localReply ? {reply: localReply} : await requestJSON(GEMINI_URL, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
@@ -414,6 +296,7 @@
 
                 history = history.slice(-10);
 
+                
                 await speak(data.reply);
                 listen();
 
@@ -447,21 +330,16 @@
             }
         }
 
-        character.addEventListener("click", () => {
-            if (resumeAudio) {
-                resumeAudio();
-            } else {
-                start();
-            }
-        });
+        character.addEventListener("click", start);
 
         window.addEventListener("pagehide", () => {
             leaving = true;
-            player.pause();
+            window.speechSynthesis?.cancel();
+
             recognizer?.abort();
         });
 
-        start();
+        state("idle", "Baat karne ke liye Doraemon par tap karo.");
     })();
     </script>
 </body>

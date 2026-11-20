@@ -16,18 +16,14 @@
         ["gallery.html", "Gallery", "📸"],
         ["gadgets.html", "Gadgets", "🪄"],
         ["test.html", "Test", "📝"],
+        ["live-chat.html", "Live Chat", "💬"],
+        ["doraemon-ai.html", "Doraemon AI", "🤖"],
         ["motivation.html", "Motivation", "💙"],
         ["secret-login.html", "Secret Message", "💌"]
     ];
 
     function init() {
         if (document.getElementById("dw-site-header")) return;
-
-        document.querySelectorAll(
-            "header.topbar, header.mobile-header, " +
-            "header.gallery-header, .mobile-menu-panel, " +
-            ".mobile-bottom-nav, #dw-search"
-        ).forEach(element => element.remove());
 
         const current =
             window.location.pathname.split("/").pop() || "index.html";
@@ -36,13 +32,28 @@
             ? "episodes.html"
             : current;
 
+        const primary = ["index.html", "episodes.html", "movies.html", "characters.html", "music.html"]
+            .map(path => pages.find(page => page[0] === path));
+
+                const topPages = [
+            "index.html",
+            "movies.html",
+            "episodes.html",
+            "characters.html",
+            "wallpapers.html",
+            "music.html",
+            "gadgets.html",
+            "test.html",
+            "live-chat.html"
+        ].map(path => pages.find(page => page[0] === path));
+
         function link([url, title, icon], bottom = false) {
             const selected =
                 url === active ? ' aria-current="page"' : "";
 
             const content = bottom
                 ? `<span>${icon}</span><small>${title}</small>`
-                : `${icon} ${title}`;
+                : title;
 
             return `<a href="${siteURL(url)}"${selected}>${content}</a>`;
         }
@@ -67,7 +78,7 @@
             </a>
 
             <nav class="dw-desktop-links" aria-label="Main navigation">
-                ${pages.slice(0, 9).map(page => link(page)).join("")}
+                ${topPages.map(page => link(page)).join("")}
             </nav>
 
             <button
@@ -80,7 +91,18 @@
             </button>
         `;
 
+        const account = document.createElement("button");
+        account.type = "button"; account.id = "dw-account";
+        account.setAttribute("aria-label", "Account and sign in");
+        const avatar = document.createElement("img");
+        avatar.src = siteURL("assets/images/ui/account-doraemon.webp");
+        avatar.alt = "";
+        account.append(avatar);
+        header.append(account);
         document.body.prepend(header);
+        import(siteURL("js/account.js")).then(module => module.initAccount(account)).catch(() => {
+            account.onclick = () => alert("Open the site through its server to sign in.");
+        });
 
         // Mobile menu
         const menu = document.createElement("nav");
@@ -88,24 +110,15 @@
         menu.className = "dw-ui";
         menu.hidden = true;
         menu.setAttribute("aria-label", "All sections");
-        menu.innerHTML = pages.map(page => link(page)).join("");
+        menu.innerHTML = topPages.map(page => link(page)).join("");
 
         // Bottom navigation
-        const bottomPages = [
-            "index.html",
-            "movies.html",
-            "episodes.html",
-            "characters.html",
-            "music.html"
-        ];
-
         const bottom = document.createElement("nav");
         bottom.id = "dw-site-bottom";
         bottom.className = "dw-ui";
         bottom.setAttribute("aria-label", "Mobile navigation");
 
-        bottom.innerHTML = pages
-            .filter(page => bottomPages.includes(page[0]))
+        bottom.innerHTML = primary
             .map(page => link(page, true))
             .join("");
 
@@ -138,6 +151,13 @@
 
         const menuButton = header.querySelector("#dw-menu-button");
         const searchButton = header.querySelector("#dw-search-button");
+        const footer = document.querySelector("footer");
+        if (footer) {
+            searchButton.textContent = "Search Doraemon World";
+            footer.append(searchButton);
+        } else {
+            searchButton.remove();
+        }
         const input = search.querySelector("input");
         const results = search.querySelector(".dw-results");
         const status = search.querySelector("p");

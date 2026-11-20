@@ -29,6 +29,7 @@ const categoryButtons =
 let reels = [];
 
 let currentReel = 0;
+let soundEnabled = false;
 
 let touchStartY = 0;
 
@@ -119,15 +120,7 @@ function playCurrentVideo() {
         });
 
 
-    /*
-     * Do NOT use muted.
-     *
-     * Browser autoplay policy can still block
-     * sound until user interacts with page.
-     */
-
-    video.muted = false;
-
+    video.muted = !soundEnabled;
 
     const promise =
         video.play();
@@ -319,7 +312,7 @@ const observer =
 
                     if (video) {
 
-                        video.muted = false;
+                        video.muted = !soundEnabled;
 
                         const promise =
                             video.play();
@@ -349,6 +342,7 @@ const observer =
         },
 
         {
+            root: reelsContainer,
             threshold: [
                 0.65,
                 0.8,
@@ -399,8 +393,13 @@ function setupVideoControls() {
                  * User interaction enables sound
                  */
 
-                video.muted = false;
-
+                if (!soundEnabled) {
+                    soundEnabled = true;
+                    video.muted = false;
+                    video.play().catch(() => showStatus("▶"));
+                    showStatus("🔊");
+                    return;
+                }
 
                 if (video.paused) {
 
@@ -1020,7 +1019,7 @@ function initializeReels() {
 
     if (firstVideo) {
 
-        firstVideo.muted = false;
+        firstVideo.muted = !soundEnabled;
 
         const promise =
             firstVideo.play();

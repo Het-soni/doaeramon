@@ -1,0 +1,8 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "rewrites": [
+    { "source": "/account/:action", "destination": "/api/community?scope=account&action=:action" },
+    { "source": "/chat/:action", "destination": "/api/community?scope=chat&action=:action" }
+  ]
+}

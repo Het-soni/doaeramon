@@ -41,3 +41,84 @@ body.dw-navigation-ready:has(.reels-container) .reels-container {height:calc(100
  body.dw-navigation-ready .music-player {bottom:calc(90px + env(safe-area-inset-bottom));}
  body.dw-navigation-ready:has(.reels-container) .reels-container,body.dw-navigation-ready .reel {height:calc(100dvh - 147px);min-height:calc(100dvh - 147px);}
 }
+
+/* One set of bars on every page. Keep legacy nodes for page event handlers. */
+body.dw-navigation-ready :is(header.topbar,header.mobile-header,header.gallery-header,.mobile-menu-panel,.mobile-bottom-nav,nav.bottom-nav,#dw-search){display:none!important}
+#dw-site-header {box-sizing:border-box;margin:0 auto;min-height:64px;background:white;color:#073b70}
+#dw-site-header #dw-menu-button{display:flex}
+#dw-site-menu{top:65px;right:auto;width:min(300px,94vw)}
+.dw-navigation-ready:has(.password-box),.dw-navigation-ready:has(#buddyForm){display:block;padding:0;margin:0}
+.dw-navigation-ready>.password-box,.dw-navigation-ready:has(#buddyForm)>main{margin:clamp(18px,6vw,75px) auto;width:min(92%,480px)}
+.dw-navigation-ready>.back{display:none}
+.dw-navigation-ready .secret-header{position:static}
+.site-ad,.reward-step{margin:24px auto;padding:16px;max-width:960px;text-align:center;background:#fff;color:#154361;border:1px solid #d4e7f4;border-radius:14px}
+.site-ad small,.reward-step small{font:12px Arial,sans-serif;color:#526d81}
+.site-ad a,.reward-step a{color:#086da8;text-decoration:underline}
+.reward-step button{cursor:pointer;border:0;border-radius:10px;background:#0877b7;color:white;padding:11px 16px;font-weight:bold}
+.reward-step[hidden]{display:none!important}
+@media(min-width:701px) and (max-width:1130px){#dw-site-header .dw-desktop-links{display:none}}
+@media(max-width:700px){#dw-site-header{min-height:62px}#dw-site-menu{top:62px}}
+#doraemonVoiceBtn{position:fixed;right:18px;bottom:24px;z-index:100;width:55px;height:55px;display:grid;place-items:center;padding:6px;background:white;border:2px solid #168ac6;border-radius:50%;box-shadow:0 4px 14px #12578534;cursor:pointer}
+#doraemonVoiceBtn img{width:100%;height:100%;object-fit:contain}
+@media(max-width:700px){#doraemonVoiceBtn{bottom:calc(88px + env(safe-area-inset-bottom))}}
+
+/* A single visual theme for the site's content, navigation and account views. */
+body.dw-navigation-ready{--dw-ink:#113f64;--dw-blue:#087bb9;--dw-line:#c9e4f3;--dw-hero:linear-gradient(140deg,#075c9d,#168dcb 72%,#54b8db);font-family:Arial,Helvetica,sans-serif!important;background:#f2f8fc!important;color:var(--dw-ink)}
+body.dw-navigation-ready :is(h1,h2,h3,h4,p,a,button,label,input,select,textarea,small,strong,span){font-family:inherit}
+body.dw-navigation-ready :is(.welcome,.hero,.people-hero,.episode-hero,.gadget-hero,.wallpaper-hero,.gallery-hero,.hero-section,.room-heading){background:var(--dw-hero)!important;border-radius:22px;border:1px solid #afd8ef;box-shadow:0 8px 24px #12456914;color:white}
+body.dw-navigation-ready :is(.welcome,.hero,.people-hero,.episode-hero,.gadget-hero,.wallpaper-hero,.gallery-hero,.hero-section,.room-heading) :is(h1,p){color:white;text-shadow:none}
+body.dw-navigation-ready :is(.episode-card,.movie-card,.character-card,.wallpaper-card,.gallery-card,.gadget-card,.song-card,.section,.password-box,.community){background:white;border:1px solid var(--dw-line);border-radius:16px;box-shadow:0 4px 16px #1245690c}
+#dw-site-header .dw-brand{margin-right:auto}
+#dw-site-header #dw-account{border-radius:50%;background:#086ca8;color:white;font-weight:bold}
+#dw-account-panel{position:fixed;inset:0;margin:auto;box-sizing:border-box;width:min(92vw,360px);height:fit-content;max-height:85dvh;overflow:auto;padding:24px;border:1px solid #c9e4f3;border-radius:20px;background:white;color:#123e60;font:16px Arial,sans-serif;text-align:left;z-index:30000}
+#dw-account-panel::backdrop{background:#12364c91}
+#dw-account-panel :is(form,label){display:grid;gap:7px}
+#dw-account-panel form{gap:15px}
+#dw-account-panel [hidden]{display:none!important}
+#dw-account-panel h2{margin:0 0 20px;color:#123e60;font-size:24px}
+#dw-account-panel input{box-sizing:border-box;width:100%;border:1px solid #adcadd;background:white;color:#123e60;padding:11px;border-radius:8px}
+#dw-account-panel button,.dw-pager button{border:0;cursor:pointer;background:#eaf6ff;color:#086ca8;border-radius:9px;padding:10px;font:600 15px Arial,sans-serif}
+#dw-account-panel .dw-close{float:right;padding:4px 10px}
+#dw-account-panel .dw-submit,.dw-pager [aria-current]{background:#086ca8;color:white}
+#dw-account-panel .dw-switch{margin-top:12px}
+.dw-pager{display:flex;justify-content:center;gap:8px;margin:20px 0}
+.dw-pager button{min-width:42px}
+#episodeGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(min-width:1024px){#episodeGrid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.dw-navigation-ready :is(label.option,label.fill-option){position:relative;transform:none;min-height:44px;cursor:pointer;touch-action:manipulation}
+.dw-navigation-ready :is(label.option,label.fill-option) input[type=radio]{appearance:auto;position:static;opacity:1;pointer-events:auto;width:19px;height:19px;flex:none;accent-color:#087bb9}
+.dw-navigation-ready :is(label.option,label.fill-option):has(input:checked){color:#08446c;background:#d7eeff;border:2px solid #087bb9;font-weight:bold}
+.dw-navigation-ready :is(label.option,label.fill-option):focus-within{outline:2px solid #087bb9;outline-offset:2px}
+body.dw-voice.dw-navigation-ready{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;margin:0;padding:0;min-height:100dvh;overflow-x:clip;scrollbar-width:none}
+html:has(.dw-voice){scrollbar-width:none}
+html:has(.dw-voice)::-webkit-scrollbar,.dw-voice::-webkit-scrollbar{display:none}
+.dw-voice>.back{display:none}.dw-voice main{width:min(94vw,470px);box-sizing:border-box;padding:clamp(10px,3vh,26px) 12px;margin:auto;text-align:center}
+.dw-voice #character{width:min(52vw,31dvh,250px);height:min(52vw,31dvh,250px);margin:15px auto}
+.dw-voice #status{overflow-wrap:anywhere}
+@media(max-width:700px){#dw-site-bottom a{flex:1;min-width:0}#dw-site-header .dw-brand{font-size:16px}#dw-site-header{gap:7px}#episodeGrid{gap:9px}}
+
+#dw-site-header #dw-account{overflow:hidden;background:#dbf3ff;border:2px solid #73c8ed;color:#075387}
+#dw-account img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;border-radius:50%}
+.account-tile{cursor:pointer;color:inherit;font:inherit}
+@media(min-width:1000px){
+  #dw-site-header .dw-desktop-links{display:flex;flex-wrap:wrap;gap:1px 4px;flex:1}
+  #dw-site-header .dw-desktop-links a{white-space:nowrap;padding:4px 6px}
+}
+#motivationTitle a{color:inherit;font:inherit}
+body:has(#reelsContainer){display:flex;flex-direction:column;height:100dvh;padding-bottom:0!important}
+body:has(#reelsContainer) #dw-site-header{flex:none}
+body.dw-navigation-ready #reelsContainer{flex:1;min-height:0;height:auto;width:100%;margin:0}
+body.dw-navigation-ready #reelsContainer .reel{width:100%;height:100%;min-height:100%}
+body.dw-navigation-ready #reelsContainer video{max-height:100%;height:100%;object-fit:contain}
+@media(max-width:700px){body.dw-navigation-ready #reelsContainer{margin-bottom:calc(85px + env(safe-area-inset-bottom))}}
+
+/* Original Home header proportions and link treatment. */
+#dw-site-header{min-height:66px;padding:8px max(3%,calc((100% - 1240px)/2));gap:14px;background:#fff;border-bottom:1px solid #d6e9f6;box-shadow:0 3px 15px rgb(11 84 140 / 7%)}
+#dw-site-header .dw-brand{color:#075399;font-size:23px;letter-spacing:normal}
+#dw-site-header .dw-desktop-links{flex:0 1 auto;margin-left:auto;align-items:center;gap:2px;flex-wrap:nowrap}
+#dw-site-header .dw-desktop-links a,#dw-site-menu a{padding:10px;border-radius:10px;color:#103e65;font-size:14px;font-weight:800}
+#dw-site-menu{background:white;border:1px solid #d6e9f6}
+#dw-site-menu a:hover,#dw-site-menu a[aria-current],#dw-site-menu a:focus-visible,#dw-site-header .dw-desktop-links a:hover,#dw-site-header .dw-desktop-links a[aria-current]{background:#e4f4ff;color:#076cb3}
+footer #dw-search-button{padding:6px 10px;border:0;border-radius:8px;background:#e6f5ff;color:#075399;cursor:pointer;font:inherit}
+@media(min-width:850px){#dw-site-header #dw-menu-button{display:none}#dw-site-header .dw-desktop-links{display:flex}}
+@media(max-width:849px){#dw-site-header .dw-desktop-links{display:none}#dw-site-header #dw-menu-button{display:flex}#dw-site-header{min-height:62px;padding:8px 3%}}

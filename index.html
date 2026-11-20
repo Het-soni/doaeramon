@@ -23,8 +23,13 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="js/script.js" defer></script>
 
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8772972065670336"
-     crossorigin="anonymous"></script>
+   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8772972065670336"
+        crossorigin="anonymous"></script>
+<link rel="stylesheet" href="./css/site-navigation.css">
+<script defer src="./js/site-config.js"></script>
+<script defer src="./js/site-navigation.js"></script>
+<script defer src="./js/site-ads.js"></script>
+<script defer src="js/doraemon-voice.js"></script>
 </head>
 
 <body>
@@ -159,10 +164,7 @@
     </section>
 
     <!-- ADVERTISEMENT SPACE -->
-    <aside class="ad-space" aria-label="Advertisement">
-      <small>Advertisement</small>
-      <!-- Paste your responsive AdSense display ad unit here. -->
-    </aside>
+
 
     <!-- ALL CATEGORIES -->
     <section class="home-section" aria-labelledby="categoriesTitle">
@@ -202,13 +204,12 @@
         <a class="category-card" href="test.html">
           <span class="tile-icon yellow">🏆</span><strong>Test</strong>
         </a>
+        <a class="category-card" href="motivation.html"><span class="tile-icon sky">💙</span><strong>Motivation Reels</strong></a>
+        <a class="category-card" href="live-chat.html"><span class="tile-icon mint">💬</span><strong>Live Chat</strong></a>
+        <a class="category-card" href="doraemon-ai.html"><span class="tile-icon purple">🤖</span><strong>Doraemon AI</strong></a>
+        <a class="category-card" href="secret-login.html"><span class="tile-icon pink">💌</span><strong>Secret Message</strong></a>
+        <button type="button" class="category-card account-tile" onclick="document.getElementById('dw-account').click()"><span class="tile-icon sky"><img src="assets/images/ui/account-doraemon.webp" alt="" width="32" height="32"></span><strong>Account</strong></button>
       </div>
-
-      <a class="ai-card" href="doraemon-ai.html">
-        <span class="tile-icon">🤖</span>
-        <strong>Doraemon AI</strong>
-        <span class="card-action">Talk now →</span>
-      </a>
     </section>
 
     <!-- GADGETS -->
@@ -238,7 +239,7 @@
     <!-- MOTIVATION AND SECRET MESSAGE -->
     <section class="home-section" aria-labelledby="motivationTitle">
       <div class="section-heading">
-        <h2 id="motivationTitle">Doraemon Motivation 💙</h2>
+        <h2 id="motivationTitle"><a href="motivation.html">Doraemon Motivation 💙</a></h2>
       </div>
 
       <a class="motivation-card" href="motivation.html">
@@ -246,7 +247,7 @@
         <div>
           <h3>Never Give Up!</h3>
           <p>Har mushkil ke baad ek nayi umeed hoti hai.</p>
-          <strong>Get motivation →</strong>
+          <strong>Watch reels →</strong>
         </div>
       </a>
 
@@ -254,6 +255,8 @@
         <span>💌 A Special Secret Message</span>
         <span aria-hidden="true">↗</span>
       </a>
+
+      <aside class="site-ad" data-display-ad aria-label="Advertisement"><small>Advertisement · Doraemon World</small><p><a href="./movies.html">Explore Doraemon movies →</a></p></aside>
     </section>
   </main>
 

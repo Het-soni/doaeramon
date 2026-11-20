@@ -1525,7 +1525,12 @@ footer p{
 
 </style>
 
-<link rel="stylesheet" href="css/site-navigation.css">
+
+<link rel="stylesheet" href="./css/site-navigation.css">
+<script defer src="./js/site-config.js"></script>
+<script defer src="./js/site-navigation.js"></script>
+<script async crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8772972065670336"></script>
+<script defer src="./js/site-ads.js"></script>
 </head>
 
 
@@ -2741,6 +2746,11 @@ footer p{
 
     <!-- PERFECT SCORE PASSWORD -->
 
+    <section class="reward-step" id="rewardStep" hidden aria-label="Test promotion">
+        <aside data-display-ad><small>Advertisement · Doraemon World</small>
+        <p>Agli adventure chuno — <a href="movies.html" target="_blank" rel="noopener">Doraemon Movies</a></p></aside>
+        <button id="showCode" type="button">Show code →</button>
+    </section>
     <div
         class="password-reward"
         id="passwordReward">
@@ -3002,7 +3012,8 @@ const passwordReward =
 
 if(score === 20){
 
-    passwordReward.classList.add("show");
+    document.getElementById("rewardStep").hidden = false;
+    document.dispatchEvent(new Event("dw-test-reward"));
 
 }else{
 
@@ -3028,65 +3039,27 @@ if(score === 20){
    COPY FIRST PASSWORD
 ========================================================= */
 
-function copyFirstPassword(){
+document.getElementById("showCode").addEventListener("click", () => {
+    document.getElementById("rewardStep").hidden = true;
+    document.getElementById("passwordReward").classList.add("show");
+    document.getElementById("copyPasswordBtn").focus();
+});
 
-    const password =
-        document
-        .getElementById("firstPassword")
-        .textContent
-        .trim();
-
-    const button =
-        document
-        .getElementById("copyPasswordBtn");
-
-
-    navigator.clipboard.writeText(password)
-        .then(function(){
-
-            button.textContent = "✅ Copied";
-            button.classList.add("copied");
-
-            setTimeout(function(){
-
-                button.textContent = "📋 Copy";
-                button.classList.remove("copied");
-
-            },2000);
-
-        })
-        .catch(function(){
-
-            /* Fallback for browsers where Clipboard API is blocked */
-
-            const temp =
-                document.createElement("textarea");
-
-            temp.value = password;
-            temp.style.position = "fixed";
-            temp.style.opacity = "0";
-
-            document.body.appendChild(temp);
-
-            temp.select();
-            document.execCommand("copy");
-
-            document.body.removeChild(temp);
-
-            button.textContent = "✅ Copied";
-            button.classList.add("copied");
-
-            setTimeout(function(){
-
-                button.textContent = "📋 Copy";
-                button.classList.remove("copied");
-
-            },2000);
-
-        });
-
+async function copyFirstPassword() {
+    const code = document.getElementById("firstPassword");
+    const button = document.getElementById("copyPasswordBtn");
+    try {
+        await navigator.clipboard.writeText(code.textContent.trim());
+        button.textContent = "✅ Copied";
+    } catch {
+        const range = document.createRange();
+        range.selectNodeContents(code);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        button.textContent = "Code selected · Copy";
+    }
 }
-
 
 /* =========================================================
    MOBILE HOME
