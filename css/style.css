@@ -706,3 +706,48 @@ html::-webkit-scrollbar,
 .search-results::-webkit-scrollbar {
   display: none;
 }
+/* Advertisement Cards */
+
+.dw-ad-card {
+  position: relative;
+  min-height: 240px;
+  background: #f5fbff;
+  border: 1px dashed #a4cce5;
+  border-radius: 18px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.dw-ad-label {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 11px;
+  color: #64748b;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.dw-ad-content {
+  text-align: center;
+  color: #64748b;
+}
+
+.dw-ad-icon {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.dw-ad-content p {
+  font-size: 13px;
+}
+
+@media (max-width: 600px) {
+  .dw-ad-card {
+    min-height: 190px;
+    border-radius: 14px;
+  }
+}

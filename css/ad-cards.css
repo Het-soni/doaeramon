@@ -1,0 +1,28 @@
+/* Responsive ad placeholder styled like the collection cards. */
+.dw-ad-card {
+  position: relative;
+  min-height: 230px;
+  border: 1px dashed #9fc8e3;
+  border-radius: 18px;
+  background: #f5fbff;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.dw-ad-label {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 11px;
+  letter-spacing: 0.07em;
+  color: #64748b;
+  text-transform: uppercase;
+}
+.dw-ad-content { text-align: center; color: #64748b; }
+.dw-ad-icon { display: block; font-size: 30px; margin-bottom: 10px; }
+.dw-ad-content p { margin: 0; font-size: 13px; }
+@media (max-width: 600px) {
+  .dw-ad-card { min-height: 190px; border-radius: 14px; }
+}
