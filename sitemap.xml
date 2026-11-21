@@ -1,30 +1,31 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://het-soni.github.io/doaeramon/</loc>
+    <loc>https://doaeramon.vercel.app/</loc>
   </url>
   <url>
-    <loc>https://het-soni.github.io/doaeramon/movies.html</loc>
+    <loc>https://doaeramon.vercel.app/movies.html</loc>
   </url>
   <url>
-    <loc>https://het-soni.github.io/doaeramon/episodes.html</loc>
+    <loc>https://doaeramon.vercel.app/episodes.html</loc>
   </url>
   <url>
-    <loc>https://het-soni.github.io/doaeramon/characters.html</loc>
+    <loc>https://doaeramon.vercel.app/characters.html</loc>
   </url>
   <url>
-    <loc>https://het-soni.github.io/doaeramon/wallpapers.html</loc>
+    <loc>https://doaeramon.vercel.app/wallpapers.html</loc>
   </url>
   <url>
-    <loc>https://het-soni.github.io/doaeramon/music.html</loc>
+    <loc>https://doaeramon.vercel.app/music.html</loc>
   </url>
   <url>
-    <loc>https://het-soni.github.io/doaeramon/gallery.html</loc>
+    <loc>https://doaeramon.vercel.app/gallery.html</loc>
   </url>
   <url>
-    <loc>https://het-soni.github.io/doaeramon/gadgets.html</loc>
+    <loc>https://doaeramon.vercel.app/gadgets.html</loc>
   </url>
   <url>
-    <loc>https://het-soni.github.io/doaeramon/test.html</loc>
+    <loc>https://doaeramon.vercel.app/test.html</loc>
   </url>
 </urlset>
