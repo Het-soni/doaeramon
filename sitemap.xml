@@ -1,31 +1,11 @@
 
-<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://doaeramon.vercel.app/</loc>
-  </url>
-  <url>
-    <loc>https://doaeramon.vercel.app/movies.html</loc>
-  </url>
-  <url>
-    <loc>https://doaeramon.vercel.app/episodes.html</loc>
-  </url>
-  <url>
-    <loc>https://doaeramon.vercel.app/characters.html</loc>
-  </url>
-  <url>
-    <loc>https://doaeramon.vercel.app/wallpapers.html</loc>
-  </url>
-  <url>
-    <loc>https://doaeramon.vercel.app/music.html</loc>
-  </url>
-  <url>
-    <loc>https://doaeramon.vercel.app/gallery.html</loc>
-  </url>
-  <url>
-    <loc>https://doaeramon.vercel.app/gadgets.html</loc>
-  </url>
-  <url>
-    <loc>https://doaeramon.vercel.app/test.html</loc>
-  </url>
+  <url><loc>https://doaeramon.vercel.app/</loc></url>
+  <url><loc>https://doaeramon.vercel.app/movies.html</loc></url>
+  <url><loc>https://doaeramon.vercel.app/episodes.html</loc></url>
+  <url><loc>https://doaeramon.vercel.app/characters.html</loc></url>
+  <url><loc>https://doaeramon.vercel.app/wallpapers.html</loc></url>
+  <url><loc>https://doaeramon.vercel.app/music.html</loc></url>
+  <url><loc>https://doaeramon.vercel.app/gadgets.html</loc></url>
+  <url><loc>https://doaeramon.vercel.app/test.html</loc></url>
 </urlset>
